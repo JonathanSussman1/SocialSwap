@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		21C9EC7424393BF900B9C2BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7224393BF900B9C2BE /* Main.storyboard */; };
 		21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7524393C1500B9C2BE /* Assets.xcassets */; };
 		21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */; };
+		21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC802439540900B9C2BE /* GoogleService-Info.plist */; };
 		9CFAC8953AC9C3088375E863 /* Pods_SocialSwap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		21C9EC7524393C1500B9C2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21C9EC7824393C1600B9C2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C9EC7A24393C1600B9C2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21C9EC802439540900B9C2BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		600F9E3F85401733043558AB /* Pods-SocialSwap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSwap.release.xcconfig"; path = "Target Support Files/Pods-SocialSwap/Pods-SocialSwap.release.xcconfig"; sourceTree = "<group>"; };
 		9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				21C9EC7524393C1500B9C2BE /* Assets.xcassets */,
 				21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */,
 				21C9EC7A24393C1600B9C2BE /* Info.plist */,
+				21C9EC802439540900B9C2BE /* GoogleService-Info.plist */,
 			);
 			path = SocialSwap;
 			sourceTree = "<group>";
@@ -80,7 +83,6 @@
 				12B1CBED19E0DC57FCF13CE6 /* Pods-SocialSwap.debug.xcconfig */,
 				600F9E3F85401733043558AB /* Pods-SocialSwap.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */,
+				21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */,
 				21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */,
 				21C9EC7424393BF900B9C2BE /* Main.storyboard in Resources */,
 			);
@@ -355,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8AAB759SX;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -373,6 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8AAB759SX;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
