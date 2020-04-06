@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  SocialSwap
 //
-//  Created by DAYE JACK on 4/4/20.
-//  Copyright © 2020 DAYE JACK. All rights reserved.
+//  Created by Daye Jack, Ashley Nussbaum, Jonathan Sussman on 4/4/20.
+//  Copyright © 2020 Daye Jack, Ashley Nussbaum, Jonathan Sussman. All rights reserved.
 //
 
 import UIKit

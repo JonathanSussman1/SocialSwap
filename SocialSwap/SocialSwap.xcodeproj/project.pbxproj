@@ -124,7 +124,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "DAYE JACK";
+				ORGANIZATIONNAME = "Daye Jack, Ashley Nussbaum, Jonathan Sussman";
 				TargetAttributes = {
 					21C9EC6824393BF900B9C2BE = {
 						CreatedOnToolsVersion = 11.3;
