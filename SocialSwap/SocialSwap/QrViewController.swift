@@ -14,7 +14,7 @@ class QrViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrImageView.image = Code.generateQr(withString: "hello swap");
+        qrImageView.image = Code.generateQr(withString: "hello SocilaSwap");
         // Do any additional setup after loading the view.
         //inspired my Medium article
      //   // https://medium.com/@dominicfholmes/generating-qr-codes-in-swift-4-b5dacc75727c

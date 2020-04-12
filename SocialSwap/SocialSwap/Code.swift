@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 import UIKit
 
 class Code {
@@ -50,4 +51,47 @@ class Code {
         
         return UIImage(ciImage: composFilter.outputImage!)
     }
+    
+        
+    // scanCode
+    // takes a previewView, a AVCaptureMetadataOutputObjectsDelegate, and a captureSession as arguments
+    // begins capture session for scanning qr code
+    static func scanCode(preview: PreviewView, delegate: AVCaptureMetadataOutputObjectsDelegate, captureSession: AVCaptureSession){
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {return}
+        let videoInput: AVCaptureDeviceInput
+        do{
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        }
+        catch let error {
+            print(error)
+            return
+        }
+        
+        if(captureSession.canAddInput(videoInput)){
+            captureSession.addInput(videoInput)
+        }
+        else{
+            print("error add video input to capture session")
+            return;
+        }
+        
+
+        let metaDataOutput = AVCaptureMetadataOutput()
+        if(captureSession.canAddOutput(metaDataOutput)){
+            captureSession.addOutput(metaDataOutput)
+            
+            metaDataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
+            metaDataOutput.metadataObjectTypes = [.qr, .ean8, .ean13]
+            
+        }
+        else{
+            print("error add metadata output to capture session")
+            return
+        }
+        
+        preview.videoPreviewLayer.session = captureSession
+        
+        captureSession.startRunning()
+    }
 }
+
