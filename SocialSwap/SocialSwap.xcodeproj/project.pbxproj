@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213F772B2442827300856A4C /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F772A2442827300856A4C /* QrViewController.swift */; };
+		213F7735244294C000856A4C /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F7734244294C000856A4C /* Code.swift */; };
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		12B1CBED19E0DC57FCF13CE6 /* Pods-SocialSwap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSwap.debug.xcconfig"; path = "Target Support Files/Pods-SocialSwap/Pods-SocialSwap.debug.xcconfig"; sourceTree = "<group>"; };
+		213F772A2442827300856A4C /* QrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewController.swift; sourceTree = "<group>"; };
+		213F7734244294C000856A4C /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		21C9EC6924393BF900B9C2BE /* SocialSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213F772C24428AF500856A4C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Services;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		21C9EC6024393BF900B9C2BE = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +77,7 @@
 		21C9EC6B24393BF900B9C2BE /* SocialSwap */ = {
 			isa = PBXGroup;
 			children = (
+				213F772C24428AF500856A4C /* Services */,
 				21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */,
 				21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */,
 				21C9EC7024393BF900B9C2BE /* ViewController.swift */,
@@ -73,6 +86,8 @@
 				21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */,
 				21C9EC7A24393C1600B9C2BE /* Info.plist */,
 				21C9EC802439540900B9C2BE /* GoogleService-Info.plist */,
+				213F772A2442827300856A4C /* QrViewController.swift */,
+				213F7734244294C000856A4C /* Code.swift */,
 			);
 			path = SocialSwap;
 			sourceTree = "<group>";
@@ -213,6 +228,8 @@
 				21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */,
 				21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
+				213F772B2442827300856A4C /* QrViewController.swift in Sources */,
+				213F7735244294C000856A4C /* Code.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
