@@ -11,7 +11,8 @@ import AVFoundation
 import UIKit
 
 class Code {
-    // Generate a Qr code with given string encoded
+    //generate Qr - a function for generating a Qr code with given string encoded
+    //takes a string encoding as an argument
     static func generateQr(withString qrStr: String) -> UIImage? {
         
         //inspired my Medium article
@@ -53,7 +54,7 @@ class Code {
     }
     
         
-    // scanCode
+    // scanCode - a function for scanning qr codes
     // takes a previewView, a AVCaptureMetadataOutputObjectsDelegate, and a captureSession as arguments
     // begins capture session for scanning qr code
     static func scanCode(preview: PreviewView, delegate: AVCaptureMetadataOutputObjectsDelegate, captureSession: AVCaptureSession){
@@ -93,7 +94,11 @@ class Code {
         
         captureSession.startRunning()
     }
-    
+   
+    //shareQr - a function for exporting qr code images
+    //takes in a view controller, an image to share, and a closure
+    //compresses the image and presents and activity view controller for exporting
+    //calls closure function after the activity view controller is presented
     static func shareQr(vc: UIViewController, qrImage: UIImage, closure: @escaping () -> Void){
         guard let image = qrImage.jpegData(compressionQuality: 0.8) else {
             print("error getting jpeg Data")
