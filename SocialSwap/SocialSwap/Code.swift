@@ -93,5 +93,21 @@ class Code {
         
         captureSession.startRunning()
     }
+    
+    static func shareQr(vc: UIViewController, qrImage: UIImage, closure: @escaping () -> Void){
+        guard let image = qrImage.jpegData(compressionQuality: 0.8) else {
+            print("error getting jpeg Data")
+            return
+        }
+        
+        let actVC = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        vc.present(actVC, animated: true) {
+            closure()
+        }
+    }
 }
+
+
+
+
 

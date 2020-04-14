@@ -37,6 +37,9 @@ class QrViewController: UIViewController {
     }
     
 
+    @IBAction func exportTapped(_ sender: Any) {
+        Code.shareQr(vc: self, qrImage: self.qrImageView.image!, closure: {()})
+    }
     /*
     // MARK: - Navigation
 
