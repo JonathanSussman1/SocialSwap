@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SSgradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ka7-n8-ACY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SSgradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ka7-n8-ACY">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SocialSwapIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="DHZ-1n-GUi">
@@ -24,11 +24,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Ka7-n8-ACY" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Xn-Hd-2mb"/>
+                            <constraint firstItem="Ka7-n8-ACY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="2Xn-Hd-2mb"/>
                             <constraint firstItem="DHZ-1n-GUi" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="8Gq-3g-jAE"/>
                             <constraint firstItem="DHZ-1n-GUi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Gf7-cf-H1s"/>
                             <constraint firstItem="Ka7-n8-ACY" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="H4M-Pq-5Yp"/>
-                            <constraint firstItem="Ka7-n8-ACY" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="SX4-xe-Y1a"/>
+                            <constraint firstItem="Ka7-n8-ACY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="SX4-xe-Y1a"/>
                             <constraint firstItem="Ka7-n8-ACY" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="g22-FE-I5R"/>
                             <constraint firstItem="DHZ-1n-GUi" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="31:224" id="mMt-7k-0AP"/>
                         </constraints>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4IX-II-AbT">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -43,14 +43,21 @@
             </objects>
             <point key="canvasLocation" x="-3612" y="-194"/>
         </scene>
-        <!--View Controller-->
+        <!--Generate View Controller-->
         <scene sceneID="MHc-KY-tiT">
             <objects>
-                <viewController id="9j3-Em-UJa" sceneMemberID="viewController">
+                <viewController id="9j3-Em-UJa" customClass="GenerateViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1KC-cM-bC8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SocialSwap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-Fb-DEX">
+                                <rect key="frame" x="135" y="67" width="144" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-Ru-hvm">
                                 <rect key="frame" x="117" y="154" width="180" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,6 +71,26 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="sib-ki-Oab"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAO-jd-LCT">
+                                <rect key="frame" x="117" y="252" width="180" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="         Facebook">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="9XC-Me-x77"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrE-hJ-q3f">
                                 <rect key="frame" x="117" y="351" width="180" height="63"/>
@@ -78,6 +105,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="BA7-gH-QPG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlt-OU-hi0">
                                 <rect key="frame" x="117" y="448" width="180" height="63"/>
@@ -92,6 +122,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="uMR-ux-7kq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-4p-mkM">
                                 <rect key="frame" x="117" y="549" width="180" height="63"/>
@@ -106,28 +139,24 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="qFj-lh-P9h"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instagram.png" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-Bc-MGo">
-                                <rect key="frame" x="125" y="158" width="55" height="55"/>
+                                <rect key="frame" x="133" y="167" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SocialSwap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-Fb-DEX">
-                                <rect key="frame" x="135" y="67" width="144" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="whA-nd-0Zd">
                                 <rect key="frame" x="133" y="264" width="38" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="iLc-Lj-OWB">
-                                <rect key="frame" x="119" y="446" width="67" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snapchat.png" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-rj-LS0">
                                 <rect key="frame" x="128" y="358" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="iLc-Lj-OWB">
+                                <rect key="frame" x="119" y="446" width="67" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WL2-hP-SAD">
@@ -149,34 +178,33 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="generateButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="Ff9-Se-zk0"/>
                                     <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="17P-4V-VA0" id="GWM-YB-6X7">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAO-jd-LCT">
-                                <rect key="frame" x="117" y="252" width="180" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="         Facebook">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zpP-TO-4DB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="qrcode" catalog="system" id="CF2-Ro-VSk"/>
+                    <connections>
+                        <outlet property="contactsButton" destination="VEc-4p-mkM" id="Vfp-75-Yxv"/>
+                        <outlet property="contactsIcon" destination="WL2-hP-SAD" id="iPh-Fe-gzt"/>
+                        <outlet property="facebookButton" destination="yAO-jd-LCT" id="ZdA-AA-eOE"/>
+                        <outlet property="facebookIcon" destination="whA-nd-0Zd" id="iXx-kc-AAp"/>
+                        <outlet property="instagramButton" destination="riB-Ru-hvm" id="2v3-HM-wgO"/>
+                        <outlet property="instagramIcon" destination="VhP-Bc-MGo" id="NKL-0G-G6O"/>
+                        <outlet property="snapchatButton" destination="FrE-hJ-q3f" id="Z1w-pL-qpA"/>
+                        <outlet property="snapchatIcon" destination="tQC-rj-LS0" id="cvC-9A-ymK"/>
+                        <outlet property="twitterButton" destination="Vlt-OU-hi0" id="jww-rU-Cgn"/>
+                        <outlet property="twitterIcon" destination="iLc-Lj-OWB" id="KJr-zf-78h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fSp-ES-CUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2600" y="-194"/>
+            <point key="canvasLocation" x="-2600" y="-194.19642857142856"/>
         </scene>
         <!--Qr View Controller-->
         <scene sceneID="tne-QT-ifu">

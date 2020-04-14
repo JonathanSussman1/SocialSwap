@@ -20,7 +20,8 @@
 		21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC802439540900B9C2BE /* GoogleService-Info.plist */; };
 		457E9AFD2446492700B3294A /* SSgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9AFC2446492700B3294A /* SSgradient.png */; };
 		457E9AFF24464A2700B3294A /* SocialSwapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9AFE24464A2700B3294A /* SocialSwapIcon.png */; };
-		45EB2EED24458F3A0021C6DB /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EEC24458F390021C6DB /* instagram.png */; };
+		457E9B0924465AF800B3294A /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E9B0824465AF700B3294A /* GenerateViewController.swift */; };
+		457E9B0B24465FBA00B3294A /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9B0A24465FBA00B3294A /* instagram.png */; };
 		45EB2EEF24458F400021C6DB /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EEE24458F400021C6DB /* facebook.png */; };
 		45EB2EF124458F460021C6DB /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF024458F460021C6DB /* snapchat.png */; };
 		45EB2EF324458F4E0021C6DB /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF224458F4E0021C6DB /* twitter.png */; };
@@ -44,7 +45,8 @@
 		21C9EC802439540900B9C2BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		457E9AFC2446492700B3294A /* SSgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSgradient.png; sourceTree = "<group>"; };
 		457E9AFE24464A2700B3294A /* SocialSwapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SocialSwapIcon.png; sourceTree = "<group>"; };
-		45EB2EEC24458F390021C6DB /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		457E9B0824465AF700B3294A /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
+		457E9B0A24465FBA00B3294A /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
 		45EB2EEE24458F400021C6DB /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		45EB2EF024458F460021C6DB /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchat.png; sourceTree = "<group>"; };
 		45EB2EF224458F4E0021C6DB /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 		21C9EC6B24393BF900B9C2BE /* SocialSwap */ = {
 			isa = PBXGroup;
 			children = (
-				45EB2EEC24458F390021C6DB /* instagram.png */,
+				457E9B0A24465FBA00B3294A /* instagram.png */,
 				45EB2EEE24458F400021C6DB /* facebook.png */,
 				45EB2EF024458F460021C6DB /* snapchat.png */,
 				45EB2EF224458F4E0021C6DB /* twitter.png */,
@@ -104,6 +106,7 @@
 				21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */,
 				21C9EC7024393BF900B9C2BE /* ViewController.swift */,
 				21C9EC7224393BF900B9C2BE /* Main.storyboard */,
+				457E9B0824465AF700B3294A /* GenerateViewController.swift */,
 				21C9EC7524393C1500B9C2BE /* Assets.xcassets */,
 				21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */,
 				21C9EC7A24393C1600B9C2BE /* Info.plist */,
@@ -200,8 +203,8 @@
 				45EB2EEF24458F400021C6DB /* facebook.png in Resources */,
 				21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */,
 				21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */,
-				45EB2EED24458F3A0021C6DB /* instagram.png in Resources */,
 				457E9AFF24464A2700B3294A /* SocialSwapIcon.png in Resources */,
+				457E9B0B24465FBA00B3294A /* instagram.png in Resources */,
 				21C9EC7424393BF900B9C2BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213F77392442A70900856A4C /* ScannerViewController.swift in Sources */,
+				457E9B0924465AF800B3294A /* GenerateViewController.swift in Sources */,
 				21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */,
 				21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
