@@ -14,7 +14,7 @@ class QrViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrImageView.image = Code.generateQr(withString: "hello SocilaSwap");
+        qrImageView.image = Code.generateQr(withString: "hello SocialSwap");
         // Do any additional setup after loading the view.
         //inspired my Medium article
      //   // https://medium.com/@dominicfholmes/generating-qr-codes-in-swift-4-b5dacc75727c
@@ -36,7 +36,7 @@ class QrViewController: UIViewController {
         
     }
     
-
+    
     @IBAction func exportTapped(_ sender: Any) {
         Code.shareQr(vc: self, qrImage: self.qrImageView.image!, closure: {()})
     }
