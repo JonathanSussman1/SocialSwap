@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4IX-II-AbT">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="Ow0-bI-yk7" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b20-z7-iJE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="RY3-Zh-dob"/>
@@ -48,20 +48,26 @@
             <objects>
                 <viewController id="9j3-Em-UJa" customClass="GenerateViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1KC-cM-bC8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SocialSwap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-Fb-DEX">
-                                <rect key="frame" x="135" y="67" width="144" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SocialSwap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu9-Fb-DEX">
+                                <rect key="frame" x="115.66666666666669" y="67" width="144" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="fpM-1L-ouf"/>
+                                    <constraint firstAttribute="width" constant="144" id="jTE-Oi-P9f"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-Ru-hvm">
-                                <rect key="frame" x="117" y="154" width="180" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riB-Ru-hvm">
+                                <rect key="frame" x="97.666666666666686" y="144" width="180" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="ekP-HO-gef"/>
+                                    <constraint firstAttribute="width" constant="180" id="z7D-l7-sO1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="         Instagram">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -75,10 +81,13 @@
                                     <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="sib-ki-Oab"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAO-jd-LCT">
-                                <rect key="frame" x="117" y="252" width="180" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAO-jd-LCT">
+                                <rect key="frame" x="97.666666666666686" y="232" width="180" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Pzf-9c-9B8"/>
+                                    <constraint firstAttribute="height" constant="62" id="Y3f-EW-dHJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="         Facebook">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -92,10 +101,13 @@
                                     <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="9XC-Me-x77"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrE-hJ-q3f">
-                                <rect key="frame" x="117" y="351" width="180" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrE-hJ-q3f">
+                                <rect key="frame" x="97.666666666666686" y="320" width="180" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="Iir-XD-hKW"/>
+                                    <constraint firstAttribute="width" constant="180" id="jUZ-bL-pYA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="         Snapchat">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -109,27 +121,13 @@
                                     <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="BA7-gH-QPG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlt-OU-hi0">
-                                <rect key="frame" x="117" y="448" width="180" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-4p-mkM">
+                                <rect key="frame" x="97.666666666666686" y="496" width="180" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="         Twitter">
-                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="uMR-ux-7kq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEc-4p-mkM">
-                                <rect key="frame" x="117" y="549" width="180" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="6fC-aJ-FSK"/>
+                                    <constraint firstAttribute="height" constant="62" id="AeN-Dm-mAS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="         Contacts">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -143,31 +141,49 @@
                                     <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="qFj-lh-P9h"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instagram.png" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-Bc-MGo">
-                                <rect key="frame" x="133" y="167" width="38" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram.png" translatesAutoresizingMaskIntoConstraints="NO" id="VhP-Bc-MGo">
+                                <rect key="frame" x="113.66666666666669" y="156" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="0LS-oT-rla"/>
+                                    <constraint firstAttribute="height" constant="38" id="w0W-A1-zy8"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="whA-nd-0Zd">
-                                <rect key="frame" x="133" y="264" width="38" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snapchat.png" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-rj-LS0">
+                                <rect key="frame" x="108.66666666666669" y="327" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="3QU-b7-g97"/>
+                                    <constraint firstAttribute="width" constant="48" id="blR-2Z-8a5"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snapchat.png" translatesAutoresizingMaskIntoConstraints="NO" id="tQC-rj-LS0">
-                                <rect key="frame" x="128" y="358" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="iLc-Lj-OWB">
+                                <rect key="frame" x="99.666666666666686" y="405.66666666666669" width="67" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="jc1-r9-HMX"/>
+                                    <constraint firstAttribute="width" constant="67" id="pif-Sa-Plu"/>
+                                </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="iLc-Lj-OWB">
-                                <rect key="frame" x="119" y="446" width="67" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WL2-hP-SAD">
-                                <rect key="frame" x="130" y="557.5" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WL2-hP-SAD">
+                                <rect key="frame" x="110.66666666666669" y="505" width="45" height="45.000000000000057"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="Ax6-8L-Y8Z"/>
+                                    <constraint firstAttribute="height" constant="48.333333333333371" id="New-DC-h5e"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17P-4V-VA0">
-                                <rect key="frame" x="91" y="678" width="232" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="whA-nd-0Zd">
+                                <rect key="frame" x="113.66666666666669" y="244" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="4mx-Sc-Twz"/>
+                                    <constraint firstAttribute="height" constant="38" id="FBi-qC-4X2"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17P-4V-VA0">
+                                <rect key="frame" x="71.666666666666686" y="604" width="232" height="50"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="SSN-Ia-zeQ"/>
+                                    <constraint firstAttribute="height" constant="50" id="mb4-bB-8t1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Generate QR Code">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -179,13 +195,57 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="generateButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="Ff9-Se-zk0"/>
-                                    <segue destination="BYZ-38-t0r" kind="popoverPresentation" popoverAnchorView="17P-4V-VA0" id="GWM-YB-6X7">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="hSt-Be-iAH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vlt-OU-hi0">
+                                <rect key="frame" x="97.666666666666686" y="408" width="180" height="62"/>
+                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="0qo-Vv-RIH"/>
+                                    <constraint firstAttribute="width" constant="180" id="W5g-Bz-Ofs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="         Twitter">
+                                    <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="platformButtonPressed:" destination="9j3-Em-UJa" eventType="touchUpInside" id="uMR-ux-7kq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="17P-4V-VA0" firstAttribute="centerY" secondItem="zpP-TO-4DB" secondAttribute="centerY" constant="242.5" id="3Bi-8S-B1N"/>
+                            <constraint firstItem="whA-nd-0Zd" firstAttribute="centerY" secondItem="yAO-jd-LCT" secondAttribute="centerY" id="3sX-nR-pyI"/>
+                            <constraint firstItem="VEc-4p-mkM" firstAttribute="centerY" secondItem="zpP-TO-4DB" secondAttribute="centerY" constant="140.5" id="3wA-68-vlK"/>
+                            <constraint firstItem="riB-Ru-hvm" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="4pe-Rk-ZBU"/>
+                            <constraint firstItem="yAO-jd-LCT" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="CDG-TM-K29"/>
+                            <constraint firstItem="FrE-hJ-q3f" firstAttribute="leading" secondItem="tQC-rj-LS0" secondAttribute="trailing" constant="-59" id="ESg-Fm-4bc"/>
+                            <constraint firstItem="VhP-Bc-MGo" firstAttribute="centerY" secondItem="riB-Ru-hvm" secondAttribute="centerY" id="LMM-ug-to3"/>
+                            <constraint firstItem="tQC-rj-LS0" firstAttribute="centerY" secondItem="FrE-hJ-q3f" secondAttribute="centerY" id="OOi-q1-7hT"/>
+                            <constraint firstItem="FrE-hJ-q3f" firstAttribute="centerY" secondItem="zpP-TO-4DB" secondAttribute="centerY" constant="-35.5" id="PK4-Xa-P9f"/>
+                            <constraint firstItem="VEc-4p-mkM" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="WIu-HO-XFq"/>
+                            <constraint firstItem="FrE-hJ-q3f" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="XG1-1M-0MD"/>
+                            <constraint firstItem="yAO-jd-LCT" firstAttribute="centerY" secondItem="zpP-TO-4DB" secondAttribute="centerY" constant="-123.5" id="eUu-lS-0nh"/>
+                            <constraint firstItem="VEc-4p-mkM" firstAttribute="leading" secondItem="WL2-hP-SAD" secondAttribute="trailing" constant="-58" id="fDG-HI-G5b"/>
+                            <constraint firstItem="eu9-Fb-DEX" firstAttribute="top" secondItem="zpP-TO-4DB" secondAttribute="top" constant="23" id="fRo-ri-v7K"/>
+                            <constraint firstItem="iLc-Lj-OWB" firstAttribute="centerY" secondItem="Vlt-OU-hi0" secondAttribute="centerY" id="fRw-uD-0NV"/>
+                            <constraint firstItem="Vlt-OU-hi0" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="imh-qH-aG0"/>
+                            <constraint firstItem="yAO-jd-LCT" firstAttribute="leading" secondItem="whA-nd-0Zd" secondAttribute="trailing" constant="-54" id="m5W-6i-ShP"/>
+                            <constraint firstItem="WL2-hP-SAD" firstAttribute="centerY" secondItem="VEc-4p-mkM" secondAttribute="centerY" id="m93-Cd-0JX"/>
+                            <constraint firstItem="17P-4V-VA0" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="mWf-Dg-V4J"/>
+                            <constraint firstItem="Vlt-OU-hi0" firstAttribute="centerY" secondItem="zpP-TO-4DB" secondAttribute="centerY" constant="52.5" id="msB-7X-rJ4"/>
+                            <constraint firstItem="eu9-Fb-DEX" firstAttribute="centerX" secondItem="zpP-TO-4DB" secondAttribute="centerX" id="pyU-Lb-2Xm"/>
+                            <constraint firstItem="riB-Ru-hvm" firstAttribute="centerY" secondItem="zpP-TO-4DB" secondAttribute="centerY" constant="-211.5" id="qTI-kS-Fxe"/>
+                            <constraint firstItem="riB-Ru-hvm" firstAttribute="leading" secondItem="VhP-Bc-MGo" secondAttribute="trailing" constant="-54" id="udm-ty-blH"/>
+                            <constraint firstItem="Vlt-OU-hi0" firstAttribute="leading" secondItem="iLc-Lj-OWB" secondAttribute="trailing" constant="-69" id="ymd-vT-dkl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zpP-TO-4DB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="qrcode" catalog="system" id="CF2-Ro-VSk"/>
@@ -211,7 +271,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="QrViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hR4-Z1-QmQ">
@@ -219,14 +279,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="puB-Up-LcW">
-                                <rect key="frame" x="33" y="167" width="348" height="348"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aV5-lI-t5b">
-                                <rect key="frame" x="91" y="581" width="232" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aV5-lI-t5b">
+                                <rect key="frame" x="71.666666666666686" y="519.66666666666663" width="232" height="50"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="232" id="MFU-Ak-73o"/>
+                                    <constraint firstAttribute="height" constant="50" id="iYO-cZ-KIn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Export QR Code">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -240,8 +299,21 @@
                                     <action selector="exportTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3LD-vz-tUQ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="puB-Up-LcW">
+                                <rect key="frame" x="33" y="144.66666666666663" width="309" height="309"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="puB-Up-LcW" secondAttribute="height" multiplier="1:1" id="DXe-q0-HWc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aV5-lI-t5b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Bpo-gy-IYM"/>
+                            <constraint firstItem="puB-Up-LcW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="GSY-Hd-7LH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="puB-Up-LcW" secondAttribute="trailing" constant="33" id="Wud-bj-NmS"/>
+                            <constraint firstItem="puB-Up-LcW" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-63" id="lC8-fB-gGN"/>
+                            <constraint firstItem="aV5-lI-t5b" firstAttribute="top" secondItem="puB-Up-LcW" secondAttribute="bottom" constant="66" id="ufJ-vE-x93"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -257,16 +329,21 @@
             <objects>
                 <viewController id="vse-Iz-pCI" customClass="ScannerViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ILY-k2-jML">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jda-Sz-vT3" customClass="PreviewView" customModule="SocialSwap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jda-Sz-vT3" customClass="PreviewView" customModule="SocialSwap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bZG-HO-lqy" firstAttribute="bottom" secondItem="jda-Sz-vT3" secondAttribute="bottom" id="14F-bE-RAv"/>
+                            <constraint firstItem="jda-Sz-vT3" firstAttribute="centerX" secondItem="bZG-HO-lqy" secondAttribute="centerX" id="KRG-YC-IVH"/>
+                            <constraint firstItem="jda-Sz-vT3" firstAttribute="top" secondItem="bZG-HO-lqy" secondAttribute="top" id="YQ2-u6-y7Y"/>
+                            <constraint firstItem="jda-Sz-vT3" firstAttribute="width" secondItem="ILY-k2-jML" secondAttribute="width" id="bQN-Qs-RyY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bZG-HO-lqy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="camera" catalog="system" id="Tyw-id-083"/>
