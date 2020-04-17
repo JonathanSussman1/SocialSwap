@@ -63,6 +63,6 @@
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) camera use </string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>For when you would like to save your own Qr Codes</string>
+	<string>Export your QR codes with ease</string>
 </dict>
 </plist>
