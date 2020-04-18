@@ -23,6 +23,7 @@
 		457E9AFF24464A2700B3294A /* SocialSwapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9AFE24464A2700B3294A /* SocialSwapIcon.png */; };
 		457E9B0924465AF800B3294A /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457E9B0824465AF700B3294A /* GenerateViewController.swift */; };
 		457E9B0B24465FBA00B3294A /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9B0A24465FBA00B3294A /* instagram.png */; };
+		45B65B70244B7BAC00FE6F23 /* FollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B65B6F244B7BAC00FE6F23 /* FollowViewController.swift */; };
 		45EB2EEF24458F400021C6DB /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EEE24458F400021C6DB /* facebook.png */; };
 		45EB2EF124458F460021C6DB /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF024458F460021C6DB /* snapchat.png */; };
 		45EB2EF324458F4E0021C6DB /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF224458F4E0021C6DB /* twitter.png */; };
@@ -49,6 +50,7 @@
 		457E9AFE24464A2700B3294A /* SocialSwapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SocialSwapIcon.png; sourceTree = "<group>"; };
 		457E9B0824465AF700B3294A /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
 		457E9B0A24465FBA00B3294A /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
+		45B65B6F244B7BAC00FE6F23 /* FollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowViewController.swift; sourceTree = "<group>"; };
 		45EB2EEE24458F400021C6DB /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		45EB2EF024458F460021C6DB /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchat.png; sourceTree = "<group>"; };
 		45EB2EF224458F4E0021C6DB /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				21C9EC7024393BF900B9C2BE /* ViewController.swift */,
 				21C9EC7224393BF900B9C2BE /* Main.storyboard */,
 				457E9B0824465AF700B3294A /* GenerateViewController.swift */,
+				45B65B6F244B7BAC00FE6F23 /* FollowViewController.swift */,
 				21C9EC7524393C1500B9C2BE /* Assets.xcassets */,
 				21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */,
 				21C9EC7A24393C1600B9C2BE /* Info.plist */,
@@ -268,6 +271,7 @@
 				21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
 				213F772B2442827300856A4C /* QrViewController.swift in Sources */,
+				45B65B70244B7BAC00FE6F23 /* FollowViewController.swift in Sources */,
 				213F7735244294C000856A4C /* Code.swift in Sources */,
 				213F77372442A5AA00856A4C /* PreviewView.swift in Sources */,
 			);
