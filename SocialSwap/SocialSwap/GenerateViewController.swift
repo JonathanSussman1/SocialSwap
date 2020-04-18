@@ -89,14 +89,45 @@ class GenerateViewController: UIViewController {
         return anySelected()
     }
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        //destination view controller
+        let qrvc: QrViewController = segue.destination as! QrViewController
+        
+        //check to see which platforms are selected and send to QR view controller
+        if instagramButton.alpha == 1 {
+            qrvc.instagram = true
+        }
+        else {
+            qrvc.instagram = false
+        }
+        if facebookButton.alpha == 1 {
+            qrvc.facebook = true
+        }
+        else {
+            qrvc.facebook = false
+        }
+        if snapchatButton.alpha == 1 {
+            qrvc.snapchat = true
+        }
+        else {
+            qrvc.snapchat = false
+        }
+        if twitterButton.alpha == 1 {
+            qrvc.twitter = true
+        }
+        else {
+            qrvc.twitter = false
+        }
+        if contactsButton.alpha == 1 {
+            qrvc.contacts = true
+        }
+        else {
+            qrvc.contacts = false
+        }
     }
-    */
+    
 
 }

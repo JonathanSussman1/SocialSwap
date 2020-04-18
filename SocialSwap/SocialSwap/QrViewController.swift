@@ -10,6 +10,13 @@ import UIKit
 
 class QrViewController: UIViewController {
     
+    var instagram: Bool = false
+    var facebook: Bool = false
+    var snapchat: Bool = false
+    var twitter: Bool = false
+    var contacts: Bool = false
+    
+    
     @IBOutlet weak var qrImageView: UIImageView!
     
     override func viewDidLoad() {
