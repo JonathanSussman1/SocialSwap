@@ -27,6 +27,7 @@
 		45EB2EEF24458F400021C6DB /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EEE24458F400021C6DB /* facebook.png */; };
 		45EB2EF124458F460021C6DB /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF024458F460021C6DB /* snapchat.png */; };
 		45EB2EF324458F4E0021C6DB /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF224458F4E0021C6DB /* twitter.png */; };
+		529A1FF3244CE9BF00ED331A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A1FF2244CE9BF00ED331A /* LoginViewController.swift */; };
 		9CFAC8953AC9C3088375E863 /* Pods_SocialSwap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		45EB2EEE24458F400021C6DB /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		45EB2EF024458F460021C6DB /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchat.png; sourceTree = "<group>"; };
 		45EB2EF224458F4E0021C6DB /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		529A1FF2244CE9BF00ED331A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		600F9E3F85401733043558AB /* Pods-SocialSwap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSwap.release.xcconfig"; path = "Target Support Files/Pods-SocialSwap/Pods-SocialSwap.release.xcconfig"; sourceTree = "<group>"; };
 		9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 				457E9AFE24464A2700B3294A /* SocialSwapIcon.png */,
 				213F772C24428AF500856A4C /* Services */,
 				21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */,
+				529A1FF2244CE9BF00ED331A /* LoginViewController.swift */,
 				21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */,
 				21C9EC7024393BF900B9C2BE /* ViewController.swift */,
 				21C9EC7224393BF900B9C2BE /* Main.storyboard */,
@@ -274,6 +277,7 @@
 				45B65B70244B7BAC00FE6F23 /* FollowViewController.swift in Sources */,
 				213F7735244294C000856A4C /* Code.swift in Sources */,
 				213F77372442A5AA00856A4C /* PreviewView.swift in Sources */,
+				529A1FF3244CE9BF00ED331A /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
