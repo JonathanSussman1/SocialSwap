@@ -41,6 +41,12 @@ class QrViewController: UIViewController {
      //
      //   qrImageView.image = UIImage(ciImage: scaledImg);
         
+        //save contact demo
+        //SwapHelper.saveContact(firstName: "Test", lastName: "Tester", phoneNumber: "123456789");
+        
+        //open Twitter url scheme demo
+        //SwapHelper.openTwitter(handle: "Google");
+
     }
     
     

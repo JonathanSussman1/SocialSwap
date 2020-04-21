@@ -64,5 +64,11 @@
 	<string>$(PRODUCT_NAME) camera use </string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Export your QR codes with ease</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Save new connections to your contacts with ease</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+	</array>
 </dict>
 </plist>

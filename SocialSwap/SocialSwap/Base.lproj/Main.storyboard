@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
     <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -173,7 +173,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKm-IS-IjU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKm-IS-IjU">
                                 <rect key="frame" x="173" y="763" width="68" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="VDA-KW-EjQ"/>
@@ -212,6 +212,7 @@
                             <constraint firstItem="C76-qb-pR1" firstAttribute="top" secondItem="x5m-Ef-GW9" secondAttribute="bottom" constant="8" id="Ndb-wf-rsG"/>
                             <constraint firstItem="vGt-Va-R9K" firstAttribute="centerY" secondItem="x5m-Ef-GW9" secondAttribute="centerY" id="OEe-tE-QRt"/>
                             <constraint firstItem="hGB-sB-Wag" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Dfc-NN-6hZ" secondAttribute="trailing" constant="77" id="OhZ-6O-NFn"/>
+                            <constraint firstItem="gKm-IS-IjU" firstAttribute="leading" secondItem="C76-qb-pR1" secondAttribute="leading" id="Oo8-EJ-VyD"/>
                             <constraint firstItem="Sgb-Bi-DAq" firstAttribute="top" secondItem="C76-qb-pR1" secondAttribute="bottom" constant="42" id="Pvx-C4-2Q9"/>
                             <constraint firstItem="x5m-Ef-GW9" firstAttribute="leading" secondItem="vGt-Va-R9K" secondAttribute="leading" constant="-7" id="Px5-i2-RRo"/>
                             <constraint firstItem="vGt-Va-R9K" firstAttribute="height" secondItem="x5m-Ef-GW9" secondAttribute="height" id="Qzc-wQ-fs7"/>
@@ -1261,19 +1262,20 @@
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="miH-SE-Nbu"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>
-        <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="bell" catalog="system" width="64" height="62"/>
         <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="instagram.png" width="1500" height="1500"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="qrcode" catalog="system" width="128" height="114"/>
-        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="qrcode" catalog="system" width="64" height="56"/>
+        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
         <image name="snapchat.png" width="500" height="500"/>
         <image name="twitter.png" width="400" height="400"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="O9G-Ho-b36"/>
+        <segue reference="miH-SE-Nbu"/>
+    </inferredMetricsTieBreakers>
 </document>

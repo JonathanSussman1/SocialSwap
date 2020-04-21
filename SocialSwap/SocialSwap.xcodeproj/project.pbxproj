@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2100B962244A0F60009256D9 /* Csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100B961244A0F60009256D9 /* Csv.swift */; };
+		2125FDC4244E6EBE0026CA13 /* SwapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125FDC3244E6EBE0026CA13 /* SwapHelper.swift */; };
 		213F772B2442827300856A4C /* QrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F772A2442827300856A4C /* QrViewController.swift */; };
 		213F7735244294C000856A4C /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F7734244294C000856A4C /* Code.swift */; };
 		213F77372442A5AA00856A4C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F77362442A5AA00856A4C /* PreviewView.swift */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		12B1CBED19E0DC57FCF13CE6 /* Pods-SocialSwap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSwap.debug.xcconfig"; path = "Target Support Files/Pods-SocialSwap/Pods-SocialSwap.debug.xcconfig"; sourceTree = "<group>"; };
 		2100B961244A0F60009256D9 /* Csv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Csv.swift; sourceTree = "<group>"; };
+		2125FDC3244E6EBE0026CA13 /* SwapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwapHelper.swift; sourceTree = "<group>"; };
 		213F772A2442827300856A4C /* QrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewController.swift; sourceTree = "<group>"; };
 		213F7734244294C000856A4C /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		213F77362442A5AA00856A4C /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
@@ -72,11 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		213F772C24428AF500856A4C /* Services */ = {
+		213F772C24428AF500856A4C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				213F7734244294C000856A4C /* Code.swift */,
+				2100B961244A0F60009256D9 /* Csv.swift */,
+				2125FDC3244E6EBE0026CA13 /* SwapHelper.swift */,
 			);
-			name = Services;
+			name = Helpers;
 			path = "New Group";
 			sourceTree = "<group>";
 		};
@@ -107,7 +112,7 @@
 				45EB2EF224458F4E0021C6DB /* twitter.png */,
 				457E9AFC2446492700B3294A /* SSgradient.png */,
 				457E9AFE24464A2700B3294A /* SocialSwapIcon.png */,
-				213F772C24428AF500856A4C /* Services */,
+				213F772C24428AF500856A4C /* Helpers */,
 				21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */,
 				529A1FF2244CE9BF00ED331A /* LoginViewController.swift */,
 				21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */,
@@ -119,11 +124,9 @@
 				21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */,
 				21C9EC7A24393C1600B9C2BE /* Info.plist */,
 				21C9EC802439540900B9C2BE /* GoogleService-Info.plist */,
-				213F772A2442827300856A4C /* QrViewController.swift */,
-				213F7734244294C000856A4C /* Code.swift */,
-				213F77362442A5AA00856A4C /* PreviewView.swift */,
 				213F77382442A70900856A4C /* ScannerViewController.swift */,
-				2100B961244A0F60009256D9 /* Csv.swift */,
+				213F772A2442827300856A4C /* QrViewController.swift */,
+				213F77362442A5AA00856A4C /* PreviewView.swift */,
 			);
 			path = SocialSwap;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				2100B962244A0F60009256D9 /* Csv.swift in Sources */,
 				21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
+				2125FDC4244E6EBE0026CA13 /* SwapHelper.swift in Sources */,
 				213F772B2442827300856A4C /* QrViewController.swift in Sources */,
 				45B65B70244B7BAC00FE6F23 /* FollowViewController.swift in Sources */,
 				213F7735244294C000856A4C /* Code.swift in Sources */,
