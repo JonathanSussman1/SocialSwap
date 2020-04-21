@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="GbZ-8k-9az">
             <objects>
-                <viewController id="Ow0-bI-yk7" sceneMemberID="viewController">
+                <viewController id="Ow0-bI-yk7" customClass="SettingsViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b20-z7-iJE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ashley" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBr-gr-Khp">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Ashley" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBr-gr-Khp">
                                 <rect key="frame" x="173" y="166" width="164" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="X5F-ot-GNx"/>
@@ -41,7 +41,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nussbaum" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWg-O3-TT2">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nussbaum" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pWg-O3-TT2">
                                 <rect key="frame" x="173" y="208" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -58,7 +58,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="(516) 668-0789" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dfc-NN-6hZ">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="(516) 668-0789" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dfc-NN-6hZ">
                                 <rect key="frame" x="173" y="250" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -75,7 +75,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ashleynussbaum" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bhz-SO-Q7x">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ashleynussbaum" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bhz-SO-Q7x">
                                 <rect key="frame" x="173" y="375" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -92,13 +92,19 @@
                                 <state key="normal" title="Edit">
                                     <color key="titleColor" red="0.0" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="editButtonPressed:" destination="Ow0-bI-yk7" eventType="touchUpInside" id="xlx-Wd-3wg"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw4-oQ-MaH">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw4-oQ-MaH">
                                 <rect key="frame" x="351" y="64" width="43" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="0.0" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="Ow0-bI-yk7" eventType="touchUpInside" id="icl-js-xbK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkl-OH-cs1">
                                 <rect key="frame" x="31" y="121" width="187" height="22"/>
@@ -118,7 +124,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqb-Ln-m9D">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqb-Ln-m9D">
                                 <rect key="frame" x="173" y="417" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -135,7 +141,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ashleyn7799" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x5m-Ef-GW9">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ashleyn7799" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x5m-Ef-GW9">
                                 <rect key="frame" x="173" y="459" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -152,7 +158,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C76-qb-pR1">
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C76-qb-pR1">
                                 <rect key="frame" x="173" y="501" width="164" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -166,6 +172,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgb-Bi-DAq">
                                 <rect key="frame" x="172" y="577" width="51" height="31"/>
                                 <color key="onTintColor" red="0.50196078430000002" green="0.36862745099999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="twoWaySwapChanged:" destination="Ow0-bI-yk7" eventType="valueChanged" id="4U5-ZR-BQ6"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Two-Way Swap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCA-xo-28y">
                                 <rect key="frame" x="31" y="581" width="133" height="22"/>
@@ -183,6 +192,10 @@
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" red="0.0" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOutButtonPressed:" destination="Ow0-bI-yk7" eventType="touchUpInside" id="GcH-6a-RYo"/>
+                                    <segue destination="v8S-p3-uOA" kind="presentation" modalPresentationStyle="fullScreen" id="rRK-to-5ll"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -211,6 +224,7 @@
                             <constraint firstItem="swh-dV-Xt7" firstAttribute="height" secondItem="C76-qb-pR1" secondAttribute="height" id="JSP-ai-OR4"/>
                             <constraint firstItem="C76-qb-pR1" firstAttribute="top" secondItem="x5m-Ef-GW9" secondAttribute="bottom" constant="8" id="Ndb-wf-rsG"/>
                             <constraint firstItem="vGt-Va-R9K" firstAttribute="centerY" secondItem="x5m-Ef-GW9" secondAttribute="centerY" id="OEe-tE-QRt"/>
+                            <constraint firstItem="gKm-IS-IjU" firstAttribute="centerX" secondItem="hGB-sB-Wag" secondAttribute="centerX" id="OEf-ej-Zrb"/>
                             <constraint firstItem="hGB-sB-Wag" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Dfc-NN-6hZ" secondAttribute="trailing" constant="77" id="OhZ-6O-NFn"/>
                             <constraint firstItem="gKm-IS-IjU" firstAttribute="leading" secondItem="C76-qb-pR1" secondAttribute="leading" id="Oo8-EJ-VyD"/>
                             <constraint firstItem="Sgb-Bi-DAq" firstAttribute="top" secondItem="C76-qb-pR1" secondAttribute="bottom" constant="42" id="Pvx-C4-2Q9"/>
@@ -262,6 +276,26 @@
                         <viewLayoutGuide key="safeArea" id="hGB-sB-Wag"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="gear" catalog="system" id="qfX-dE-NvT"/>
+                    <connections>
+                        <outlet property="doneButton" destination="zw4-oQ-MaH" id="t0c-gB-jNU"/>
+                        <outlet property="editButton" destination="ifh-cf-A3V" id="MmX-WS-0LM"/>
+                        <outlet property="facebookField" destination="vqb-Ln-m9D" id="wwd-3H-zSu"/>
+                        <outlet property="facebookLabel" destination="p1r-iD-mnk" id="WDe-0i-7pF"/>
+                        <outlet property="firstNameField" destination="sBr-gr-Khp" id="NKE-vi-LgY"/>
+                        <outlet property="firstNameLabel" destination="5l0-jd-fCm" id="kgr-be-bci"/>
+                        <outlet property="instagramField" destination="Bhz-SO-Q7x" id="HSN-fE-ZVD"/>
+                        <outlet property="instagramLabel" destination="Zhg-vI-f4n" id="rei-ts-8gY"/>
+                        <outlet property="lastNameField" destination="pWg-O3-TT2" id="v2N-sN-WXC"/>
+                        <outlet property="lastNameLabel" destination="uU5-8u-Q29" id="NP3-Rj-NXR"/>
+                        <outlet property="logOutButton" destination="gKm-IS-IjU" id="rPZ-Ip-rPR"/>
+                        <outlet property="numberField" destination="Dfc-NN-6hZ" id="6Gg-KX-1FU"/>
+                        <outlet property="numberLabel" destination="hEQ-Xm-a1R" id="Hm3-ib-IFG"/>
+                        <outlet property="snapchatField" destination="x5m-Ef-GW9" id="C8b-Y6-Wct"/>
+                        <outlet property="snapchatLabel" destination="vGt-Va-R9K" id="NNv-6J-68L"/>
+                        <outlet property="twitterField" destination="C76-qb-pR1" id="2OW-bD-FaC"/>
+                        <outlet property="twitterLabel" destination="swh-dV-Xt7" id="34Y-fY-HEp"/>
+                        <outlet property="twoWaySwap" destination="Sgb-Bi-DAq" id="vBm-zI-uIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sd-Vh-Wxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -348,7 +382,7 @@
                                     <color key="titleColor" red="0.50196078430000002" green="0.36862745099999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HTe-E2-ddb" kind="presentation" identifier="signUpSegue" modalPresentationStyle="fullScreen" id="O9G-Ho-b36"/>
+                                    <segue destination="HTe-E2-ddb" kind="presentation" identifier="signUpSegue" animates="NO" modalPresentationStyle="fullScreen" id="O9G-Ho-b36"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oP-cb-YyG">
@@ -954,10 +988,10 @@
             </objects>
             <point key="canvasLocation" x="-1575.3623188405797" y="-912.05357142857133"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="b8i-IJ-JmS">
             <objects>
-                <viewController id="HTe-E2-ddb" sceneMemberID="viewController">
+                <viewController id="HTe-E2-ddb" customClass="SignUpViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FpD-uK-N1m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1020,7 +1054,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="yk5-hF-DlH" kind="presentation" modalPresentationStyle="fullScreen" id="DSg-Wz-n5w"/>
+                                    <action selector="nextButtonPressed:" destination="HTe-E2-ddb" eventType="touchUpInside" id="7yy-XM-tKd"/>
+                                    <segue destination="yk5-hF-DlH" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="DSg-Wz-n5w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMw-Gr-48C">
@@ -1034,7 +1069,7 @@
                                     <color key="titleColor" red="0.50196078430000002" green="0.36862745099999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="v8S-p3-uOA" kind="presentation" modalPresentationStyle="fullScreen" id="Cj3-Qq-yHO"/>
+                                    <segue destination="v8S-p3-uOA" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="Cj3-Qq-yHO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eff-xF-JYd">
@@ -1104,15 +1139,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pcx-71-kOq"/>
                     </view>
+                    <connections>
+                        <outlet property="firstNameField" destination="r4a-cA-Lsk" id="AQm-up-aNe"/>
+                        <outlet property="lastNameField" destination="xxS-R4-fOn" id="G4b-Tt-75b"/>
+                        <outlet property="numberField" destination="Oen-vI-F1m" id="DQz-Bu-Rra"/>
+                        <outlet property="passwordField" destination="fpn-K9-mox" id="13c-LX-heF"/>
+                        <outlet property="usernameField" destination="hiy-on-YTv" id="79C-b3-WpI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx9-Ah-53M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5130" y="688"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up2 View Controller-->
         <scene sceneID="QEi-Wq-W1N">
             <objects>
-                <viewController id="yk5-hF-DlH" sceneMemberID="viewController">
+                <viewController id="yk5-hF-DlH" customClass="SignUp2ViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W57-bV-ssl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1256,12 +1298,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KUo-NR-yrZ"/>
                     </view>
+                    <connections>
+                        <outlet property="facebookField" destination="UxM-o1-w4u" id="J8t-e0-H2v"/>
+                        <outlet property="instagramField" destination="are-v3-x4u" id="f7F-mU-GzI"/>
+                        <outlet property="snapchatField" destination="jNG-M5-dBB" id="Jl6-YJ-OCI"/>
+                        <outlet property="twitterField" destination="Mk2-mg-aIw" id="6xL-r2-oMn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsK-eS-x1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="miH-SE-Nbu"/>
+        <segue reference="rRK-to-5ll"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>
         <image name="bell" catalog="system" width="64" height="62"/>

@@ -75,7 +75,7 @@ class GenerateViewController: UIViewController {
         
         //display an alert if no platforms are selected
         if !anySelected() {
-            let alert = UIAlertController(title: "No platforms selected", message: "You must select at least one platform.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "No platforms selected", message: "You must select at least one platform", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
 
