@@ -20,6 +20,21 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Do any additional setup after loading the view.
         captureSession = AVCaptureSession()
         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
+        
+        //save contact demo
+        //SwapHelper.saveContact(firstName: "Test", lastName: "Tester", phoneNumber: "123456789");
+        
+        //open Twitter url scheme demo
+        //SwapHelper.openTwitter(handle: "Google");
+        
+        //open instagram test
+        //SwapHelper.openInstagram(handle: "Google");
+        
+        //open snapchat test
+        //SwapHelper.openSnapchat(handle: "justinkan");
+        
+        //open facebook test
+        //SwapHelper.openFacebook(url: "facebook.com/NewCovenantNYC/");
     }
         
     //when code is scanned print on console

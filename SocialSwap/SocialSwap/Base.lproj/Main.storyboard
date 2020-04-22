@@ -1310,10 +1310,6 @@
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="miH-SE-Nbu"/>
-        <segue reference="rRK-to-5ll"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>
         <image name="bell" catalog="system" width="64" height="62"/>
@@ -1327,7 +1323,7 @@
         <image name="twitter.png" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O9G-Ho-b36"/>
-        <segue reference="miH-SE-Nbu"/>
+        <segue reference="IAt-nG-tA6"/>
+        <segue reference="Cj3-Qq-yHO"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,7 +21,9 @@ class QrViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrImageView.image = Code.generateQr(withString: "hello SocialSwap");
+        let qrString:String = Code.boolToEncoding(user: nil, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, contacts: contacts);
+        print(qrString);
+        qrImageView.image = Code.generateQr(withString: qrString);
         // Do any additional setup after loading the view.
         //inspired my Medium article
      //   // https://medium.com/@dominicfholmes/generating-qr-codes-in-swift-4-b5dacc75727c
@@ -40,16 +42,9 @@ class QrViewController: UIViewController {
      //   let scaledImg = qrImage.transformed(by: transform)
      //
      //   qrImageView.image = UIImage(ciImage: scaledImg);
-        
-        //save contact demo
-        //SwapHelper.saveContact(firstName: "Test", lastName: "Tester", phoneNumber: "123456789");
-        
-        //open Twitter url scheme demo
-        //SwapHelper.openTwitter(handle: "Google");
-
     }
-    
-    
+
+
     @IBAction func exportTapped(_ sender: Any) {
         Code.shareQr(vc: self, qrImage: self.qrImageView.image!, closure: {()})
     }

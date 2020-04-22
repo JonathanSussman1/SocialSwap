@@ -110,6 +110,51 @@ class Code {
             closure()
         }
     }
+    
+    //boolToEncodeing -Takes boolesans and a user and returns a CSV
+    //places an X where the user would  not like to share a handl3
+    static func boolToEncoding(user: User?, instagram: Bool, facebook: Bool, twitter: Bool, snapchat: Bool, contacts: Bool) -> String {
+        var insta: String;
+        var snap: String;
+        var phonenum: String;
+        var name: String;
+        var fb: String;
+        var tw: String;
+        
+        if instagram {
+            insta = "Google"
+        }
+        else{
+            insta = "X";
+        }
+        if snapchat {
+            snap = "justinkan"
+        }
+        else{
+            snap = "X";
+        }
+        if facebook {
+            fb = ""
+        }
+        else{
+            fb = "X";
+        }
+        if twitter {
+            tw = "Google"
+        }
+        else{
+            tw = "X";
+        }
+        if contacts {
+            phonenum = "123456789"
+            name = "agoodtester"
+        }
+        else{
+            name = "X";
+            phonenum="X";
+        }
+        return Csv.dataToCsv(email: "agood@user.com", name: name, phoneNumber: phonenum, instagram: insta, facebook: fb, snapchat: snap, twitter: tw);
+    }
 }
 
 

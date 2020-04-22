@@ -69,6 +69,8 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>twitter</string>
+		<string>instagram</string>
+		<string>snapchat</string>
 	</array>
 </dict>
 </plist>

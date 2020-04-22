@@ -81,6 +81,10 @@ class GenerateViewController: UIViewController {
 
             self.present(alert, animated: true)
         }
+        else{
+            
+            
+        }
     }
     
     

@@ -11,8 +11,8 @@ import Foundation
 class Csv {
     
     //dataToCsv - takes user data and returns a comma separated string for qr code encoding
-    static func dataToCsv(username: String, name: String, phoneNumber: String, instagram: String, facebook: String, snapchat: String, twitter: String) -> String{
-        return username + "," + name + "," + phoneNumber + "," + instagram + "," + facebook + "," + snapchat + "," + twitter;
+    static func dataToCsv(email: String, name: String, phoneNumber: String, instagram: String, facebook: String, snapchat: String, twitter: String) -> String{
+        return email + "," + name + "," + phoneNumber + "," + instagram + "," + facebook + "," + snapchat + "," + twitter;
     }
     
     //csvToData - takses a comma separated string and returns an array of data

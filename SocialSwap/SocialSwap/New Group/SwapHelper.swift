@@ -43,4 +43,37 @@ class SwapHelper {
         }
     }
     
+    static func openInstagram(handle: String) -> Void {
+        let urlString = "instagram://user?username=" + handle;
+        print(urlString);
+        if let url = URL(string: urlString){
+            if UIApplication.shared.canOpenURL(url){
+                print("can open");
+                UIApplication.shared.open(url, options: [:], completionHandler: nil);
+            }
+        }
+    }
+    
+    static func openSnapchat(handle: String) -> Void {
+        let urlString = "snapchat://add/" + handle;
+        print(urlString);
+        if let url = URL(string: urlString){
+            if UIApplication.shared.canOpenURL(url){
+                print("can open");
+                UIApplication.shared.open(url, options: [:], completionHandler: nil);
+            }
+        }
+    }
+    
+    static func openFacebook(url handle: String) -> Void {
+        let urlString = "http://" + handle;
+        print(urlString);
+        if let url = URL(string: urlString){
+            if UIApplication.shared.canOpenURL(url){
+                print("can open");
+                UIApplication.shared.open(url, options: [:], completionHandler: nil);
+            }
+        }
+    }
+    
 }
