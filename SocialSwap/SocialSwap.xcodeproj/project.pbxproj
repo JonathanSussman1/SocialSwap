@@ -28,6 +28,7 @@
 		45C3027F244E468D00761D58 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C3027E244E468D00761D58 /* SettingsViewController.swift */; };
 		45C30281244E5E8A00761D58 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C30280244E5E8A00761D58 /* SignUpViewController.swift */; };
 		45C30283244E5EA100761D58 /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C30282244E5EA100761D58 /* SignUp2ViewController.swift */; };
+		45C30285244FEB7200761D58 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C30284244FEB7200761D58 /* TabBarController.swift */; };
 		45EB2EEF24458F400021C6DB /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EEE24458F400021C6DB /* facebook.png */; };
 		45EB2EF124458F460021C6DB /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF024458F460021C6DB /* snapchat.png */; };
 		45EB2EF324458F4E0021C6DB /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF224458F4E0021C6DB /* twitter.png */; };
@@ -60,6 +61,7 @@
 		45C3027E244E468D00761D58 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		45C30280244E5E8A00761D58 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		45C30282244E5EA100761D58 /* SignUp2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
+		45C30284244FEB7200761D58 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		45EB2EEE24458F400021C6DB /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		45EB2EF024458F460021C6DB /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchat.png; sourceTree = "<group>"; };
 		45EB2EF224458F4E0021C6DB /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */,
 				21C9EC7024393BF900B9C2BE /* ViewController.swift */,
 				21C9EC7224393BF900B9C2BE /* Main.storyboard */,
+				45C30284244FEB7200761D58 /* TabBarController.swift */,
 				45C3027E244E468D00761D58 /* SettingsViewController.swift */,
 				457E9B0824465AF700B3294A /* GenerateViewController.swift */,
 				45B65B6F244B7BAC00FE6F23 /* FollowViewController.swift */,
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				213F77392442A70900856A4C /* ScannerViewController.swift in Sources */,
+				45C30285244FEB7200761D58 /* TabBarController.swift in Sources */,
 				457E9B0924465AF800B3294A /* GenerateViewController.swift in Sources */,
 				21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */,
 				2100B962244A0F60009256D9 /* Csv.swift in Sources */,

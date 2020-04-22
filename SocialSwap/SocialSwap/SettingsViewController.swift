@@ -91,10 +91,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         return ""
     }
     
-    
-    //done button
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        
+    //switch out of edit mode
+    func doneEditing() -> Bool {
         //dismiss keyboard if open
         for field in fields {
             if field.isFirstResponder {
@@ -116,16 +114,26 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             showTextFields(edit: false)
             editButton.isHidden = false
             doneButton.isHidden = true
+            
+            return true
         }
             
         //empty field
-        else {
-            let alert = UIAlertController(title: "Mandatory field", message:  emptyFieldName + " cannot be empty", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Mandatory Field", message:  emptyFieldName + " cannot be empty", preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
 
-            self.present(alert, animated: true)
-        }
+        self.present(alert, animated: true)
+        
+        return false
+    }
+    
+    
+    
+    //done button
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        //switch out of edit mode
+        doneEditing()
     }
     
     
