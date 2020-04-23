@@ -26,21 +26,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginPressed(_ sender: Any) {
-        if let email = emailField.text, let password = passwordField.text{
-        Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
-            if authResult != nil{
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }
-            else{
-                let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
-                                   alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
-            })
-    }
+        
+        
         //dismiss keyboard if open
+        if emailField.isFirstResponder {
+            emailField.resignFirstResponder()
+        }
+        else if  passwordField.isFirstResponder {
+            passwordField.resignFirstResponder()
+        }
+        
+        if let email = emailField.text, let password = passwordField.text{
+            Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
+                if authResult != nil{
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
+                else{
+                    let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                       alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+            
+    //dismiss keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
-}
+
                 
                 
     
