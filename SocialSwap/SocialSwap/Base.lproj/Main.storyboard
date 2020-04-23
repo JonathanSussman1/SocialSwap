@@ -197,8 +197,7 @@
                                     <color key="titleColor" red="0.0" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOutButtonPressed:" destination="Ow0-bI-yk7" eventType="touchUpInside" id="GcH-6a-RYo"/>
-                                    <segue destination="v8S-p3-uOA" kind="presentation" modalPresentationStyle="fullScreen" id="rRK-to-5ll"/>
+                                    <action selector="logOutButtonPressed:" destination="Ow0-bI-yk7" eventType="touchUpInside" id="LpV-BE-2QZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -297,6 +296,7 @@
                         <outlet property="twitterField" destination="C76-qb-pR1" id="2OW-bD-FaC"/>
                         <outlet property="twitterLabel" destination="swh-dV-Xt7" id="34Y-fY-HEp"/>
                         <outlet property="twoWaySwap" destination="Sgb-Bi-DAq" id="vBm-zI-uIx"/>
+                        <segue destination="v8S-p3-uOA" kind="showDetail" identifier="backToLogin" id="UCI-VH-oD8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sd-Vh-Wxb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -308,7 +308,7 @@
             <objects>
                 <viewController id="v8S-p3-uOA" customClass="LoginViewController" customModule="SocialSwap" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Nu-GQ-veO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SSgradient.png" id="Lo4-fU-raD">
@@ -316,7 +316,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xee-PN-4Rd">
-                                <rect key="frame" x="61" y="164" width="292" height="568"/>
+                                <rect key="frame" x="61" y="137" width="292" height="568"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="568" id="4ez-uu-ru1"/>
@@ -327,7 +327,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SocialSwap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bnT-OM-4T2">
-                                <rect key="frame" x="112.66666666666669" y="212" width="189" height="39"/>
+                                <rect key="frame" x="112.66666666666669" y="185" width="189" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="a55-Us-ob5"/>
                                     <constraint firstAttribute="width" constant="189" id="j8N-1c-1lC"/>
@@ -336,7 +336,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVt-ny-KYu">
-                                <rect key="frame" x="112.66666666666669" y="316" width="189" height="34"/>
+                                <rect key="frame" x="112.66666666666669" y="289" width="189" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="CGd-IC-c5L"/>
                                     <constraint firstAttribute="width" constant="189" id="PYg-GJ-Tr1"/>
@@ -345,7 +345,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BsP-n8-anm">
-                                <rect key="frame" x="112.66666666666669" y="378" width="189" height="34"/>
+                                <rect key="frame" x="112.66666666666669" y="351" width="189" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="64U-Y5-icA"/>
                                     <constraint firstAttribute="height" constant="34" id="83Y-Lb-nxb"/>
@@ -354,7 +354,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jy-0h-1sX">
-                                <rect key="frame" x="161" y="460" width="92" height="40"/>
+                                <rect key="frame" x="161" y="433" width="92" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GuN-Yg-mN9"/>
@@ -374,7 +374,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6t-2P-b3O">
-                                <rect key="frame" x="157" y="669" width="100" height="58"/>
+                                <rect key="frame" x="157" y="642" width="100" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="PgA-3E-hLV"/>
                                     <constraint firstAttribute="width" constant="100" id="kPY-jS-ibF"/>
@@ -388,7 +388,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oP-cb-YyG">
-                                <rect key="frame" x="122" y="656" width="170" height="20"/>
+                                <rect key="frame" x="122" y="629" width="170" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="6Qr-0b-zIq"/>
                                     <constraint firstAttribute="height" constant="20" id="FUa-4I-eyp"/>
@@ -1315,7 +1315,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IUJ-40-SZj"/>
-        <segue reference="Cj3-Qq-yHO"/>
+        <segue reference="UCI-VH-oD8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>

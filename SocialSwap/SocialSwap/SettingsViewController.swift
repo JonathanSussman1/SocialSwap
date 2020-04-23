@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
     
@@ -137,16 +140,32 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //log out
     @IBAction func logOutButtonPressed(_ sender: Any) {
-        //TODO: log user out
+       do
+        {
+             try Auth.auth().signOut()
+        }
+        catch let error as NSError
+        {
+            print (error.localizedDescription)
+        }
+        self.performSegue(withIdentifier: "backToLogin", sender: nil)
     }
     
     
     
     //two-way swap switch
     @IBAction func twoWaySwapChanged(_ sender: Any) {
-        //TODO: update database
+        if twoWaySwap.isOn {
+         Firestore.firestore().collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
+                   "twoWaySwap" : true
+                          ], merge: true)
+        }
+        else{
+            Firestore.firestore().collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
+            "twoWaySwap" : false
+                   ], merge: true)
+        }
     }
     
     
