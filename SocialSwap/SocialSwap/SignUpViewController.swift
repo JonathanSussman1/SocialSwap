@@ -73,7 +73,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         }
         else{
-            let alert = UIAlertController(title: "Empty Fields", message: "One or more fields are empty.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Empty Fields", message: "One or more fields are empty", preferredStyle: .alert)
 
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
 

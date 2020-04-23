@@ -116,6 +116,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        /*
         let alert = UIAlertController(title: "Welcome!", message: "Your account was created. Add your social media profiles to your account", preferredStyle: .alert)
 
               alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
@@ -124,6 +125,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
               
         }))
             self.present(alert, animated: true)
+         */
             
         
     }

@@ -141,17 +141,25 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func logOutButtonPressed(_ sender: Any) {
-       do
+        //switch out of edit mode
+        if editButton.isHidden {
+            doneEditing()
+        }
+    }
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        do
         {
              try Auth.auth().signOut()
         }
         catch let error as NSError
         {
             print (error.localizedDescription)
+            return false
         }
-        self.performSegue(withIdentifier: "backToLogin", sender: nil)
+        return true
     }
-    
     
     
     //two-way swap switch
