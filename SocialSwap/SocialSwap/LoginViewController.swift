@@ -9,9 +9,10 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     let isValid=false
     override func viewDidLoad() {
@@ -20,47 +21,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         //text field delegates
-        usernameField.delegate = self
+        emailField.delegate = self
         passwordField.delegate = self
     }
     
     @IBAction func loginPressed(_ sender: Any) {
-        
+        if let email = emailField.text, let password = passwordField.text{
+        Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
+            if authResult != nil{
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
+            else{
+                let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                   alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            })
+    }
         //dismiss keyboard if open
-        if usernameField.isFirstResponder {
-            usernameField.resignFirstResponder()
-        }
-        else if  passwordField.isFirstResponder {
-            passwordField.resignFirstResponder()
-            }
-        
-        
-    let username = self.usernameField.text ?? ""
 
-        let userRef = Firestore.firestore().collection("users").document(username)
-
-        userRef.getDocument { (document, error) in
-            if let document = document {
-
-
-                if document.exists{
-                    let password = document.get("password") as! String
-                    if password==self.passwordField.text{
-                        
-                        self.performSegue(withIdentifier: "loginSegue", sender: self)
-
-                    }
-
-                   
-            }
-        }
-    }
-}
-    //dismiss keyboard
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
 }
                 
                 
@@ -75,3 +54,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}

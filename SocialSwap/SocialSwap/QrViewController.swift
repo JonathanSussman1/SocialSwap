@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
+
 
 class QrViewController: UIViewController {
     
@@ -19,7 +23,7 @@ class QrViewController: UIViewController {
     
     @IBOutlet weak var qrImageView: UIImageView!
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {  
         super.viewDidLoad()
         let qrString:String = Code.boolToEncoding(user: nil, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, contacts: contacts);
         print(qrString);

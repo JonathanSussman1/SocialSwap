@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -335,7 +335,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVt-ny-KYu">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aVt-ny-KYu">
                                 <rect key="frame" x="112.66666666666669" y="316" width="189" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="CGd-IC-c5L"/>
@@ -418,8 +418,8 @@
                         <viewLayoutGuide key="safeArea" id="agv-gD-zeh"/>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="aVt-ny-KYu" id="GXt-I7-kri"/>
                         <outlet property="passwordField" destination="BsP-n8-anm" id="WTa-lE-oKV"/>
-                        <outlet property="usernameField" destination="aVt-ny-KYu" id="TIg-s6-bOQ"/>
                         <segue destination="4IX-II-AbT" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="IAt-nG-tA6"/>
                     </connections>
                 </viewController>
@@ -1001,6 +1001,17 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SSgradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="P0I-jq-hQp">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-UK-Wdf">
+                                <rect key="frame" x="61" y="98" width="292" height="700"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="292" id="BfR-7r-MfO"/>
+                                    <constraint firstAttribute="height" constant="700" id="Lfg-Qm-cjE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SocialSwap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBy-e4-tEa">
                                 <rect key="frame" x="112.66666666666669" y="146" width="189" height="39"/>
                                 <constraints>
@@ -1010,7 +1021,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hiy-on-YTv">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hiy-on-YTv">
                                 <rect key="frame" x="112.66666666666669" y="250" width="189" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="2cm-Bd-rnG"/>
@@ -1046,7 +1057,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="HTe-E2-ddb" eventType="touchUpInside" id="7yy-XM-tKd"/>
-                                    <segue destination="yk5-hF-DlH" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="DSg-Wz-n5w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMw-Gr-48C">
@@ -1100,17 +1110,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJo-UK-Wdf">
-                                <rect key="frame" x="61" y="98" width="292" height="700"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="292" id="BfR-7r-MfO"/>
-                                    <constraint firstAttribute="height" constant="700" id="Lfg-Qm-cjE"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1142,16 +1141,17 @@
                         <viewLayoutGuide key="safeArea" id="pcx-71-kOq"/>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="hiy-on-YTv" id="tO2-ea-VYf"/>
                         <outlet property="firstNameField" destination="r4a-cA-Lsk" id="AQm-up-aNe"/>
                         <outlet property="lastNameField" destination="xxS-R4-fOn" id="G4b-Tt-75b"/>
                         <outlet property="numberField" destination="Oen-vI-F1m" id="DQz-Bu-Rra"/>
                         <outlet property="passwordField" destination="fpn-K9-mox" id="13c-LX-heF"/>
-                        <outlet property="usernameField" destination="hiy-on-YTv" id="79C-b3-WpI"/>
+                        <segue destination="yk5-hF-DlH" kind="presentation" identifier="firstSignUpSegue" modalPresentationStyle="fullScreen" id="5FT-8S-wj7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx9-Ah-53M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5130" y="688"/>
+            <point key="canvasLocation" x="-5248" y="688"/>
         </scene>
         <!--Sign Up2 View Controller-->
         <scene sceneID="QEi-Wq-W1N">
@@ -1210,7 +1210,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="4IX-II-AbT" kind="presentation" modalPresentationStyle="fullScreen" id="miH-SE-Nbu"/>
+                                    <action selector="signUpButtonPressed:" destination="yk5-hF-DlH" eventType="touchUpInside" id="HXo-Cm-9sh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Snapchat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNG-M5-dBB">
@@ -1305,6 +1305,7 @@
                         <outlet property="instagramField" destination="are-v3-x4u" id="f7F-mU-GzI"/>
                         <outlet property="snapchatField" destination="jNG-M5-dBB" id="Jl6-YJ-OCI"/>
                         <outlet property="twitterField" destination="Mk2-mg-aIw" id="6xL-r2-oMn"/>
+                        <segue destination="4IX-II-AbT" kind="presentation" identifier="signUpFinalSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="IUJ-40-SZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsK-eS-x1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1312,20 +1313,20 @@
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IUJ-40-SZj"/>
+        <segue reference="Cj3-Qq-yHO"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>
-        <image name="bell" catalog="system" width="64" height="62"/>
+        <image name="bell" catalog="system" width="128" height="124"/>
         <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="instagram.png" width="1500" height="1500"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="qrcode" catalog="system" width="64" height="56"/>
-        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
         <image name="snapchat.png" width="500" height="500"/>
         <image name="twitter.png" width="400" height="400"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="miH-SE-Nbu"/>
-        <segue reference="Cj3-Qq-yHO"/>
-    </inferredMetricsTieBreakers>
 </document>
