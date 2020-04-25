@@ -25,27 +25,12 @@ class QrViewController: UIViewController {
     
     override func viewDidLoad() {  
         super.viewDidLoad()
+        
+        // currently boolToEncoding does not encode real values
+        // it is using defaults, until we have user data
         let qrString:String = Code.boolToEncoding(user: nil, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, contacts: contacts);
         print(qrString);
         qrImageView.image = Code.generateQr(withString: qrString);
-        // Do any additional setup after loading the view.
-        //inspired my Medium article
-     //   // https://medium.com/@dominicfholmes/generating-qr-codes-in-swift-4-b5dacc75727c
-     //   let mystring = "hello world";
-     //   let data = mystring.data(using: String.Encoding.ascii);
-     //   guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else {
-     //       return;
-     //   }
-     //   qrFilter.setValue(data, forKey: "inputMessage");
-     //
-     //   guard let qrImage = qrFilter.outputImage else {
-     //       return;
-     //   }
-     //
-     //   let transform = CGAffineTransform(scaleX: 10, y: 10);
-     //   let scaledImg = qrImage.transformed(by: transform)
-     //
-     //   qrImageView.image = UIImage(ciImage: scaledImg);
     }
 
 

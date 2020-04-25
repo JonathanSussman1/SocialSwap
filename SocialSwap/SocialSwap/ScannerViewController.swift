@@ -20,7 +20,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Do any additional setup after loading the view.
         captureSession = AVCaptureSession()
         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
-        
         //save contact demo
         //SwapHelper.saveContact(firstName: "Test", lastName: "Tester", phoneNumber: "123456789");
         
@@ -34,9 +33,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         //SwapHelper.openSnapchat(handle: "justinkan");
         
         //open facebook test
-        //SwapHelper.openFacebook(url: "facebook.com/NewCovenantNYC/");
+        //SwapHelper.openFacebook(url: "facebook.com/Google/");
     }
-        
+    
     //when code is scanned print on console
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession?.stopRunning()
@@ -45,6 +44,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {return}
             guard let strVal = readableObject.stringValue else {return}
             print(strVal)
+            
+            //strVal is our encoded QR Code CSV (possibly)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let followVc = storyboard.instantiateViewController(identifier: "FollowVC") as! FollowViewController
+            followVc.csvForSwap = strVal
+            self.present(followVc, animated: true)
         }
 
     }
