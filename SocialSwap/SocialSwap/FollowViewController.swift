@@ -13,6 +13,7 @@ class FollowViewController: UIViewController {
     var scannedUser: User?
     var currentUser: User?
     var csvForSwap: String?
+    var sessionStarter: SessionStarterDelegate?
     
 
     override func viewDidLoad() {
@@ -33,7 +34,11 @@ class FollowViewController: UIViewController {
 
     @IBAction func DoneButtonPressed(_ sender: Any) {
         //dismiss(animated: true, completion: nil)
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: {
+            if(self.sessionStarter != nil){
+                self.sessionStarter!.startSession();
+            }
+        })
     }
     
     @IBAction func instagramPressed(_ sender: Any) {

@@ -9,10 +9,11 @@
 import Foundation
 
 class User {
-    var email: String?;
-    var phoneNumber: String?;
-    var twitter: String?;
-    var instagram: String?;
-    var facebook: String?;
-    var snapchat: String?;
+    var email: String?
+    var phoneNumber: String?
+    var twitter: String?
+    var instagram: String?
+    var facebook: String?
+    var snapchat: String?
+    var twoWaySwap: Bool?
 }

@@ -9,7 +9,11 @@
 import UIKit
 import AVFoundation
 
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+protocol SessionStarterDelegate {
+    func startSession()
+}
+
+class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, SessionStarterDelegate {
     
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
@@ -36,6 +40,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         //SwapHelper.openFacebook(url: "facebook.com/Google/");
     }
     
+    func startSession() {
+        captureSession = AVCaptureSession()
+        Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
+    }
+    
     //when code is scanned print on console
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession?.stopRunning()
@@ -49,20 +58,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let followVc = storyboard.instantiateViewController(identifier: "FollowVC") as! FollowViewController
             followVc.csvForSwap = strVal
+            followVc.sessionStarter = self
             self.present(followVc, animated: true)
         }
 
     }
-    
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
     */
-
 }
