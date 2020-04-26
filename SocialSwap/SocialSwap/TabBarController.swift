@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
  class TabBarController: UITabBarController, UITabBarControllerDelegate {
-    
+    var user = User()
+
     /*
     - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
 
@@ -36,11 +40,38 @@ import UIKit
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //initialize user object
+        let db = Firestore.firestore()
+                                db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+                                    if let document = document, document.exists {
+                                       _ = document.data().map(String.init(describing:)) ?? "nil"
+                                       self.user.firstName = (document.data()!["firstName"]! as! String)
+                                       self.user.lastName = (document.data()!["lastName"]! as! String)
+                                       self.user.uid = (document.data()!["id"]! as! String)
+                                     self.user.email = (document.data()!["email"]! as! String)
+                                     self.user.instagram = (document.data()!["instagram"]! as! String)
+                                     self.user.phoneNumber = (document.data()!["phoneNumber"]! as! String)
+                                     self.user.snapchat = (document.data()!["snapchat"]! as! String)
+                                     self.user.twitter = (document.data()!["twitter"]! as! String)
+                                     self.user.twoWaySwap = (document.data()!["twoWaySwap"]! as! Bool)
+                                     self.user.userNamesOfSwapRecieves = (document.data()!["userNamesOfSwapRecieves"]! as! Array)
+                                    } else {
+                                        print("Document does not exist")
+                                    }
+                                }
+        
+        
         // Do any additional setup after loading the view.
         self.delegate = self
     }
     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+        if segue.identifier == "toScan"{ //send user object to scanner
+                    let vc = segue.destination as! ScannerViewController
+                        vc.user=user
+                    }
+     }
 
     /*
     // MARK: - Navigation

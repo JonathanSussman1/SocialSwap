@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var numberField: UITextField!
     var fields: [UITextField] = []
     var email="",firstName="",lastName="",number=""
-    
+    var user = User()
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -57,6 +57,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 "twoWaySwap" : true,
                 "userNamesOfSwapRecieves" : []
             ], merge: true)
+            
+            self.user = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
             
         
         } else { return }})
@@ -94,6 +96,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             vc.firstName = firstName
             vc.lastName=lastName
             vc.number=number
+            vc.user=user
             }
         }
     

@@ -12,6 +12,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    var user = User()
     @IBOutlet var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     let isValid=false
@@ -39,6 +40,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let email = emailField.text, let password = passwordField.text{
             Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
                 if authResult != nil{
+                    let db = Firestore.firestore()
+                         db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+                             if let document = document, document.exists {
+                                _ = document.data().map(String.init(describing:)) ?? "nil"
+                                self.user.firstName = (document.data()!["firstName"]! as! String)
+                                self.user.lastName = (document.data()!["lastName"]! as! String)
+                                self.user.uid = (document.data()!["id"]! as! String)
+                              self.user.email = (document.data()!["email"]! as! String)
+                              self.user.instagram = (document.data()!["instagram"]! as! String)
+                              self.user.phoneNumber = (document.data()!["phoneNumber"]! as! String)
+                              self.user.snapchat = (document.data()!["snapchat"]! as! String)
+                              self.user.twitter = (document.data()!["twitter"]! as! String)
+                              self.user.twoWaySwap = (document.data()!["twoWaySwap"]! as! Bool)
+                              self.user.userNamesOfSwapRecieves = (document.data()!["userNamesOfSwapRecieves"]! as! Array)
+                             } else {
+                                 print("Document does not exist")
+                             }
+                         }
+                    
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 }
                 else{

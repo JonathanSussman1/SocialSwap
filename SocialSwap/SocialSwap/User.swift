@@ -9,6 +9,9 @@
 import Foundation
 
 class User {
+    var uid: String?
+    var firstName: String?
+    var lastName: String?
     var email: String?
     var phoneNumber: String?
     var twitter: String?
@@ -16,4 +19,32 @@ class User {
     var facebook: String?
     var snapchat: String?
     var twoWaySwap: Bool?
+    var userNamesOfSwapRecieves: [String] = []
+    init(){
+        self.uid = ""
+        self.firstName=""
+        self.lastName=""
+        self.email=""
+        self.phoneNumber=""
+        self.twitter = ""
+        self.instagram = ""
+        self.facebook = ""
+        self.snapchat = ""
+        self.twoWaySwap = true
+        self.userNamesOfSwapRecieves = [String]()
+    }
+    init(uid: String, firstName: String, lastName: String, email: String, phoneNumber: String) {
+        self.uid = uid
+        self.firstName=firstName
+        self.lastName=lastName
+        self.email=email
+        self.phoneNumber=phoneNumber
+        self.twoWaySwap=true
+        self.twitter = ""
+       self.instagram = ""
+       self.facebook = ""
+       self.snapchat = ""
+       self.twoWaySwap = true
+       self.userNamesOfSwapRecieves = [String]()
+       }
 }

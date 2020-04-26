@@ -15,6 +15,7 @@ protocol SessionStarterDelegate {
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, SessionStarterDelegate {
     
+    var user = User()
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
     

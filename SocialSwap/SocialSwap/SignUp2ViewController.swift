@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SignUp2ViewController: UIViewController, UITextFieldDelegate {
+    var user = User()
 
     //fields
     @IBOutlet weak var instagramField: UITextField!
@@ -19,7 +20,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var snapchatField: UITextField!
     @IBOutlet weak var twitterField: UITextField!
     var fields: [UITextField] = []
-    var email="",firstName="",lastName="",number="",instagram="",facebook="",snapchat="",twitter=""    
+    var email="",firstName="",lastName="",number="",instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -52,10 +53,11 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if (!(instagramField.text ?? "").isEmpty){
-            instagram = "https://instagram.com/\(String( (instagramField.text!)))"
-            NSLog(instagram)
+            instagramSaveField = instagramField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
+
+            instagram = "https://instagram.com/\(String( (instagramSaveField)))"
             if verifyUrl(urlString: instagram)==false{
-                     let alert = UIAlertController(title: "Invalid Instagram", message: "The Instagram handle you provided is invalid. Make sure not to include the '@' in your input", preferredStyle: .alert)
+                     let alert = UIAlertController(title: "Invalid Instagram", message: "The Instagram handle you provided is invalid.", preferredStyle: .alert)
 
                            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                  
@@ -65,7 +67,9 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
             
         }
         if (!(facebookField.text ?? "").isEmpty){
-            facebook = facebookField.text!
+            facebookSaveField = (facebookField.text! as NSString).lastPathComponent
+
+            facebook = "https://www.facebook.com/\(String( (facebookSaveField)))"
             if verifyUrl(urlString: facebook)==false{
                                      let alert = UIAlertController(title: "Invalid Facebook", message: "The Facebook url you provided is invalid.", preferredStyle: .alert)
 
@@ -78,9 +82,10 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if (!(snapchatField.text ?? "").isEmpty){
-            snapchat = "https://snapchat.com/add/\( String(self.snapchatField.text!))/"
+                        snapchatSaveField = snapchatField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
+            snapchat = "https://snapchat.com/add/\( String((snapchatSaveField)))/"
             if verifyUrl(urlString: snapchat)==false{
-                                     let alert = UIAlertController(title: "Invalid Snapchat", message: "The Snapchat handle you provided is invalid. Make sure not to include the '@' in your input", preferredStyle: .alert)
+                                     let alert = UIAlertController(title: "Invalid Snapchat", message: "The Snapchat handle you provided is invalid.", preferredStyle: .alert)
 
                           alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 
@@ -91,9 +96,10 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if (!(twitterField.text ?? "").isEmpty){
-            let twitter = "https://twitter.com/\( String(self.twitterField.text!))/"
+             twitterSaveField = twitterField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
+            let twitter = "https://twitter.com/\(String( (twitterSaveField)))/"
             if verifyUrl(urlString: twitter)==false{
-                                     let alert = UIAlertController(title: "Invalid Twitter", message: "The Twitter handle you provided is invalid. Make sure not to include the '@' in your input", preferredStyle: .alert)
+                                     let alert = UIAlertController(title: "Invalid Twitter", message: "The Twitter handle you provided is invalid.", preferredStyle: .alert)
 
                           alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                 
@@ -104,12 +110,16 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         
         let db = Firestore.firestore()
         db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
-            "facebook" : facebook ,
-            "twitter" : twitter ,
-            "instagram" : instagram ,
-            "snapchat" : snapchat ,
+            "facebook" : facebookSaveField ,
+            "twitter" : twitterSaveField ,
+            "instagram" : instagramSaveField ,
+            "snapchat" : snapchatSaveField ,
                    ], merge: true)
         
+        user.facebook=facebookSaveField
+        user.twitter=twitterSaveField
+        user.instagram=instagramSaveField
+        user.snapchat=snapchatSaveField
           self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
         
     }
@@ -148,7 +158,8 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "signUpFinalSegue"{
-            
+            let vc = segue.destination as! TabBarController
+                vc.user=user
             }
         
     }

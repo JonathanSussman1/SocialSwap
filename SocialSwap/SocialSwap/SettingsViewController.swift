@@ -12,7 +12,8 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
-    
+    var user = User()
+
     //username and info labels
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
@@ -189,7 +190,30 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //initialize user object
+        let db = Firestore.firestore()
+                                db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+                                    if let document = document, document.exists {
+                                       _ = document.data().map(String.init(describing:)) ?? "nil"
+                                       self.user.firstName = (document.data()!["firstName"]! as! String)
+                                       self.user.lastName = (document.data()!["lastName"]! as! String)
+                                       self.user.uid = (document.data()!["id"]! as! String)
+                                     self.user.email = (document.data()!["email"]! as! String)
+                                     self.user.instagram = (document.data()!["instagram"]! as! String)
+                                     self.user.phoneNumber = (document.data()!["phoneNumber"]! as! String)
+                                     self.user.snapchat = (document.data()!["snapchat"]! as! String)
+                                     self.user.twitter = (document.data()!["twitter"]! as! String)
+                                     self.user.twoWaySwap = (document.data()!["twoWaySwap"]! as! Bool)
+                                     self.user.userNamesOfSwapRecieves = (document.data()!["userNamesOfSwapRecieves"]! as! Array)
+                                    } else {
+                                        print("Document does not exist")
+                                    }
+                                }
+        
+        
+        
+        
+        
         // Do any additional setup after loading the view.
         labels = [firstNameLabel, lastNameLabel, numberLabel, instagramLabel, facebookLabel, snapchatLabel, twitterLabel]
         fields = [firstNameField, lastNameField, numberField, instagramField, facebookField, snapchatField, twitterField]
