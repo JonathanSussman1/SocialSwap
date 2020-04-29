@@ -13,6 +13,7 @@ import FirebaseFirestore
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
     var user = User()
+    var dbloaded = false
 
     //username and info labels
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -95,6 +96,15 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         return ""
     }
     
+    
+    func verifyUrl (urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url as URL)
+            }
+        }
+        return false
+    }
     //switch out of edit mode
     func doneEditing() -> Bool {
         //dismiss keyboard if open
@@ -109,10 +119,85 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         //no empty fields
         if emptyFieldName == "" {
             
+            var email="",firstName="",lastName="",number="",instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
             
+            if (!(instagramField.text ?? "").isEmpty){
+                instagramSaveField = instagramField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
+
+                instagram = "https://instagram.com/\(String( (instagramSaveField)))"
+                if verifyUrl(urlString: instagram)==false{
+                         let alert = UIAlertController(title: "Invalid Instagram", message: "The Instagram handle you provided is invalid.", preferredStyle: .alert)
+
+                               alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                     
+                        self.present(alert, animated: true)
+                    return false
+                }
+                
+            }
+            if (!(facebookField.text ?? "").isEmpty){
+                facebookSaveField = (facebookField.text! as NSString).lastPathComponent
+
+                facebook = "https://www.facebook.com/\(String( (facebookSaveField)))"
+                if verifyUrl(urlString: facebook)==false{
+                                         let alert = UIAlertController(title: "Invalid Facebook", message: "The Facebook url you provided is invalid.", preferredStyle: .alert)
+
+                              alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    
+                       self.present(alert, animated: true)
+                    return false
+                }
+                
+            }
             
-            //TODO: update database
+            if (!(snapchatField.text ?? "").isEmpty){
+                            snapchatSaveField = snapchatField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
+                snapchat = "https://snapchat.com/add/\( String((snapchatSaveField)))/"
+                if verifyUrl(urlString: snapchat)==false{
+                                         let alert = UIAlertController(title: "Invalid Snapchat", message: "The Snapchat handle you provided is invalid.", preferredStyle: .alert)
+
+                              alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    
+                       self.present(alert, animated: true)
+                     return false
+                    
+                }
+                
+            }
             
+            if (!(twitterField.text ?? "").isEmpty){
+                 twitterSaveField = twitterField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
+                let twitter = "https://twitter.com/\(String( (twitterSaveField)))/"
+                if verifyUrl(urlString: twitter)==false{
+                                         let alert = UIAlertController(title: "Invalid Twitter", message: "The Twitter handle you provided is invalid.", preferredStyle: .alert)
+
+                              alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    
+                       self.present(alert, animated: true)
+                     return false
+                    
+                }
+            }
+            
+            let db = Firestore.firestore()
+            db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
+                "firstName" : firstNameField.text! ,
+                "lastName" : lastNameField.text! ,
+                "phoneNumber" : numberField.text! ,
+                "facebook" : facebookSaveField ,
+                "twitter" : twitterSaveField ,
+                "instagram" : instagramSaveField ,
+                "snapchat" : snapchatSaveField ,
+                       ], merge: true)
+            
+            user.firstName=firstNameField.text
+            user.lastName=lastNameField.text
+            user.phoneNumber=numberField.text
+            user.facebook=facebookSaveField
+            user.twitter=twitterSaveField
+            user.instagram=instagramSaveField
+            user.snapchat=snapchatSaveField
+
             
             //switch out of edit mode
             showTextFields(edit: false)
@@ -177,8 +262,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -186,29 +269,63 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+     func getSignedInUser(completion:@escaping((User?) -> ())) {
+
+         let db = Firestore.firestore()
+        _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+              if let document = document, document.exists {
+                 let uemail = document.data()?["email"] as! String
+                 let ufb = document.data()?["facebook"] as! String
+                 let ufirstname = document.data()?["firstName"] as! String
+                 let uid = document.data()?["id"] as! String
+                 let uinstagram = document.data()?["instagram"] as! String
+                 let ulastname = document.data()?["lastName"] as! String
+                 let uphonenumber = document.data()?["phoneNumber"] as! String
+                 let usnapchat = document.data()?["snapchat"] as! String
+                 let utwitter = document.data()?["twitter"] as! String
+                 let utwowayswap = document.data()?["twoWaySwap"] as! Bool
+                 let uswapreceives = document.data()?["userNamesOfSwapRecieves"] as! [String]
+                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, userNamesOfSwapRecieves: uswapreceives)
+                completion(self.user)
+                self.viewDidLoad()
+              } else {
+                 print("Error getting user")
+                 completion(nil)
+             }
+         }
+     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        getSignedInUser(completion: { user in
+            self.dbloaded=true
+              })
+
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //initialize user object
-        let db = Firestore.firestore()
-                                db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
-                                    if let document = document, document.exists {
-                                       _ = document.data().map(String.init(describing:)) ?? "nil"
-                                       self.user.firstName = (document.data()!["firstName"]! as! String)
-                                       self.user.lastName = (document.data()!["lastName"]! as! String)
-                                       self.user.uid = (document.data()!["id"]! as! String)
-                                     self.user.email = (document.data()!["email"]! as! String)
-                                     self.user.instagram = (document.data()!["instagram"]! as! String)
-                                     self.user.phoneNumber = (document.data()!["phoneNumber"]! as! String)
-                                     self.user.snapchat = (document.data()!["snapchat"]! as! String)
-                                     self.user.twitter = (document.data()!["twitter"]! as! String)
-                                     self.user.twoWaySwap = (document.data()!["twoWaySwap"]! as! Bool)
-                                     self.user.userNamesOfSwapRecieves = (document.data()!["userNamesOfSwapRecieves"]! as! Array)
-                                    } else {
-                                        print("Document does not exist")
-                                    }
-                                }
+        firstNameField.text=(user.firstName)
+        lastNameField.text=(user.lastName)
+        numberField.text=(user.phoneNumber)
+        instagramField.text=(user.instagram)
+        facebookField.text=(user.facebook)
+        snapchatField.text=(user.snapchat)
+        twitterField.text=(user.twitter)
+
+             
+        
+        //set twowayswap switch in correct position corresponding to database
+        if user.twoWaySwap==true{
+            twoWaySwap.setOn(true, animated: false)
+        }
+        else{
+            twoWaySwap.setOn(false, animated: false)
+        }
+
+                                
         
         
         

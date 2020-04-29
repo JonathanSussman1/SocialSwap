@@ -47,4 +47,23 @@ class User {
        self.twoWaySwap = true
        self.userNamesOfSwapRecieves = [String]()
        }
+    init(uid: String, firstName: String, lastName: String, email: String, phoneNumber: String,   twitter: String,
+        instagram: String,
+        facebook: String,
+        snapchat: String,
+        twoWaySwap: Bool,
+        userNamesOfSwapRecieves: [String] = []) {
+        self.uid = uid
+        self.firstName=firstName
+        self.lastName=lastName
+        self.email=email
+        self.phoneNumber=phoneNumber
+        self.twoWaySwap=true
+        self.twitter = twitter
+       self.instagram = instagram
+       self.facebook = facebook
+       self.snapchat = snapchat
+       self.twoWaySwap = true
+       self.userNamesOfSwapRecieves = [String]()
+       }
 }

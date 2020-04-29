@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SignUp2ViewController: UIViewController, UITextFieldDelegate {
-    var user = User()
+    var user=User()
 
     //fields
     @IBOutlet weak var instagramField: UITextField!
@@ -116,11 +116,15 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
             "snapchat" : snapchatSaveField ,
                    ], merge: true)
         
+        user.firstName=firstName
+        user.lastName=lastName
+        user.email=email
+        user.phoneNumber=number
         user.facebook=facebookSaveField
         user.twitter=twitterSaveField
         user.instagram=instagramSaveField
         user.snapchat=snapchatSaveField
-          self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
+        self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
         
     }
     
@@ -142,7 +146,9 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        print(user.firstName!)
+        print(user.lastName!)
+        print(user.email!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
 //
             
@@ -157,11 +163,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "signUpFinalSegue"{
-            let vc = segue.destination as! TabBarController
-                vc.user=user
-            }
-        
+       
     }
     
 

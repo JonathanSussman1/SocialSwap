@@ -28,7 +28,55 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    
+    func modifyCurrentUser(user:User , completion: @escaping (User?) -> ()) {
+               if let email = emailField.text, let password = passwordField.text, let firstName = firstNameField.text, let lastName = lastNameField.text, let number = numberField.text, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !number.isEmpty{
+         Auth.auth().createUser(withEmail: email, password: password, completion:  { authResult, error in
+             if authResult != nil{
+        Auth.auth().signIn(withEmail: email, password: password, completion:  { (signInResult, error) in
+         if signInResult != nil{
+             
+             let db = Firestore.firestore()
+             db.collection("users").document(String((signInResult?.user.uid)!)).setData([
+                 "id" : String((signInResult?.user.uid)!),
+                 "email" : email,
+                 "firstName" : firstName,
+                 "lastName" : lastName,
+                 "phoneNumber" : number,
+                 "facebook" : "",
+                 "twitter" : "",
+                 "instagram" : "",
+                 "snapchat" : "",
+                 "twoWaySwap" : true,
+                 "userNamesOfSwapRecieves" : []
+             ], merge: true)
+             
+             self.user = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
+             
+            completion(self.user)
+         } else { completion(nil)
+             }})
+                 
+                        self.performSegue(withIdentifier: "firstSignUpSegue", sender: nil)
+                    }
+             else{
+                     let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
+                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                     self.present(alert, animated: true, completion: nil)
+                completion(nil)
+             }
+                 
+         })
+         
+         }
+         else{
+             let alert = UIAlertController(title: "Empty Fields", message: "One or more fields are empty", preferredStyle: .alert)
+
+             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+
+             self.present(alert, animated: true)
+                completion(nil)
+         }
+                }
     
     
     
@@ -37,49 +85,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     //next button
     @IBAction func nextButtonPressed(_ sender: Any) {
-        if let email = emailField.text, let password = passwordField.text, let firstName = firstNameField.text, let lastName = lastNameField.text, let number = numberField.text, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !number.isEmpty{
-        Auth.auth().createUser(withEmail: email, password: password, completion:  { authResult, error in
-            if authResult != nil{
-       Auth.auth().signIn(withEmail: email, password: password, completion:  { signInResult, error in
-        if signInResult != nil{
-            
-            let db = Firestore.firestore()
-            db.collection("users").document(String((signInResult?.user.uid)!)).setData([
-                "id" : String((signInResult?.user.uid)!),
-                "email" : email,
-                "firstName" : firstName,
-                "lastName" : lastName,
-                "phoneNumber" : number,
-                "facebook" : "",
-                "twitter" : "",
-                "instagram" : "",
-                "snapchat" : "",
-                "twoWaySwap" : true,
-                "userNamesOfSwapRecieves" : []
-            ], merge: true)
-            
-            self.user = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
-            
-        
-        } else { return }})
-                
-                       self.performSegue(withIdentifier: "firstSignUpSegue", sender: nil)
-                   }
-            else{
-                    let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+        self.modifyCurrentUser(user: user) { (user) -> () in
+            if user != nil {
+                         self.performSegue(withIdentifier: "firstSignUpSegue", sender: nil)
+
             }
-                
-        })
-        
-        }
-        else{
-            let alert = UIAlertController(title: "Empty Fields", message: "One or more fields are empty", preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-
-            self.present(alert, animated: true)
+            else {
+                 
+            }
         }
         
         //dismiss keyboard if open
@@ -93,9 +106,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSignUpSegue"{
             let vc = segue.destination as! SignUp2ViewController
-            vc.firstName = firstName
-            vc.lastName=lastName
+            vc.firstName=firstName
+            vc.email=email
             vc.number=number
+            vc.lastName=lastName
             vc.user=user
             }
         }

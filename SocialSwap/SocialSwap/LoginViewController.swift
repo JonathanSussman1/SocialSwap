@@ -36,10 +36,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         else if  passwordField.isFirstResponder {
             passwordField.resignFirstResponder()
         }
+        self.getCurrentUser(user: user) { (user) -> () in
+            if user != nil {
+                         self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
+            }
+            else {
+                 print("Not found")
+            }
+        }
+
+    }
         
+    
+        //dismiss keyboard
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+    }
+    
+    func getCurrentUser(user:User , completion: @escaping (User?) -> ()) {
         if let email = emailField.text, let password = passwordField.text{
             Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
-                if authResult != nil{
+                 if authResult != nil{
                     let db = Firestore.firestore()
                          db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
                              if let document = document, document.exists {
@@ -54,40 +73,36 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                               self.user.twitter = (document.data()!["twitter"]! as! String)
                               self.user.twoWaySwap = (document.data()!["twoWaySwap"]! as! Bool)
                               self.user.userNamesOfSwapRecieves = (document.data()!["userNamesOfSwapRecieves"]! as! Array)
-                             } else {
-                                 print("Document does not exist")
+                                completion(self.user)
                              }
-                         }
-                    
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                             else {
+                                             print("Document does not exist")
+                                completion(nil)
+                                         }
+                                     }
+                                
+                                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                            }
+                            else{
+                                let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                                   alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                                self.present(alert, animated: true, completion: nil)
+                    completion(nil)
+                            }
+                        })
+                    }
                 }
-                else{
-                    let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
-                                       alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            })
-        }
-    }
-            
-    //dismiss keyboard
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
 
 
                 
                 
     
-    /*
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
     }
-    */
+    
 
 }
+
