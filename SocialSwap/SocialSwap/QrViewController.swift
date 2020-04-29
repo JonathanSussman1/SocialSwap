@@ -56,8 +56,6 @@ class QrViewController: UIViewController {
         getSignedInUser(completion: { user in
             self.dbloaded=true
               })
-
-        
     }
     
     override func viewDidLoad() {  
@@ -66,7 +64,7 @@ class QrViewController: UIViewController {
         print(user.email!)
         // currently boolToEncoding does not encode real values
         // it is using defaults, until we have user data
-        let qrString:String = Code.boolToEncoding(user: nil, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, contacts: contacts);
+        let qrString:String = Code.boolToEncoding(user: user, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, contacts: contacts, twoWaySwap: user.twoWaySwap!);
         print(qrString);
         qrImageView.image = Code.generateQr(withString: qrString);
     }

@@ -11,12 +11,13 @@ import Foundation
 class Csv {
     
     //dataToCsv - takes user data and returns a comma separated string for qr code encoding
-    static func dataToCsv(email: String, name: String, phoneNumber: String, instagram: String, facebook: String, snapchat: String, twitter: String) -> String{
-        return email + "," + name + "," + phoneNumber + "," + instagram + "," + facebook + "," + snapchat + "," + twitter;
+    static func dataToCsv(uid: String, name: String, phoneNumber: String, instagram: String, facebook: String, snapchat: String, twitter: String) -> String{
+        return uid + "," + name + "," + phoneNumber + "," + instagram + "," + facebook + "," + snapchat + "," + twitter;
     }
     
     //csvToData - takses a comma separated string and returns an array of data
     //TODO: add additional checks, to make sure data is valid
+    //returns [uid, name, phoneNumber, instagram, facebook, snapchat] where 'X' represents a field not passed in
     static func csvToData(csv: String) -> [String]{
         let data = csv.components(separatedBy: ",");
         return data;

@@ -21,11 +21,13 @@ class FollowViewController: UIViewController {
     @IBOutlet weak var snapchatButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var contactsButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
     
     
     var scannedUser: User?
     var currentUser: User?
     var csvForSwap: String?
+    var swapData: [String]?
     var sessionStarter: SessionStarterDelegate?
     
     //vars for follow back
@@ -35,12 +37,19 @@ class FollowViewController: UIViewController {
     var twitterPressed: Bool = false
     var contactsPressed: Bool = false
     
+    var instagramEnabled: Bool?
+    var twitterEnabled: Bool?
+    var snapchatEnabled: Bool?
+    var twoWaySwapEnabled: Bool?
+    var contactsEnabled: Bool?
+    var facebookEnabled: Bool?
+    
     var sendFollowBackNotification: Bool = false
     
-     func getSignedInUser(completion:@escaping((User?) -> ())) {
+    func getUser(uid: String, completion:@escaping((User?) -> ())) {
 
          let db = Firestore.firestore()
-        _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+        _ = db.collection("users").document(uid).getDocument { (document, error) in
               if let document = document, document.exists {
                  let uemail = document.data()?["email"] as! String
                  let ufb = document.data()?["facebook"] as! String
@@ -65,7 +74,7 @@ class FollowViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 
-        getSignedInUser(completion: { user in
+        getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
             self.dbloaded=true
               })
 
@@ -74,9 +83,9 @@ class FollowViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-       
+        if(scannedUser != nil){
+            self.nameLabel.text = scannedUser!.firstName! + scannedUser!.lastName!
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -100,27 +109,37 @@ class FollowViewController: UIViewController {
     }
     
     @IBAction func instagramPressed(_ sender: Any) {
-        SwapHelper.openInstagram(handle: "Google")
-        instagramButton.setTitle("Followed", for: UIControl.State.normal)
+        if(scannedUser != nil){
+            SwapHelper.openInstagram(handle: scannedUser!.instagram!)
+            instagramButton.setTitle("Followed", for: UIControl.State.normal)
+        }
     }
     
     @IBAction func facebookPressed(_ sender: Any) {
-        SwapHelper.openFacebook(url: "facebook.com/Google/")
-        facebookButton.setTitle("Added", for: UIControl.State.normal)
+        if(scannedUser != nil){
+            SwapHelper.openFacebook(url: scannedUser!.facebook!)
+            facebookButton.setTitle("Added", for: UIControl.State.normal)
+        }
     }
     
     @IBAction func snapchatPressed(_ sender: Any) {
-        SwapHelper.openSnapchat(handle: "Google")
-        snapchatButton.setTitle("Added", for: UIControl.State.normal)
+        if(scannedUser != nil){
+            SwapHelper.openSnapchat(handle: scannedUser!.snapchat!)
+            snapchatButton.setTitle("Added", for: UIControl.State.normal)
+        }
     }
     
     @IBAction func twitterPressed(_ sender: Any) {
-        SwapHelper.openTwitter(handle: "Google")
-        twitterButton.setTitle("Followed", for: UIControl.State.normal)
+        if(scannedUser != nil){
+            SwapHelper.openTwitter(handle: scannedUser!.twitter!)
+            twitterButton.setTitle("Followed", for: UIControl.State.normal)
+        }
     }
     
     @IBAction func contactsPressed(_ sender: Any) {
-        SwapHelper.saveContact(firstName: "SocialSwap", lastName: "Testing", phoneNumber: "800111222")
-        contactsButton.setTitle("Added", for: UIControl.State.normal)
+        if(scannedUser != nil){
+            SwapHelper.saveContact(firstName: scannedUser!.firstName!, lastName: scannedUser!.lastName!, phoneNumber: "800111222")
+            contactsButton.setTitle("Added", for: UIControl.State.normal)
+        }
     }
 }

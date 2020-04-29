@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4IX-II-AbT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1005,6 +1005,7 @@
                         <outlet property="contactsButton" destination="zA8-JD-gKr" id="KYL-fK-0nx"/>
                         <outlet property="facebookButton" destination="8zW-z5-FN3" id="7UM-zA-VTl"/>
                         <outlet property="instagramButton" destination="AW3-UZ-RL8" id="eNp-EM-Bgh"/>
+                        <outlet property="nameLabel" destination="zpu-Xm-ee0" id="joS-Cb-Zn3"/>
                         <outlet property="snapchatButton" destination="2c5-HW-hxs" id="ZTe-nF-y1K"/>
                         <outlet property="twitterButton" destination="tZg-kT-4u5" id="S1G-Xo-MSF"/>
                     </connections>
@@ -1336,20 +1337,20 @@
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SSgradient.png" width="1024" height="1024"/>
+        <image name="bell" catalog="system" width="64" height="62"/>
+        <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
+        <image name="instagram.png" width="1500" height="1500"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="qrcode" catalog="system" width="64" height="56"/>
+        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
+        <image name="snapchat.png" width="500" height="500"/>
+        <image name="twitter.png" width="400" height="400"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IAt-nG-tA6"/>
         <segue reference="rDz-oQ-Pfg"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="SSgradient.png" width="1024" height="1024"/>
-        <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="instagram.png" width="1500" height="1500"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="qrcode" catalog="system" width="128" height="114"/>
-        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
-        <image name="snapchat.png" width="500" height="500"/>
-        <image name="twitter.png" width="400" height="400"/>
-    </resources>
 </document>

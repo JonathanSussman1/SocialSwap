@@ -113,47 +113,85 @@ class Code {
     
     //boolToEncodeing -Takes boolesans and a user and returns a CSV
     //places an X where the user would  not like to share a handl3
-    static func boolToEncoding(user: User?, instagram: Bool, facebook: Bool, twitter: Bool, snapchat: Bool, contacts: Bool) -> String {
+    static func boolToEncoding(user: User?, instagram: Bool, facebook: Bool, twitter: Bool, snapchat: Bool, contacts: Bool, twoWaySwap: Bool) -> String {
         var insta: String;
         var snap: String;
         var phonenum: String;
         var name: String;
         var fb: String;
         var tw: String;
+        var uid: String;
         
         if instagram {
-            insta = "Google"
+            insta = user!.instagram!;
         }
         else{
             insta = "X";
         }
         if snapchat {
-            snap = "justinkan"
+            snap = user!.snapchat!;
         }
         else{
             snap = "X";
         }
         if facebook {
-            fb = ""
+            fb = user!.facebook!;
         }
         else{
             fb = "X";
         }
         if twitter {
-            tw = "Google"
+            tw = user!.twitter!;
         }
         else{
             tw = "X";
         }
         if contacts {
-            phonenum = "123456789"
-            name = "agoodtester"
+            phonenum = user!.phoneNumber!;
+            name = user!.firstName! + user!.lastName!;
         }
         else{
             name = "X";
             phonenum="X";
         }
-        return Csv.dataToCsv(email: "agood@user.com", name: name, phoneNumber: phonenum, instagram: insta, facebook: fb, snapchat: snap, twitter: tw);
+        if(twoWaySwap){
+            uid = user!.uid!;
+        }
+        else{
+            uid = "X";
+        }
+        return Csv.dataToCsv(uid: uid, name: name, phoneNumber: phonenum, instagram: insta, facebook: fb, snapchat: snap, twitter: tw);
+    }
+    
+    static func encodingToBool(encodedStr: String) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
+        let data = Csv.csvToData(csv: encodedStr);
+        var twoSwap = false;
+        var instagram = false;
+        var twitter = false;
+        var facebook =  false;
+        var contacts = false;
+        var snapchat = false;
+        if(data[0] != "X"){
+            twoSwap = true;
+        }
+        if(data[2] != "X"){
+            contacts = true;
+        }
+        if(data[3] != "X"){
+            instagram = true;
+        }
+        if(data[4] != "X"){
+            facebook = true;
+        }
+        if(data[5] != "X"){
+            snapchat = true;
+        }
+        if(data[6] != "X"){
+            twitter = true;
+        }
+        
+        //return tuple
+        return (twoSwap, contacts, instagram, facebook, snapchat, twitter);
     }
 }
 
