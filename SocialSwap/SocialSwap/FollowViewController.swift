@@ -5,14 +5,15 @@
 //  Created by Ashley Nussbaum on 4/18/20.
 //  Copyright © 2020 Daye Jack, Ashley Nussbaum, Jonathan Sussman. All rights reserved.
 //
-
 import UIKit
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
 class FollowViewController: UIViewController {
+    var user = User()
     var currentUser: User?
+    var dbloaded = false
 
     //buttons
     @IBOutlet weak var instagramButton: UIButton!
@@ -43,7 +44,6 @@ class FollowViewController: UIViewController {
     var facebookEnabled: Bool?
     
     var sendFollowBackNotification: Bool = false
-<<<<<<< HEAD
     
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
 
@@ -74,14 +74,11 @@ class FollowViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
-            self.dbloaded=true
+            //set scanned user?
               })
 
         
     }
-=======
- 
->>>>>>> one-time current-user initialization
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +90,6 @@ class FollowViewController: UIViewController {
     
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
