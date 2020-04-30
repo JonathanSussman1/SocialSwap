@@ -13,8 +13,7 @@ import FirebaseAuth
 
 
 class QrViewController: UIViewController {
-    var user = User()
-    var dbloaded = false
+    var currentUser: User?
     var instagram: Bool = false
     var facebook: Bool = false
     var snapchat: Bool = false
@@ -25,6 +24,7 @@ class QrViewController: UIViewController {
     @IBOutlet weak var qrImageView: UIImageView!
     
     
+<<<<<<< HEAD
      func getSignedInUser(completion:@escaping((User?) -> ())) {
 
          let db = Firestore.firestore()
@@ -58,10 +58,10 @@ class QrViewController: UIViewController {
               })
     }
     
+=======
+>>>>>>> one-time current-user initialization
     override func viewDidLoad() {  
         super.viewDidLoad()
-        print(user.facebook!)
-        print(user.email!)
         // currently boolToEncoding does not encode real values
         // it is using defaults, until we have user data
         let qrString:String = Code.boolToEncoding(user: user, instagram: instagram, facebook: facebook, twitter: twitter, snapchat: snapchat, contacts: contacts, twoWaySwap: user.twoWaySwap!);

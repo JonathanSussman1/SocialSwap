@@ -12,8 +12,7 @@ import Firebase
 import FirebaseAuth
 
 class FollowViewController: UIViewController {
-    var user = User()
-    var dbloaded = false
+    var currentUser: User?
 
     //buttons
     @IBOutlet weak var instagramButton: UIButton!
@@ -25,7 +24,6 @@ class FollowViewController: UIViewController {
     
     
     var scannedUser: User?
-    var currentUser: User?
     var csvForSwap: String?
     var swapData: [String]?
     var sessionStarter: SessionStarterDelegate?
@@ -45,6 +43,7 @@ class FollowViewController: UIViewController {
     var facebookEnabled: Bool?
     
     var sendFollowBackNotification: Bool = false
+<<<<<<< HEAD
     
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
 
@@ -80,6 +79,9 @@ class FollowViewController: UIViewController {
 
         
     }
+=======
+ 
+>>>>>>> one-time current-user initialization
 
     override func viewDidLoad() {
         super.viewDidLoad()

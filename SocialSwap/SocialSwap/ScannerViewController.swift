@@ -18,11 +18,11 @@ protocol SessionStarterDelegate {
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, SessionStarterDelegate {
     
-    var dbloaded = false
-    var user = User()
+    var currentUser: User?
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
     
+<<<<<<< HEAD
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
         
         let db = Firestore.firestore()
@@ -59,6 +59,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     
+=======
+>>>>>>> one-time current-user initialization
     override func viewDidLoad() {
         super.viewDidLoad()
 
