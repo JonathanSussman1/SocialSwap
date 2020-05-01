@@ -17,7 +17,6 @@
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
-		21C9EC7424393BF900B9C2BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7224393BF900B9C2BE /* Main.storyboard */; };
 		21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7524393C1500B9C2BE /* Assets.xcassets */; };
 		21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */; };
 		21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC802439540900B9C2BE /* GoogleService-Info.plist */; };
@@ -35,6 +34,7 @@
 		45EB2EF124458F460021C6DB /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF024458F460021C6DB /* snapchat.png */; };
 		45EB2EF324458F4E0021C6DB /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 45EB2EF224458F4E0021C6DB /* twitter.png */; };
 		529A1FF3244CE9BF00ED331A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A1FF2244CE9BF00ED331A /* LoginViewController.swift */; };
+		529A1FFA245A889200ED331A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 529A1FF9245A884100ED331A /* Main.storyboard */; };
 		9CFAC8953AC9C3088375E863 /* Pods_SocialSwap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +51,6 @@
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		21C9EC7024393BF900B9C2BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		21C9EC7324393BF900B9C2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21C9EC7524393C1500B9C2BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21C9EC7824393C1600B9C2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C9EC7A24393C1600B9C2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -70,6 +69,7 @@
 		45EB2EF024458F460021C6DB /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchat.png; sourceTree = "<group>"; };
 		45EB2EF224458F4E0021C6DB /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		529A1FF2244CE9BF00ED331A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		529A1FF9245A884100ED331A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		600F9E3F85401733043558AB /* Pods-SocialSwap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSwap.release.xcconfig"; path = "Target Support Files/Pods-SocialSwap/Pods-SocialSwap.release.xcconfig"; sourceTree = "<group>"; };
 		9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,6 +118,7 @@
 		21C9EC6B24393BF900B9C2BE /* SocialSwap */ = {
 			isa = PBXGroup;
 			children = (
+				529A1FF9245A884100ED331A /* Main.storyboard */,
 				457E9B0A24465FBA00B3294A /* instagram.png */,
 				45EB2EEE24458F400021C6DB /* facebook.png */,
 				45EB2EF024458F460021C6DB /* snapchat.png */,
@@ -131,7 +132,6 @@
 				45C30282244E5EA100761D58 /* SignUp2ViewController.swift */,
 				21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */,
 				21C9EC7024393BF900B9C2BE /* ViewController.swift */,
-				21C9EC7224393BF900B9C2BE /* Main.storyboard */,
 				4547C326245513430015D5A8 /* NotificationsTableViewController.swift */,
 				45C30284244FEB7200761D58 /* TabBarController.swift */,
 				45C3027E244E468D00761D58 /* SettingsViewController.swift */,
@@ -226,6 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529A1FFA245A889200ED331A /* Main.storyboard in Resources */,
 				45EB2EF124458F460021C6DB /* snapchat.png in Resources */,
 				457E9AFD2446492700B3294A /* SSgradient.png in Resources */,
 				45EB2EF324458F4E0021C6DB /* twitter.png in Resources */,
@@ -235,7 +236,6 @@
 				21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */,
 				457E9AFF24464A2700B3294A /* SocialSwapIcon.png in Resources */,
 				457E9B0B24465FBA00B3294A /* instagram.png in Resources */,
-				21C9EC7424393BF900B9C2BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,14 +312,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		21C9EC7224393BF900B9C2BE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				21C9EC7324393BF900B9C2BE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -451,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8AAB759SX;
+				DEVELOPMENT_TEAM = 454DMKWF59;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

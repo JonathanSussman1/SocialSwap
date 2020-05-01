@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SignUp2ViewController: UIViewController, UITextFieldDelegate {
-    var user=User()
+    var currentUser=User()
 
     //fields
     @IBOutlet weak var instagramField: UITextField!
@@ -20,7 +20,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var snapchatField: UITextField!
     @IBOutlet weak var twitterField: UITextField!
     var fields: [UITextField] = []
-    var email="",firstName="",lastName="",number="",instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
+    var email: String?,firstName: String?,lastName: String?,number: String?,instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -116,14 +116,14 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
             "snapchat" : snapchatSaveField ,
                    ], merge: true)
         
-        user.firstName=firstName
-        user.lastName=lastName
-        user.email=email
-        user.phoneNumber=number
-        user.facebook=facebookSaveField
-        user.twitter=twitterSaveField
-        user.instagram=instagramSaveField
-        user.snapchat=snapchatSaveField
+        currentUser.firstName=firstName
+        currentUser.lastName=lastName
+        currentUser.email=email
+        currentUser.phoneNumber=number
+        currentUser.facebook=facebookSaveField
+        currentUser.twitter=twitterSaveField
+        currentUser.instagram=instagramSaveField
+        currentUser.snapchat=snapchatSaveField
         self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
         
     }
@@ -146,9 +146,6 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(user.firstName!)
-        print(user.lastName!)
-        print(user.email!)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
 //
             
@@ -163,7 +160,9 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+       let vc = segue.destination as! TabBarController
+                     vc.currentUser=currentUser
+             
     }
     
 

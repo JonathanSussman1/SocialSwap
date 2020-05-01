@@ -21,7 +21,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var numberField: UITextField!
     var fields: [UITextField] = []
     var email="",firstName="",lastName="",number=""
-    var user = User()
+    var currentUser = User()
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -50,9 +50,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                  "userNamesOfSwapRecieves" : []
              ], merge: true)
              
-             self.user = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
+             self.currentUser = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
              
-            completion(self.user)
+            completion(self.currentUser)
          } else { completion(nil)
              }})
                  
@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     //next button
     @IBAction func nextButtonPressed(_ sender: Any) {
-        self.modifyCurrentUser(user: user) { (user) -> () in
+        self.modifyCurrentUser(user: currentUser) { (user) -> () in
             if user != nil {
                          self.performSegue(withIdentifier: "firstSignUpSegue", sender: nil)
 
@@ -106,11 +106,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSignUpSegue"{
             let vc = segue.destination as! SignUp2ViewController
+            let email = self.emailField.text
+            let firstName = self.firstNameField.text
+            let lastName = self.lastNameField.text
+            let number = self.numberField.text
             vc.firstName=firstName
             vc.email=email
             vc.number=number
             vc.lastName=lastName
-            vc.user=user
+            vc.currentUser=currentUser
             }
         }
     

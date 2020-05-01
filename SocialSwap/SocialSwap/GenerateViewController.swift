@@ -12,8 +12,7 @@ import Firebase
 import FirebaseAuth
 
 class GenerateViewController: UIViewController {
-    var user = User()
-    var dbloaded=false
+    var currentUser: User?
 
     //platform buttons
     @IBOutlet weak var instagramButton: UIButton!
@@ -32,46 +31,11 @@ class GenerateViewController: UIViewController {
     //button arrays
     var buttons: [UIButton] = []
     var icons: [UIImageView] = []
-    
-     func getSignedInUser(completion:@escaping((User?) -> ())) {
 
-         let db = Firestore.firestore()
-        _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
-              if let document = document, document.exists {
-                 let uemail = document.data()?["email"] as! String
-                 let ufb = document.data()?["facebook"] as! String
-                 let ufirstname = document.data()?["firstName"] as! String
-                 let uid = document.data()?["id"] as! String
-                 let uinstagram = document.data()?["instagram"] as! String
-                 let ulastname = document.data()?["lastName"] as! String
-                 let uphonenumber = document.data()?["phoneNumber"] as! String
-                 let usnapchat = document.data()?["snapchat"] as! String
-                 let utwitter = document.data()?["twitter"] as! String
-                 let utwowayswap = document.data()?["twoWaySwap"] as! Bool
-                 let uswapreceives = document.data()?["userNamesOfSwapRecieves"] as! [String]
-                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, userNamesOfSwapRecieves: uswapreceives)
-                completion(self.user)
-                self.viewDidLoad()
-              } else {
-                 print("Error getting user")
-                 completion(nil)
-             }
-         }
-     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-
-        getSignedInUser(completion: { user in
-            self.dbloaded=true
-              })
-
-        
-    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
         // Do any additional setup after loading the view.
         
         //initialize button arrays
@@ -79,10 +43,29 @@ class GenerateViewController: UIViewController {
         
         icons = [instagramIcon, facebookIcon, snapchatIcon, twitterIcon, contactsIcon]
         
+        setButtons()
+    }
+    
+    
+    func setButtons() {
         //deselect all buttons
         for i in 0..<buttons.count {
             buttons[i].alpha = 0.3
             icons[i].alpha = 0.3
+        }
+        
+        //disable buttons if user doesnt have account
+        if currentUser!.instagram == "" {
+            instagramButton.isEnabled = false
+        }
+        if currentUser!.facebook == "" {
+            facebookButton.isEnabled = false
+        }
+        if currentUser!.snapchat == "" {
+            snapchatButton.isEnabled = false
+        }
+        if currentUser!.twitter == "" {
+            twitterButton.isEnabled = false
         }
     }
     
@@ -140,7 +123,7 @@ class GenerateViewController: UIViewController {
         
         //destination view controller
         let qrvc: QrViewController = segue.destination as! QrViewController
-        qrvc.user=user
+            qrvc.currentUser=currentUser!
         //check to see which platforms are selected and send to QR view controller
         if instagramButton.alpha == 1 {
             qrvc.instagram = true

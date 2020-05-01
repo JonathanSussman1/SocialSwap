@@ -12,8 +12,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
-    var user = User()
-    var dbloaded = false
+    var currentUser: User?
 
     //username and info labels
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -119,7 +118,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         //no empty fields
         if emptyFieldName == "" {
             
-            var email="",firstName="",lastName="",number="",instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
+            var instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitterSaveField=""
             
             if (!(instagramField.text ?? "").isEmpty){
                 instagramSaveField = instagramField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
@@ -190,13 +189,13 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
                 "snapchat" : snapchatSaveField ,
                        ], merge: true)
             
-            user.firstName=firstNameField.text
-            user.lastName=lastNameField.text
-            user.phoneNumber=numberField.text
-            user.facebook=facebookSaveField
-            user.twitter=twitterSaveField
-            user.instagram=instagramSaveField
-            user.snapchat=snapchatSaveField
+            currentUser!.firstName=firstNameField.text
+            currentUser!.lastName=lastNameField.text
+            currentUser!.phoneNumber=numberField.text
+            currentUser!.facebook=facebookSaveField
+            currentUser!.twitter=twitterSaveField
+            currentUser!.instagram=instagramSaveField
+            currentUser!.snapchat=snapchatSaveField
 
             
             //switch out of edit mode
@@ -269,56 +268,21 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-     func getSignedInUser(completion:@escaping((User?) -> ())) {
-
-         let db = Firestore.firestore()
-        _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
-              if let document = document, document.exists {
-                 let uemail = document.data()?["email"] as! String
-                 let ufb = document.data()?["facebook"] as! String
-                 let ufirstname = document.data()?["firstName"] as! String
-                 let uid = document.data()?["id"] as! String
-                 let uinstagram = document.data()?["instagram"] as! String
-                 let ulastname = document.data()?["lastName"] as! String
-                 let uphonenumber = document.data()?["phoneNumber"] as! String
-                 let usnapchat = document.data()?["snapchat"] as! String
-                 let utwitter = document.data()?["twitter"] as! String
-                 let utwowayswap = document.data()?["twoWaySwap"] as! Bool
-                 let uswapreceives = document.data()?["userNamesOfSwapRecieves"] as! [String]
-                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, userNamesOfSwapRecieves: uswapreceives)
-                completion(self.user)
-                self.viewDidLoad()
-              } else {
-                 print("Error getting user")
-                 completion(nil)
-             }
-         }
-     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-
-        getSignedInUser(completion: { user in
-            self.dbloaded=true
-              })
-
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstNameField.text=(user.firstName)
-        lastNameField.text=(user.lastName)
-        numberField.text=(user.phoneNumber)
-        instagramField.text=(user.instagram)
-        facebookField.text=(user.facebook)
-        snapchatField.text=(user.snapchat)
-        twitterField.text=(user.twitter)
+        firstNameField.text=(currentUser!.firstName)
+        lastNameField.text=(currentUser!.lastName)
+        numberField.text=(currentUser!.phoneNumber)
+        instagramField.text=(currentUser!.instagram)
+        facebookField.text=(currentUser!.facebook)
+        snapchatField.text=(currentUser!.snapchat)
+        twitterField.text=(currentUser!.twitter)
 
              
         
         //set twowayswap switch in correct position corresponding to database
-        if user.twoWaySwap==true{
+        if currentUser!.twoWaySwap==true{
             twoWaySwap.setOn(true, animated: false)
         }
         else{
@@ -339,9 +303,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         for field in fields {
             field.delegate = self
         }
-        
-        //TODO: fill text fields with user's info and set two-way swap
-        
+
         
         //not in edit mode
         showTextFields(edit: false)

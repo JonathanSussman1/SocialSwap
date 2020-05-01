@@ -5,7 +5,6 @@
 //  Created by DAYE JACK on 4/11/20.
 //  Copyright © 2020 Daye Jack, Ashley Nussbaum, Jonathan Sussman. All rights reserved.
 //
-
 import UIKit
 import AVFoundation
 import Firebase
@@ -17,14 +16,14 @@ protocol SessionStarterDelegate {
 }
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, SessionStarterDelegate {
-    
+    var currentUser: User?
     var dbloaded = false
     var user = User()
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
-    
+
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
-        
+
         let db = Firestore.firestore()
         _ = db.collection("users").document(uid).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -48,7 +47,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
     }
-    
+
 
     override func viewWillAppear(_ animated: Bool) {
 
@@ -109,25 +108,26 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 followVc.facebookEnabled = facebook
                 followVc.snapchatEnabled = snapchat
                 followVc.twitterEnabled = twitter
+                
+                followVc.currentUser = self.currentUser
+                if self.currentUser?.twoWaySwap ?? true {
+                    followVc.sendFollowBackNotification = true
+                }
+                else {
+                    followVc.sendFollowBackNotification = false
+                }
+                
                 self.present(followVc, animated: true)
             }
         }
     }
 
-    
+    /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let followvc: FollowViewController = segue.destination as! FollowViewController
-        //UNCOMMENT WHEN USER IS ADDED
-        //if currentUser.twoWaySwap {
-            followvc.sendFollowBackNotification = true
-        //}
-        //else {
-            //followvc.sendFollowBackNotification = false
-        //}
     }
-    
+    */
 }
