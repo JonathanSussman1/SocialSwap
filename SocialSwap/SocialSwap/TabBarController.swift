@@ -12,7 +12,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
  class TabBarController: UITabBarController, UITabBarControllerDelegate {
-    public var currentUser = User.init()
+    var currentUser: User?
     var dbloaded=false
     /*
     - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
@@ -64,7 +64,6 @@ import FirebaseAuth
     
     override func viewWillAppear(_ animated: Bool) {
 
-        getSignedInUser(completion: { currentUser in
             self.dbloaded=true
             let settings = (self.viewControllers![3]) as! SettingsViewController as SettingsViewController
             settings.currentUser = self.currentUser
@@ -74,7 +73,6 @@ import FirebaseAuth
             generate.currentUser = self.currentUser
             let scanner = (self.viewControllers![1]) as! ScannerViewController as ScannerViewController
                       scanner.currentUser = self.currentUser
-              })
 
         
     }
@@ -83,7 +81,6 @@ import FirebaseAuth
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         self.delegate = self
     }

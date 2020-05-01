@@ -106,6 +106,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSignUpSegue"{
             let vc = segue.destination as! SignUp2ViewController
+            let email = self.emailField.text
+            let firstName = self.firstNameField.text
+            let lastName = self.lastNameField.text
+            let number = self.numberField.text
             vc.firstName=firstName
             vc.email=email
             vc.number=number

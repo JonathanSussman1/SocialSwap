@@ -20,7 +20,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var snapchatField: UITextField!
     @IBOutlet weak var twitterField: UITextField!
     var fields: [UITextField] = []
-    var email="",firstName="",lastName="",number="",instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
+    var email: String?,firstName: String?,lastName: String?,number: String?,instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -160,7 +160,9 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+       let vc = segue.destination as! TabBarController
+                     vc.currentUser=currentUser
+             
     }
     
 
