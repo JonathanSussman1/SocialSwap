@@ -61,7 +61,7 @@
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dfc-NN-6hZ">
                                 <rect key="frame" x="173" y="250" width="149.33333333333337" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEQ-Xm-a1R">
                                 <rect key="frame" x="180" y="250" width="0.0" height="34"/>
@@ -342,7 +342,7 @@
                                     <constraint firstAttribute="width" constant="189" id="PYg-GJ-Tr1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BsP-n8-anm">
                                 <rect key="frame" x="112.66666666666669" y="378" width="189" height="34"/>
@@ -351,7 +351,7 @@
                                     <constraint firstAttribute="height" constant="34" id="83Y-Lb-nxb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Jy-0h-1sX">
                                 <rect key="frame" x="161" y="460" width="92" height="40"/>
@@ -1052,7 +1052,7 @@
                                     <constraint firstAttribute="height" constant="34" id="R5k-tP-gg8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpn-K9-mox">
                                 <rect key="frame" x="112.66666666666669" y="312" width="189" height="34"/>
@@ -1061,7 +1061,7 @@
                                     <constraint firstAttribute="width" constant="189" id="tfG-P7-1tk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tn-1V-FMY">
                                 <rect key="frame" x="161" y="590" width="92" height="40"/>
@@ -1132,7 +1132,7 @@
                                     <constraint firstAttribute="height" constant="34" id="gfK-Px-Wcv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1351,6 +1351,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IAt-nG-tA6"/>
-        <segue reference="rDz-oQ-Pfg"/>
+        <segue reference="NKx-oa-hnO"/>
     </inferredMetricsTieBreakers>
 </document>
