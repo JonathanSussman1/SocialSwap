@@ -71,8 +71,8 @@ class FollowViewController: UIViewController {
                  let usnapchat = document.data()?["snapchat"] as! String
                  let utwitter = document.data()?["twitter"] as! String
                  let utwowayswap = document.data()?["twoWaySwap"] as! Bool
-                 let uswapreceives = document.data()?["userNamesOfSwapRecieves"] as! [String]
-                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, userNamesOfSwapRecieves: uswapreceives)
+                 let uswapreceives = document.data()?["swapReceives"] as! [String:Dictionary<String,Any>]()
+                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, swapReceives: uswapreceives)
                 completion(self.user)
                 self.viewDidLoad()
               } else {

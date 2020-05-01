@@ -47,7 +47,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                  "instagram" : "",
                  "snapchat" : "",
                  "twoWaySwap" : true,
-                 "userNamesOfSwapRecieves" : []
+                 "swapReceives" : [String:Dictionary<String, Any>]()
              ], merge: true)
              
              self.currentUser = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
