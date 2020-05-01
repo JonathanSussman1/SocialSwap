@@ -21,6 +21,17 @@ class FollowViewController: UIViewController {
     @IBOutlet weak var snapchatButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
     @IBOutlet weak var contactsButton: UIButton!
+    var buttons: [UIButton] = []
+    
+    //icons
+    @IBOutlet weak var instagramIcon: UIImageView!
+    @IBOutlet weak var facebookIcon: UIImageView!
+    @IBOutlet weak var snapchatIcon: UIImageView!
+    @IBOutlet weak var twitterIcon: UIImageView!
+    @IBOutlet weak var contactsIcon: UIImageView!
+    var icons: [UIImageView] = []
+    
+    
     @IBOutlet weak var nameLabel: UILabel!
     
     
@@ -36,15 +47,15 @@ class FollowViewController: UIViewController {
     var twitterPressed: Bool = false
     var contactsPressed: Bool = false
     
-    var instagramEnabled: Bool?
-    var twitterEnabled: Bool?
-    var snapchatEnabled: Bool?
-    var twoWaySwapEnabled: Bool?
-    var contactsEnabled: Bool?
-    var facebookEnabled: Bool?
+    var instagramEnabled: Bool = false
+    var twitterEnabled: Bool = false
+    var snapchatEnabled: Bool = false
+    var twoWaySwapEnabled: Bool = false
+    var contactsEnabled: Bool = false
+    var facebookEnabled: Bool = false
     
     var sendFollowBackNotification: Bool = false
-    
+    /*
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
 
          let db = Firestore.firestore()
@@ -70,7 +81,7 @@ class FollowViewController: UIViewController {
              }
          }
      }
-    
+  
     override func viewWillAppear(_ animated: Bool) {
 
         getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
@@ -79,12 +90,54 @@ class FollowViewController: UIViewController {
 
         
     }
-
+ */
+    
+    func disableButton(button: UIButton) {
+        button.isEnabled = false
+        button.alpha = 0.3
+        button.setTitle("               N/A", for: UIControl.State.normal)
+        icons[buttons.firstIndex(of: button)!].alpha = 0.3
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //initialize button arrays
+        buttons = [instagramButton, facebookButton, snapchatButton, twitterButton, contactsButton]
+        
+        icons = [instagramIcon, facebookIcon, snapchatIcon, twitterIcon, contactsIcon]
+        
+        
         if(scannedUser != nil){
-            self.nameLabel.text = scannedUser!.firstName! + scannedUser!.lastName!
+            self.nameLabel.text = scannedUser!.firstName! + " " + scannedUser!.lastName!
+            
+            
+            
+            //disable buttons if scannedUser didnt share account and currentUser doesnt have account
+            if !instagramEnabled || currentUser!.instagram == "" {
+               disableButton(button: instagramButton)
+            }
+            if !facebookEnabled || currentUser!.facebook == "" {
+               disableButton(button: facebookButton)
+            }
+            if !snapchatEnabled || currentUser!.snapchat == "" {
+                disableButton(button: snapchatButton)            }
+            if !twitterEnabled || currentUser!.twitter == "" {
+               disableButton(button: twitterButton)
+            }
+            if !contactsEnabled {
+               disableButton(button: contactsButton)
+            }
         }
+         
+        //scannedUser == nil
+        else {
+            for i in 0..<buttons.count {
+                disableButton(button: buttons[i])
+            }
+        }
+            
         // Do any additional setup after loading the view.
     }
     
@@ -109,35 +162,35 @@ class FollowViewController: UIViewController {
     @IBAction func instagramPressed(_ sender: Any) {
         if(scannedUser != nil){
             SwapHelper.openInstagram(handle: scannedUser!.instagram!)
-            instagramButton.setTitle("Followed", for: UIControl.State.normal)
+            instagramButton.setTitle("               Followed", for: UIControl.State.normal)
         }
     }
     
     @IBAction func facebookPressed(_ sender: Any) {
         if(scannedUser != nil){
             SwapHelper.openFacebook(url: scannedUser!.facebook!)
-            facebookButton.setTitle("Added", for: UIControl.State.normal)
+            facebookButton.setTitle("               Added", for: UIControl.State.normal)
         }
     }
     
     @IBAction func snapchatPressed(_ sender: Any) {
         if(scannedUser != nil){
             SwapHelper.openSnapchat(handle: scannedUser!.snapchat!)
-            snapchatButton.setTitle("Added", for: UIControl.State.normal)
+            snapchatButton.setTitle("               Added", for: UIControl.State.normal)
         }
     }
     
     @IBAction func twitterPressed(_ sender: Any) {
         if(scannedUser != nil){
             SwapHelper.openTwitter(handle: scannedUser!.twitter!)
-            twitterButton.setTitle("Followed", for: UIControl.State.normal)
+            twitterButton.setTitle("               Followed", for: UIControl.State.normal)
         }
     }
     
     @IBAction func contactsPressed(_ sender: Any) {
         if(scannedUser != nil){
-            SwapHelper.saveContact(firstName: scannedUser!.firstName!, lastName: scannedUser!.lastName!, phoneNumber: "800111222")
-            contactsButton.setTitle("Added", for: UIControl.State.normal)
+            SwapHelper.saveContact(firstName: scannedUser!.firstName!, lastName: scannedUser!.lastName!, phoneNumber: scannedUser!.phoneNumber!)
+            contactsButton.setTitle("               Added", for: UIControl.State.normal)
         }
     }
 }

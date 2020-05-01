@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
+    <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -786,15 +786,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jda-Sz-vT3" customClass="PreviewView" customModule="SocialSwap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="757"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="jda-Sz-vT3" firstAttribute="top" secondItem="4sd-h7-kiT" secondAttribute="top" constant="12" id="0ju-gt-ZrR"/>
                             <constraint firstItem="4sd-h7-kiT" firstAttribute="bottom" secondItem="jda-Sz-vT3" secondAttribute="bottom" id="14F-bE-RAv"/>
                             <constraint firstItem="jda-Sz-vT3" firstAttribute="centerX" secondItem="4sd-h7-kiT" secondAttribute="centerX" id="KRG-YC-IVH"/>
-                            <constraint firstItem="jda-Sz-vT3" firstAttribute="top" secondItem="4sd-h7-kiT" secondAttribute="top" id="YQ2-u6-y7Y"/>
                             <constraint firstItem="jda-Sz-vT3" firstAttribute="width" secondItem="ILY-k2-jML" secondAttribute="width" id="bQN-Qs-RyY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4sd-h7-kiT"/>
@@ -822,15 +822,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW3-UZ-RL8">
-                                <rect key="frame" x="132" y="245.66666666666663" width="150" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW3-UZ-RL8">
+                                <rect key="frame" x="129" y="245.66666666666663" width="156" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="RoU-el-BnN"/>
+                                    <constraint firstAttribute="width" constant="156" id="RoU-el-BnN"/>
                                     <constraint firstAttribute="height" constant="62" id="rg3-Pi-Ona"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="         Follow">
+                                <state key="normal" title="               Follow">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -842,15 +842,15 @@
                                     <action selector="instagramPressed:" destination="1qR-Oe-2aL" eventType="touchUpInside" id="iAe-lQ-xcb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zW-z5-FN3">
-                                <rect key="frame" x="132" y="333.66666666666669" width="150" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zW-z5-FN3">
+                                <rect key="frame" x="129" y="333.66666666666669" width="156" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="tEf-Zb-VHH"/>
+                                    <constraint firstAttribute="width" constant="156" id="tEf-Zb-VHH"/>
                                     <constraint firstAttribute="height" constant="62" id="yUx-Tx-3pZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="      Add">
+                                <state key="normal" title="               Add">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -862,15 +862,15 @@
                                     <action selector="facebookPressed:" destination="1qR-Oe-2aL" eventType="touchUpInside" id="oNq-WA-HJi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2c5-HW-hxs">
-                                <rect key="frame" x="132" y="422.66666666666669" width="150" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2c5-HW-hxs">
+                                <rect key="frame" x="129" y="422.66666666666669" width="156" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="4AK-O1-JAz"/>
-                                    <constraint firstAttribute="width" constant="150" id="NYF-pU-BM6"/>
+                                    <constraint firstAttribute="width" constant="156" id="NYF-pU-BM6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="      Add">
+                                <state key="normal" title="               Add">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -882,15 +882,15 @@
                                     <action selector="snapchatPressed:" destination="1qR-Oe-2aL" eventType="touchUpInside" id="w0M-AS-JtU"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZg-kT-4u5">
-                                <rect key="frame" x="132" y="509.66666666666674" width="150" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZg-kT-4u5">
+                                <rect key="frame" x="129" y="509.66666666666674" width="156" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="f7p-24-hHT"/>
-                                    <constraint firstAttribute="width" constant="150" id="imR-Qi-NIQ"/>
+                                    <constraint firstAttribute="width" constant="156" id="imR-Qi-NIQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="         Follow">
+                                <state key="normal" title="               Follow">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -902,15 +902,15 @@
                                     <action selector="twitterPressed:" destination="1qR-Oe-2aL" eventType="touchUpInside" id="bkX-qS-LiR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-JD-gKr">
-                                <rect key="frame" x="132" y="597.66666666666663" width="150" height="62"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-JD-gKr">
+                                <rect key="frame" x="129" y="597.66666666666663" width="156" height="62"/>
                                 <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="Rd8-Nb-NbR"/>
-                                    <constraint firstAttribute="width" constant="150" id="Yop-m8-oqJ"/>
+                                    <constraint firstAttribute="width" constant="156" id="Yop-m8-oqJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="      Add">
+                                <state key="normal" title="               Add">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -923,28 +923,28 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram.png" translatesAutoresizingMaskIntoConstraints="NO" id="5og-eD-dzi">
-                                <rect key="frame" x="148" y="257.66666666666669" width="38" height="38"/>
+                                <rect key="frame" x="145" y="257.66666666666669" width="38" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="Obp-L1-SIZ"/>
                                     <constraint firstAttribute="width" constant="38" id="S6G-ll-FXo"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snapchat.png" translatesAutoresizingMaskIntoConstraints="NO" id="RwZ-Up-Ti1">
-                                <rect key="frame" x="143" y="429.66666666666669" width="48" height="48"/>
+                                <rect key="frame" x="140" y="429.66666666666669" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="YUB-yn-OWt"/>
                                     <constraint firstAttribute="height" constant="48" id="rI7-KX-XAb"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter.png" translatesAutoresizingMaskIntoConstraints="NO" id="SkS-jM-cJm">
-                                <rect key="frame" x="134" y="507" width="67" height="67"/>
+                                <rect key="frame" x="131" y="507" width="67" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Ynq-xE-Mcn"/>
                                     <constraint firstAttribute="width" constant="67" id="k02-d2-iUu"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BGB-yV-qUu">
-                                <rect key="frame" x="145" y="606.33333333333337" width="45" height="45.000000000000057"/>
+                                <rect key="frame" x="142" y="606.33333333333337" width="45" height="45.000000000000057"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48.333333333333371" id="rqc-CH-W5v"/>
@@ -952,7 +952,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="fzc-jF-cdR">
-                                <rect key="frame" x="148" y="345.66666666666669" width="38" height="38"/>
+                                <rect key="frame" x="145" y="345.66666666666669" width="38" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="MHL-mM-DnD"/>
                                     <constraint firstAttribute="width" constant="38" id="MMe-h3-ctp"/>
@@ -1003,11 +1003,16 @@
                     <navigationItem key="navigationItem" id="JVV-0a-hA5"/>
                     <connections>
                         <outlet property="contactsButton" destination="zA8-JD-gKr" id="KYL-fK-0nx"/>
+                        <outlet property="contactsIcon" destination="BGB-yV-qUu" id="9Rw-ZP-LwY"/>
                         <outlet property="facebookButton" destination="8zW-z5-FN3" id="7UM-zA-VTl"/>
+                        <outlet property="facebookIcon" destination="fzc-jF-cdR" id="tWa-ng-pDl"/>
                         <outlet property="instagramButton" destination="AW3-UZ-RL8" id="eNp-EM-Bgh"/>
+                        <outlet property="instagramIcon" destination="5og-eD-dzi" id="7q5-sL-e8K"/>
                         <outlet property="nameLabel" destination="zpu-Xm-ee0" id="joS-Cb-Zn3"/>
                         <outlet property="snapchatButton" destination="2c5-HW-hxs" id="ZTe-nF-y1K"/>
+                        <outlet property="snapchatIcon" destination="RwZ-Up-Ti1" id="zSt-NP-mhX"/>
                         <outlet property="twitterButton" destination="tZg-kT-4u5" id="S1G-Xo-MSF"/>
+                        <outlet property="twitterIcon" destination="SkS-jM-cJm" id="CbW-fJ-xGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42y-Nv-ipE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1337,20 +1342,20 @@
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="SSgradient.png" width="1024" height="1024"/>
-        <image name="bell" catalog="system" width="64" height="62"/>
-        <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
-        <image name="instagram.png" width="1500" height="1500"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="qrcode" catalog="system" width="64" height="56"/>
-        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
-        <image name="snapchat.png" width="500" height="500"/>
-        <image name="twitter.png" width="400" height="400"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IAt-nG-tA6"/>
         <segue reference="rDz-oQ-Pfg"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="SSgradient.png" width="1024" height="1024"/>
+        <image name="bell" catalog="system" width="128" height="124"/>
+        <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="instagram.png" width="1500" height="1500"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
+        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
+        <image name="snapchat.png" width="500" height="500"/>
+        <image name="twitter.png" width="400" height="400"/>
+    </resources>
 </document>
