@@ -163,6 +163,16 @@ class FollowViewController: UIViewController {
         if(scannedUser != nil){
             SwapHelper.openInstagram(handle: scannedUser!.instagram!)
             instagramButton.setTitle("               Followed", for: UIControl.State.normal)
+            
+            if !instagramPressed {
+                instagramPressed = true
+                
+                //TODO: update currentUser's swap receives
+                //if scannedUser.uid in map
+                    //scannedUser.uid[instagram] = scannedUser.instagram
+                //else (uid not in map)
+                    //create map for scannedUser.uid where value is a map with instagram : scannedUser.instagram
+            }
         }
     }
     
