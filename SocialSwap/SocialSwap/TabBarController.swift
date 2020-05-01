@@ -29,6 +29,14 @@ import FirebaseAuth
         if selectedIndex == 3 {
             let settingsVC: SettingsViewController = selectedViewController as! SettingsViewController
             if settingsVC.doneEditing() {
+                //reset buttons if generate selected
+                if viewController == viewControllers?[0] {
+                    let generateVC: GenerateViewController = viewController as! GenerateViewController
+                    for i in 0..<generateVC.buttons.count {
+                        generateVC.buttons[i].isEnabled = true
+                    }
+                    generateVC.setButtons()
+                }
                 return true
             }
             return false
