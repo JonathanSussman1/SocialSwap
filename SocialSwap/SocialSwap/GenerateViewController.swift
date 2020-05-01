@@ -43,12 +43,30 @@ class GenerateViewController: UIViewController {
         buttons = [instagramButton, facebookButton, snapchatButton, twitterButton, contactsButton]
         
         icons = [instagramIcon, facebookIcon, snapchatIcon, twitterIcon, contactsIcon]
+
         
         //deselect all buttons
         for i in 0..<buttons.count {
             buttons[i].alpha = 0.3
             icons[i].alpha = 0.3
         }
+        
+        //TODO: this doesn't work because currentUser is nil
+        /*
+        //disable buttons if user doesnt have account
+        if currentUser!.instagram == "" {
+            instagramButton.isEnabled = false
+        }
+        if currentUser!.facebook == "" {
+            facebookButton.isEnabled = false
+        }
+        if currentUser!.snapchat == "" {
+            snapchatButton.isEnabled = false
+        }
+        if currentUser!.twitter == "" {
+            twitterButton.isEnabled = false
+        }
+ */
     }
     
     

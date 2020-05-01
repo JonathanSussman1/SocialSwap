@@ -69,7 +69,7 @@
 		45EB2EF024458F460021C6DB /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapchat.png; sourceTree = "<group>"; };
 		45EB2EF224458F4E0021C6DB /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		529A1FF2244CE9BF00ED331A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		529A1FF9245A884100ED331A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; path = /Users/sussman/Documents/SocialSwap/SocialSwap/SocialSwap/Main.storyboard; sourceTree = "<absolute>"; };
+		529A1FF9245A884100ED331A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main.storyboard; sourceTree = "<group>"; };
 		600F9E3F85401733043558AB /* Pods-SocialSwap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialSwap.release.xcconfig"; path = "Target Support Files/Pods-SocialSwap/Pods-SocialSwap.release.xcconfig"; sourceTree = "<group>"; };
 		9146FB6F437ED38FE458F35F /* Pods_SocialSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
