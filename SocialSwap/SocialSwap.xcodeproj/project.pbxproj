@@ -14,6 +14,7 @@
 		213F7735244294C000856A4C /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F7734244294C000856A4C /* Code.swift */; };
 		213F77372442A5AA00856A4C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F77362442A5AA00856A4C /* PreviewView.swift */; };
 		213F77392442A70900856A4C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F77382442A70900856A4C /* ScannerViewController.swift */; };
+		21A52A5E245DE6C6009403A4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A52A5B245DDF75009403A4 /* UserService.swift */; };
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
@@ -47,6 +48,7 @@
 		213F7734244294C000856A4C /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		213F77362442A5AA00856A4C /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		213F77382442A70900856A4C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		21A52A5B245DDF75009403A4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		21C9EC6924393BF900B9C2BE /* SocialSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				213F7734244294C000856A4C /* Code.swift */,
 				2100B961244A0F60009256D9 /* Csv.swift */,
 				2125FDC3244E6EBE0026CA13 /* SwapHelper.swift */,
+				21A52A5B245DDF75009403A4 /* UserService.swift */,
 			);
 			name = Helpers;
 			path = "New Group";
@@ -301,6 +304,7 @@
 				2125FDC4244E6EBE0026CA13 /* SwapHelper.swift in Sources */,
 				213F772B2442827300856A4C /* QrViewController.swift in Sources */,
 				45B65B70244B7BAC00FE6F23 /* FollowViewController.swift in Sources */,
+				21A52A5E245DE6C6009403A4 /* UserService.swift in Sources */,
 				213F7735244294C000856A4C /* Code.swift in Sources */,
 				213F77372442A5AA00856A4C /* PreviewView.swift in Sources */,
 				529A1FF3244CE9BF00ED331A /* LoginViewController.swift in Sources */,
@@ -443,7 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 454DMKWF59;
+				DEVELOPMENT_TEAM = A8AAB759SX;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

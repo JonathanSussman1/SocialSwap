@@ -55,6 +55,7 @@ class FollowViewController: UIViewController {
     var facebookEnabled: Bool = false
     
     var sendFollowBackNotification: Bool = false
+    var fromNotifications: Bool = false
     /*
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
 

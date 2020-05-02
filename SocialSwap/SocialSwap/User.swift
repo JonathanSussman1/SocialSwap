@@ -20,7 +20,7 @@ class User {
     var snapchat: String?
     var twoWaySwap: Bool?
     var swapReceives:  [String:[String:Any]]
-        init(){
+    init(){
         self.uid = ""
         self.firstName=""
         self.lastName=""
@@ -31,7 +31,7 @@ class User {
         self.facebook = ""
         self.snapchat = ""
         self.twoWaySwap = true
-            self.swapReceives = [:]
+        self.swapReceives = [:]
     }
     init(uid: String, firstName: String, lastName: String, email: String, phoneNumber: String) {
         self.uid = uid
@@ -41,18 +41,18 @@ class User {
         self.phoneNumber=phoneNumber
         self.twoWaySwap=true
         self.twitter = ""
-       self.instagram = ""
-       self.facebook = ""
-       self.snapchat = ""
-       self.twoWaySwap = true
+        self.instagram = ""
+        self.facebook = ""
+        self.snapchat = ""
+        self.twoWaySwap = true
         self.swapReceives = [:]
-       }
+    }
     init(uid: String, firstName: String, lastName: String, email: String, phoneNumber: String,   twitter: String,
-        instagram: String,
-        facebook: String,
-        snapchat: String,
-        twoWaySwap: Bool,
-        swapReceives: [String:[String:Any]] ) {
+         instagram: String,
+         facebook: String,
+         snapchat: String,
+         twoWaySwap: Bool,
+         swapReceives: [String:[String:Any]] ) {
         self.uid = uid
         self.firstName=firstName
         self.lastName=lastName
@@ -60,10 +60,10 @@ class User {
         self.phoneNumber=phoneNumber
         self.twoWaySwap=true
         self.twitter = twitter
-       self.instagram = instagram
-       self.facebook = facebook
-       self.snapchat = snapchat
-       self.twoWaySwap = true
+        self.instagram = instagram
+        self.facebook = facebook
+        self.snapchat = snapchat
+        self.twoWaySwap = true
         self.swapReceives = swapReceives
-       }
+    }
 }

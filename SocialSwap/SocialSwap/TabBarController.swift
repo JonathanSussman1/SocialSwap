@@ -75,8 +75,8 @@
             self.dbloaded=true
             let settings = (self.viewControllers![3]) as! SettingsViewController as SettingsViewController
             settings.currentUser = self.currentUser
-            let table =  NotificationsTableViewController()
-            table.currentUser = self.currentUser
+            //let table =  NotificationsTableViewController()
+            //table.currentUser = self.currentUser
             let generate = (self.viewControllers![0]) as! GenerateViewController as GenerateViewController
             generate.currentUser = self.currentUser
             let scanner = (self.viewControllers![1]) as! ScannerViewController as ScannerViewController

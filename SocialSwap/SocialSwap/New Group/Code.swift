@@ -15,7 +15,7 @@ class Code {
     //takes a string encoding as an argument
     static func generateQr(withString qrStr: String) -> UIImage? {
         
-        //inspired my Medium article
+        //inspired by Medium article
         // https://medium.com/@dominicfholmes/generating-qr-codes-in-swift-4-b5dacc75727c
         let data = qrStr.data(using: String.Encoding.ascii)
         guard let qrFilter = CIFilter(name: "CIQRCodeGenerator") else {
@@ -126,43 +126,48 @@ class Code {
             insta = user!.instagram!;
         }
         else{
-            insta = "X";
+            insta = "";
         }
         if snapchat {
             snap = user!.snapchat!;
         }
         else{
-            snap = "X";
+            snap = "";
         }
         if facebook {
             fb = user!.facebook!;
         }
         else{
-            fb = "X";
+            fb = "";
         }
         if twitter {
             tw = user!.twitter!;
         }
         else{
-            tw = "X";
+            tw = "";
         }
         if contacts {
             phonenum = user!.phoneNumber!;
-            name = user!.firstName! + user!.lastName!;
         }
         else{
-            name = "X";
-            phonenum="X";
+            phonenum="";
         }
         if(twoWaySwap){
             uid = user!.uid!;
         }
         else{
-            uid = "X";
+            uid = "";
         }
+        
+        name = user!.firstName! + user!.lastName!;
+        
         return Csv.dataToCsv(uid: uid, name: name, phoneNumber: phonenum, instagram: insta, facebook: fb, snapchat: snap, twitter: tw);
     }
     
+    
+    // encodingToBool - takes an encoded csv swap string, and returns tuple of booleans
+    // the returned tuple is true when the user shares a given piece of contact data
+    // and false otherwise
     static func encodingToBool(encodedStr: String) -> (Bool, Bool, Bool, Bool, Bool, Bool) {
         let data = Csv.csvToData(csv: encodedStr);
         var twoSwap = false;
@@ -171,22 +176,22 @@ class Code {
         var facebook =  false;
         var contacts = false;
         var snapchat = false;
-        if(data[0] != "X"){
+        if(data[0] != ""){
             twoSwap = true;
         }
-        if(data[2] != "X"){
+        if(data[2] != ""){
             contacts = true;
         }
-        if(data[3] != "X"){
+        if(data[3] != ""){
             instagram = true;
         }
-        if(data[4] != "X"){
+        if(data[4] != ""){
             facebook = true;
         }
-        if(data[5] != "X"){
+        if(data[5] != ""){
             snapchat = true;
         }
-        if(data[6] != "X"){
+        if(data[6] != ""){
             twitter = true;
         }
         

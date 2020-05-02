@@ -84,7 +84,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
     }
     
-    //when code is scanned print on console
+    //when code is scanned do something
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         captureSession?.stopRunning()
         captureSession = nil
@@ -100,8 +100,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             followVc.sessionStarter = self
             getUser(uid: Csv.csvToData(csv: strVal)[0]) { (user) in
                 followVc.scannedUser = user
-                let (twoWaySwap, contacts, instagram, facebook, snapchat, twitter) = Code.encodingToBool(encodedStr: strVal)
-                followVc.twoWaySwapEnabled = twoWaySwap
+                let (_, contacts, instagram, facebook, snapchat, twitter) = Code.encodingToBool(encodedStr: strVal)
+                //followVc.twoWaySwapEnabled = twoWaySwap
                 followVc.contactsEnabled = contacts
                 followVc.instagramEnabled = instagram
                 followVc.facebookEnabled = facebook

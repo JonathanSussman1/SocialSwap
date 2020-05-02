@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v8S-p3-uOA">
     <device id="retina6_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -449,22 +449,32 @@
             </objects>
             <point key="canvasLocation" x="-4194" y="-194"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Notifications Table View Controller-->
         <scene sceneID="yhi-bn-JqF">
             <objects>
-                <tableViewController id="iAr-9p-kpm" sceneMemberID="viewController">
+                <tableViewController id="iAr-9p-kpm" customClass="NotificationsTableViewController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xDP-dO-1XO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="S6v-Bo-C59">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" textLabel="Zop-St-E2L" style="IBUITableViewCellStyleDefault" id="S6v-Bo-C59">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S6v-Bo-C59" id="i1N-fA-rNR">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zop-St-E2L">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="reuseIdentifier"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1345,20 +1355,20 @@
             <point key="canvasLocation" x="-4259.420289855073" y="687.72321428571422"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SSgradient.png" width="1024" height="1024"/>
+        <image name="bell" catalog="system" width="64" height="62"/>
+        <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
+        <image name="instagram.png" width="1500" height="1500"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="qrcode" catalog="system" width="64" height="56"/>
+        <image name="qrcode.viewfinder" catalog="system" width="64" height="56"/>
+        <image name="snapchat.png" width="500" height="500"/>
+        <image name="twitter.png" width="400" height="400"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="IAt-nG-tA6"/>
         <segue reference="rDz-oQ-Pfg"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="SSgradient.png" width="1024" height="1024"/>
-        <image name="bell" catalog="system" width="128" height="124"/>
-        <image name="facebook.png" width="1028.6400146484375" height="1028.6400146484375"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
-        <image name="instagram.png" width="1500" height="1500"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="qrcode" catalog="system" width="128" height="114"/>
-        <image name="qrcode.viewfinder" catalog="system" width="128" height="114"/>
-        <image name="snapchat.png" width="500" height="500"/>
-        <image name="twitter.png" width="400" height="400"/>
-    </resources>
 </document>
