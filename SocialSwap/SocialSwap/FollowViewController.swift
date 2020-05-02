@@ -164,9 +164,11 @@ class FollowViewController: UIViewController {
             SwapHelper.openInstagram(handle: scannedUser!.instagram!)
             instagramButton.setTitle("               Followed", for: UIControl.State.normal)
             
-            if !instagramPressed {
+
+            if !instagramPressed && sendFollowBackNotification {
                 instagramPressed = true
                 
+                //uid is in map
                 if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.instagram!, forKey: "instagram")
                     let db = Firestore.firestore()
@@ -174,6 +176,7 @@ class FollowViewController: UIViewController {
                         "swapReceives" : scannedUser!.swapReceives
                                ], merge: true)
                 }
+                //uid isnt in map
                 else{
                     scannedUser!.swapReceives.updateValue(["instagram":currentUser!.instagram!], forKey: currentUser!.uid!)
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
@@ -191,6 +194,30 @@ class FollowViewController: UIViewController {
         if(scannedUser != nil){
             SwapHelper.openFacebook(url: scannedUser!.facebook!)
             facebookButton.setTitle("               Added", for: UIControl.State.normal)
+            
+            
+            if !facebookPressed && sendFollowBackNotification {
+                facebookPressed = true
+                
+                //uid is in map
+                if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.facebook!, forKey: "facebook")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+                //uid isnt in map
+                else{
+                    scannedUser!.swapReceives.updateValue(["facebook":currentUser!.facebook!], forKey: currentUser!.uid!)
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+            }
         }
     }
     
@@ -198,6 +225,30 @@ class FollowViewController: UIViewController {
         if(scannedUser != nil){
             SwapHelper.openSnapchat(handle: scannedUser!.snapchat!)
             snapchatButton.setTitle("               Added", for: UIControl.State.normal)
+            
+            
+            if !snapchatPressed && sendFollowBackNotification {
+                snapchatPressed = true
+                
+                //uid is in map
+                if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.snapchat!, forKey: "snapchat")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+                //uid isnt in map
+                else{
+                    scannedUser!.swapReceives.updateValue(["snapchat":currentUser!.snapchat!], forKey: currentUser!.uid!)
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+            }
         }
     }
     
@@ -205,6 +256,30 @@ class FollowViewController: UIViewController {
         if(scannedUser != nil){
             SwapHelper.openTwitter(handle: scannedUser!.twitter!)
             twitterButton.setTitle("               Followed", for: UIControl.State.normal)
+            
+            
+            if !twitterPressed && sendFollowBackNotification {
+                twitterPressed = true
+                
+                //uid is in map
+                if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.twitter!, forKey: "twitter")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+                //uid isnt in map
+                else{
+                    scannedUser!.swapReceives.updateValue(["twitter":currentUser!.twitter!], forKey: currentUser!.uid!)
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+            }
         }
     }
     
@@ -212,6 +287,30 @@ class FollowViewController: UIViewController {
         if(scannedUser != nil){
             SwapHelper.saveContact(firstName: scannedUser!.firstName!, lastName: scannedUser!.lastName!, phoneNumber: scannedUser!.phoneNumber!)
             contactsButton.setTitle("               Added", for: UIControl.State.normal)
+            
+            
+            if !contactsPressed && sendFollowBackNotification {
+                contactsPressed = true
+                
+                //uid is in map
+                if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.phoneNumber!, forKey: "phoneNumber")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+                //uid isnt in map
+                else{
+                    scannedUser!.swapReceives.updateValue(["phoneNumber":currentUser!.phoneNumber!], forKey: currentUser!.uid!)
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
+                               ], merge: true)
+                }
+            }
         }
     }
 }
