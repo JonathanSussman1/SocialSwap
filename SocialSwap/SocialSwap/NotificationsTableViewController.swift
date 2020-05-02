@@ -97,8 +97,9 @@ class NotificationsTableViewController: UITableViewController {
 
         // Configure the cell...
         if(self.followBackUsers.count > indexPath.row){
-            cell.textLabel?.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you. Follow back?";
+            cell.textLabel!.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you"
             print(cell.textLabel!.text!)
+            cell.detailTextLabel!.text = "Follow back?"
         }
         return cell
     }
