@@ -96,8 +96,8 @@ class NotificationsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel!.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you. Follow back?";
-        print(cell.textLabel!.text!)
+        cell.textLabel!.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you"
+        cell.detailTextLabel!.text = "Follow back?"
         return cell
     }
    
