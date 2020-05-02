@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class GenerateViewController: UIViewController {
     var currentUser: User?
+    var soundManager = SoundManager()
 
     //platform buttons
     @IBOutlet weak var instagramButton: UIButton!
@@ -32,7 +33,6 @@ class GenerateViewController: UIViewController {
     var buttons: [UIButton] = []
     var icons: [UIImageView] = []
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +96,8 @@ class GenerateViewController: UIViewController {
     
     //generate QR code button pressed
     @IBAction func generateButtonPressed(_ sender: Any) {
+        soundManager.stopGenerate()
+        soundManager.playGenerate()
         
         //display an alert if no platforms are selected
         if !anySelected() {

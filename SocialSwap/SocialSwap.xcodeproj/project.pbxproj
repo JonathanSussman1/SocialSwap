@@ -15,6 +15,10 @@
 		213F77372442A5AA00856A4C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F77362442A5AA00856A4C /* PreviewView.swift */; };
 		213F77392442A70900856A4C /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F77382442A70900856A4C /* ScannerViewController.swift */; };
 		21A52A5E245DE6C6009403A4 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A52A5B245DDF75009403A4 /* UserService.swift */; };
+		21A52A60245E354D009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A5F245E354B009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 */; };
+		21A52A62245E35AA009403A4 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A52A61245E35AA009403A4 /* SoundManager.swift */; };
+		21A52A64245E3A33009403A4 /* snap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A63245E3A33009403A4 /* snap.mp3 */; };
+		21A52A66245E3B5B009403A4 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A65245E3B5B009403A4 /* water.mp3 */; };
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
@@ -49,6 +53,10 @@
 		213F77362442A5AA00856A4C /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		213F77382442A70900856A4C /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		21A52A5B245DDF75009403A4 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		21A52A5F245E354B009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Button_Press_4-Marianne_Gagnon-570460555.mp3"; sourceTree = "<group>"; };
+		21A52A61245E35AA009403A4 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		21A52A63245E3A33009403A4 /* snap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = snap.mp3; sourceTree = "<group>"; };
+		21A52A65245E3B5B009403A4 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		21C9EC6924393BF900B9C2BE /* SocialSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +103,7 @@
 				2100B961244A0F60009256D9 /* Csv.swift */,
 				2125FDC3244E6EBE0026CA13 /* SwapHelper.swift */,
 				21A52A5B245DDF75009403A4 /* UserService.swift */,
+				21A52A61245E35AA009403A4 /* SoundManager.swift */,
 			);
 			name = Helpers;
 			path = "New Group";
@@ -128,6 +137,9 @@
 				45EB2EF224458F4E0021C6DB /* twitter.png */,
 				457E9AFC2446492700B3294A /* SSgradient.png */,
 				457E9AFE24464A2700B3294A /* SocialSwapIcon.png */,
+				21A52A5F245E354B009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 */,
+				21A52A65245E3B5B009403A4 /* water.mp3 */,
+				21A52A63245E3A33009403A4 /* snap.mp3 */,
 				213F772C24428AF500856A4C /* Helpers */,
 				21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */,
 				529A1FF2244CE9BF00ED331A /* LoginViewController.swift */,
@@ -231,11 +243,14 @@
 			files = (
 				529A1FFA245A889200ED331A /* Main.storyboard in Resources */,
 				45EB2EF124458F460021C6DB /* snapchat.png in Resources */,
+				21A52A66245E3B5B009403A4 /* water.mp3 in Resources */,
 				457E9AFD2446492700B3294A /* SSgradient.png in Resources */,
 				45EB2EF324458F4E0021C6DB /* twitter.png in Resources */,
 				21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */,
+				21A52A60245E354D009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 in Resources */,
 				45EB2EEF24458F400021C6DB /* facebook.png in Resources */,
 				21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */,
+				21A52A64245E3A33009403A4 /* snap.mp3 in Resources */,
 				21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */,
 				457E9AFF24464A2700B3294A /* SocialSwapIcon.png in Resources */,
 				457E9B0B24465FBA00B3294A /* instagram.png in Resources */,
@@ -300,6 +315,7 @@
 				21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */,
 				45C30283244E5EA100761D58 /* SignUp2ViewController.swift in Sources */,
 				4547C327245513430015D5A8 /* NotificationsTableViewController.swift in Sources */,
+				21A52A62245E35AA009403A4 /* SoundManager.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
 				2125FDC4244E6EBE0026CA13 /* SwapHelper.swift in Sources */,
 				213F772B2442827300856A4C /* QrViewController.swift in Sources */,

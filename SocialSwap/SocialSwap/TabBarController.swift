@@ -14,6 +14,7 @@
  class TabBarController: UITabBarController, UITabBarControllerDelegate {
     var currentUser: User?
     var dbloaded=false
+    let soundManager = SoundManager()
     /*
      - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
      
@@ -110,4 +111,9 @@
             vc.currentUser=currentUser
         }
      }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        soundManager.stopClick()
+        soundManager.playClick()
+    }
  }
