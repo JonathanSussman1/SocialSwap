@@ -17,12 +17,13 @@ class NotificationsTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //do not display empty cells
+        //followBackUsers = []
         self.tableView.tableFooterView = UIView()
-        followBackUsers = []
-        
+
         //get user and populate followBackUsers - the datasource for the table view
         UserService.getUser(uid: Auth.auth().currentUser!.uid) { (user) in
-            self.currentUser = user;
+            self.currentUser = user
+            self.followBackUsers = []
             //update follow back data
             var first = "";var last = ""; var insta="";
             var tw=""; var fb=""; var snap = ""; var mail=""; var num = "";
@@ -66,7 +67,6 @@ class NotificationsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -96,8 +96,10 @@ class NotificationsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel!.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you. Follow back?";
-        print(cell.textLabel!.text!)
+        if(self.followBackUsers.count > indexPath.row){
+            cell.textLabel?.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you. Follow back?";
+            print(cell.textLabel!.text!)
+        }
         return cell
     }
    
