@@ -167,25 +167,22 @@ class FollowViewController: UIViewController {
             if !instagramPressed {
                 instagramPressed = true
                 
-                //TODO: update currentUser's swap receives
-                //if scannedUser.uid in map
-                    //scannedUser.uid[instagram] = scannedUser.instagram
-                if let scannedUserArr = currentUser?.swapReceives[(scannedUser?.uid)!] {
-                    currentUser!.swapReceives[(scannedUser!.uid)!]?.updateValue(scannedUser!.instagram!, forKey: "instagram")
+                if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.instagram!, forKey: "instagram")
                     let db = Firestore.firestore()
-                    db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
-                        "swapReceives" : currentUser!.swapReceives
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
                                ], merge: true)
                 }
                 else{
-                    currentUser?.swapReceives.updateValue(["instagram":scannedUser!.instagram!], forKey: scannedUser!.uid!)
+                    scannedUser!.swapReceives.updateValue(["instagram":currentUser!.instagram!], forKey: currentUser!.uid!)
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
+                    scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
                     let db = Firestore.firestore()
-                    db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
-                        "swapReceives" : currentUser!.swapReceives
+                    db.collection("users").document(scannedUser!.uid!).setData([
+                        "swapReceives" : scannedUser!.swapReceives
                                ], merge: true)
                 }
-                //else (uid not in map)
-                    //create map for scannedUser.uid where value is a map with instagram : scannedUser.instagram
             }
         }
     }
