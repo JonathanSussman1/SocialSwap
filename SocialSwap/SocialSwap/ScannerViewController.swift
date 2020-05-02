@@ -109,7 +109,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 followVc.twitterEnabled = twitter
                 
                 followVc.currentUser = self.currentUser
-                if self.currentUser?.twoWaySwap ?? true {
+                if self.currentUser?.twoWaySwap ?? true && user?.uid != nil {
                     followVc.sendFollowBackNotification = true
                 }
                 else {
