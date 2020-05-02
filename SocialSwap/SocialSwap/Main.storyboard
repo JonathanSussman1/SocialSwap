@@ -729,12 +729,16 @@
                                     <action selector="exportTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3LD-vz-tUQ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SSgradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-Dh-5Sw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7F-qA-w1u">
                                 <rect key="frame" x="33" y="184" width="348" height="348"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="nx7-Dh-5Sw" secondAttribute="height" multiplier="1:1" id="usr-Fi-ppG"/>
+                                    <constraint firstAttribute="width" secondItem="K7F-qA-w1u" secondAttribute="height" multiplier="1:1" id="45s-E1-952"/>
                                 </constraints>
-                            </imageView>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="puB-Up-LcW">
                                 <rect key="frame" x="33" y="184" width="348" height="348"/>
                                 <constraints>
@@ -754,16 +758,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="nx7-Dh-5Sw" firstAttribute="height" secondItem="puB-Up-LcW" secondAttribute="height" id="3sp-uB-YrO"/>
+                            <constraint firstItem="K7F-qA-w1u" firstAttribute="centerX" secondItem="puB-Up-LcW" secondAttribute="centerX" id="1TE-63-T2g"/>
                             <constraint firstItem="hR4-Z1-QmQ" firstAttribute="top" secondItem="vCl-3k-0bO" secondAttribute="top" constant="20" id="83P-Jg-uVE"/>
                             <constraint firstItem="aV5-lI-t5b" firstAttribute="centerX" secondItem="vCl-3k-0bO" secondAttribute="centerX" id="Bpo-gy-IYM"/>
                             <constraint firstItem="puB-Up-LcW" firstAttribute="leading" secondItem="vCl-3k-0bO" secondAttribute="leading" constant="33" id="GSY-Hd-7LH"/>
-                            <constraint firstItem="nx7-Dh-5Sw" firstAttribute="centerX" secondItem="puB-Up-LcW" secondAttribute="centerX" id="Spr-qO-TYc"/>
                             <constraint firstItem="vCl-3k-0bO" firstAttribute="trailing" secondItem="puB-Up-LcW" secondAttribute="trailing" constant="33" id="Wud-bj-NmS"/>
-                            <constraint firstItem="nx7-Dh-5Sw" firstAttribute="width" secondItem="nx7-Dh-5Sw" secondAttribute="height" multiplier="1:1" id="Xnt-dd-hdF"/>
-                            <constraint firstItem="nx7-Dh-5Sw" firstAttribute="width" secondItem="puB-Up-LcW" secondAttribute="width" id="cOd-C8-IAe"/>
-                            <constraint firstItem="nx7-Dh-5Sw" firstAttribute="centerY" secondItem="puB-Up-LcW" secondAttribute="centerY" id="l19-Xn-86b"/>
+                            <constraint firstItem="K7F-qA-w1u" firstAttribute="centerY" secondItem="puB-Up-LcW" secondAttribute="centerY" id="XWH-Rs-YCD"/>
+                            <constraint firstItem="K7F-qA-w1u" firstAttribute="height" secondItem="puB-Up-LcW" secondAttribute="height" id="a8o-J5-MKq"/>
                             <constraint firstItem="puB-Up-LcW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-63" id="lC8-fB-gGN"/>
+                            <constraint firstItem="K7F-qA-w1u" firstAttribute="width" secondItem="puB-Up-LcW" secondAttribute="width" id="njG-YH-2T5"/>
                             <constraint firstItem="aV5-lI-t5b" firstAttribute="top" secondItem="puB-Up-LcW" secondAttribute="bottom" constant="66" id="ufJ-vE-x93"/>
                             <constraint firstItem="hR4-Z1-QmQ" firstAttribute="leading" secondItem="vCl-3k-0bO" secondAttribute="leading" constant="20" id="wS2-uG-GRS"/>
                         </constraints>
@@ -775,7 +778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1575" y="-194"/>
+            <point key="canvasLocation" x="-1575.3623188405797" y="-194.19642857142856"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="6lj-CT-sRk">
