@@ -40,7 +40,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 let uswapreceives = document.data()?["swapReceives"] as! [String:[String:Any]]
                 self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, swapReceives: uswapreceives)
                 completion(self.user)
-                self.viewDidLoad()
             } else {
                 print("Error getting user")
                 completion(nil)

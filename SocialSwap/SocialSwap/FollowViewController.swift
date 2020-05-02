@@ -170,6 +170,20 @@ class FollowViewController: UIViewController {
                 //TODO: update currentUser's swap receives
                 //if scannedUser.uid in map
                     //scannedUser.uid[instagram] = scannedUser.instagram
+                if let scannedUserArr = currentUser?.swapReceives[(scannedUser?.uid)!] {
+                    currentUser!.swapReceives[(scannedUser!.uid)!]?.updateValue(scannedUser!.instagram!, forKey: "instagram")
+                    let db = Firestore.firestore()
+                    db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
+                        "swapReceives" : currentUser!.swapReceives
+                               ], merge: true)
+                }
+                else{
+                    currentUser?.swapReceives.updateValue(["instagram":scannedUser!.instagram!], forKey: scannedUser!.uid!)
+                    let db = Firestore.firestore()
+                    db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
+                        "swapReceives" : currentUser!.swapReceives
+                               ], merge: true)
+                }
                 //else (uid not in map)
                     //create map for scannedUser.uid where value is a map with instagram : scannedUser.instagram
             }

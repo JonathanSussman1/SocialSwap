@@ -1358,8 +1358,4 @@
         <image name="snapchat.png" width="500" height="500"/>
         <image name="twitter.png" width="400" height="400"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="IAt-nG-tA6"/>
-        <segue reference="NKx-oa-hnO"/>
-    </inferredMetricsTieBreakers>
 </document>
