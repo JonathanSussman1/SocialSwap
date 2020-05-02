@@ -73,6 +73,7 @@ class NotificationsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        //tableView.backgroundView = UIImageView(image: UIImage(named: "SSgradient.png"))
     }
 
     // MARK: - Table view data source
@@ -96,11 +97,36 @@ class NotificationsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
+        //set cell text
         if(self.followBackUsers.count > indexPath.row){
-            cell.textLabel!.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " followed you"
+            cell.textLabel!.text = self.followBackUsers[indexPath.row].firstName! + " " + self.followBackUsers[indexPath.row].lastName! + " scanned your code"
             print(cell.textLabel!.text!)
             cell.detailTextLabel!.text = "Follow back?"
         }
+
+        //create and set cell image
+        let gradient: UIImageView = UIImageView(image: UIImage(named: "SSgradient.png"))
+        gradient.frame.size = CGSize(width: 40.0, height: 40.0)
+        gradient.layer.cornerRadius = 20.0
+        gradient.layer.masksToBounds = true
+        
+        let initialsLabel = UILabel()
+        initialsLabel.frame.size = CGSize(width: 40.0, height: 40.0)
+        initialsLabel.textColor = UIColor.white
+        initialsLabel.text = String(self.followBackUsers[indexPath.row].firstName!.first!) + String(self.followBackUsers[indexPath.row].lastName!.first!)
+        initialsLabel.textAlignment = NSTextAlignment.center
+        initialsLabel.backgroundColor = UIColor.clear
+        initialsLabel.layer.cornerRadius = 20.0
+        initialsLabel.layer.masksToBounds = true
+
+        UIGraphicsBeginImageContext(initialsLabel.frame.size)
+        gradient.layer.render(in: UIGraphicsGetCurrentContext()!)
+        initialsLabel.layer.render(in: UIGraphicsGetCurrentContext()!)
+        cell.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        
+
         return cell
     }
    
