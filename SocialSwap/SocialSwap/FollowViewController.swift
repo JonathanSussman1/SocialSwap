@@ -55,6 +55,7 @@ class FollowViewController: UIViewController {
     var facebookEnabled: Bool = false
     
     var sendFollowBackNotification: Bool = false
+    var fromNotifications: Bool = false
     /*
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
 
@@ -164,7 +165,7 @@ class FollowViewController: UIViewController {
             SwapHelper.openInstagram(handle: scannedUser!.instagram!)
             instagramButton.setTitle("               Followed", for: UIControl.State.normal)
             
-
+            //from scanner and two way swap is on
             if !instagramPressed && sendFollowBackNotification {
                 instagramPressed = true
                 
@@ -186,6 +187,20 @@ class FollowViewController: UIViewController {
                         "swapReceives" : scannedUser!.swapReceives
                                ], merge: true)
                 }
+            }
+            
+            
+            //from notifications
+            if !instagramPressed && fromNotifications {
+                instagramPressed = true
+                
+                //TODO: remove field from receives
+                
+                //delete currentUser.swapReceives[scannedUser][instagram]
+                
+                //if there are no fields left (aside from firstName and lastName)
+                    //delete the entire uid : map
+                
             }
         }
     }
