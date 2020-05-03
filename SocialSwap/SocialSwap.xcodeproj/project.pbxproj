@@ -472,13 +472,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SocialSwap;
-				DEVELOPMENT_TEAM = 2638MWNF95;
+				DEVELOPMENT_TEAM = 454DMKWF59;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = socialSwap;
+				PRODUCT_BUNDLE_IDENTIFIER = codingDavid.SocialSwap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,13 +492,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SocialSwap;
-				DEVELOPMENT_TEAM = 2638MWNF95;
+				DEVELOPMENT_TEAM = 454DMKWF59;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = socialSwap;
+				PRODUCT_BUNDLE_IDENTIFIER = codingDavid.SocialSwap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
