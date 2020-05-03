@@ -174,9 +174,9 @@ class FollowViewController: UIViewController {
                 if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.instagram!, forKey: "instagram")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
                 //uid isnt in map
                 else{
@@ -184,23 +184,26 @@ class FollowViewController: UIViewController {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
             }
             
             
-            //from notifications
             if !instagramPressed && fromNotifications {
                 instagramPressed = true
                 
-                //TODO: remove field from receives
-                
-                //delete currentUser.swapReceives[scannedUser][instagram]
-                
-                //if there are no fields left (aside from firstName and lastName)
-                    //delete the entire uid : map
+                var currentUserReceives = currentUser!.swapReceives
+                currentUserReceives[(scannedUser!.uid)!]!.removeValue(forKey: "instagram")
+                if currentUserReceives[(scannedUser!.uid)!]!.count==2{
+                    currentUserReceives.removeValue(forKey: (scannedUser!.uid)!)
+                }
+                currentUser!.swapReceives = currentUserReceives
+                let db = Firestore.firestore()
+                                   db.collection("users").document(currentUser!.uid!).updateData([
+                                       "swapReceives" : currentUser!.swapReceives
+                                              ])
                 
             }
         }
@@ -219,9 +222,9 @@ class FollowViewController: UIViewController {
                 if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.facebook!, forKey: "facebook")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
                 //uid isnt in map
                 else{
@@ -229,10 +232,26 @@ class FollowViewController: UIViewController {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
+            }
+            
+            if !facebookPressed && fromNotifications {
+                facebookPressed = true
+                
+                var currentUserReceives = currentUser!.swapReceives
+                currentUserReceives[(scannedUser!.uid)!]!.removeValue(forKey: "facebook")
+                if currentUserReceives[(scannedUser!.uid)!]!.count==2{
+                    currentUserReceives.removeValue(forKey: (scannedUser!.uid)!)
+                }
+                currentUser!.swapReceives = currentUserReceives
+                let db = Firestore.firestore()
+                                   db.collection("users").document(currentUser!.uid!).updateData([
+                                       "swapReceives" : currentUser!.swapReceives
+                                              ])
+                
             }
         }
     }
@@ -250,9 +269,9 @@ class FollowViewController: UIViewController {
                 if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.snapchat!, forKey: "snapchat")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
                 //uid isnt in map
                 else{
@@ -260,10 +279,25 @@ class FollowViewController: UIViewController {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
+            }
+            if !snapchatPressed && fromNotifications {
+                snapchatPressed = true
+                
+                var currentUserReceives = currentUser!.swapReceives
+                currentUserReceives[(scannedUser!.uid)!]!.removeValue(forKey: "snapchat")
+                if currentUserReceives[(scannedUser!.uid)!]!.count==2{
+                    currentUserReceives.removeValue(forKey: (scannedUser!.uid)!)
+                }
+                currentUser!.swapReceives = currentUserReceives
+                let db = Firestore.firestore()
+                                   db.collection("users").document(currentUser!.uid!).updateData([
+                                       "swapReceives" : currentUser!.swapReceives
+                                              ])
+                
             }
         }
     }
@@ -281,9 +315,9 @@ class FollowViewController: UIViewController {
                 if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.twitter!, forKey: "twitter")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
                 //uid isnt in map
                 else{
@@ -291,10 +325,26 @@ class FollowViewController: UIViewController {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
+            }
+            
+            if !twitterPressed && fromNotifications {
+                twitterPressed = true
+                
+                var currentUserReceives = currentUser!.swapReceives
+                currentUserReceives[(scannedUser!.uid)!]!.removeValue(forKey: "twitter")
+                if currentUserReceives[(scannedUser!.uid)!]!.count==2{
+                    currentUserReceives.removeValue(forKey: (scannedUser!.uid)!)
+                }
+                currentUser!.swapReceives = currentUserReceives
+                let db = Firestore.firestore()
+                                   db.collection("users").document(currentUser!.uid!).updateData([
+                                       "swapReceives" : currentUser!.swapReceives
+                                              ])
+                
             }
         }
     }
@@ -312,9 +362,9 @@ class FollowViewController: UIViewController {
                 if scannedUser!.swapReceives[(currentUser!.uid)!] != nil {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.phoneNumber!, forKey: "phoneNumber")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
                 //uid isnt in map
                 else{
@@ -322,10 +372,25 @@ class FollowViewController: UIViewController {
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.firstName!, forKey: "firstName")
                     scannedUser!.swapReceives[(currentUser!.uid)!]!.updateValue( currentUser!.lastName!, forKey: "lastName")
                     let db = Firestore.firestore()
-                    db.collection("users").document(scannedUser!.uid!).setData([
+                    db.collection("users").document(scannedUser!.uid!).updateData([
                         "swapReceives" : scannedUser!.swapReceives
-                               ], merge: true)
+                               ])
                 }
+            }
+            
+            if !contactsPressed && fromNotifications {
+                contactsPressed = true
+                
+                var currentUserReceives = currentUser!.swapReceives
+                currentUserReceives[(scannedUser!.uid)!]!.removeValue(forKey: "phoneNumber")
+                if currentUserReceives[(scannedUser!.uid)!]!.count==2{
+                    currentUserReceives.removeValue(forKey: (scannedUser!.uid)!)
+                }
+                currentUser!.swapReceives = currentUserReceives
+                let db = Firestore.firestore()
+                                   db.collection("users").document(currentUser!.uid!).updateData([
+                                       "swapReceives" : currentUser!.swapReceives
+                                              ])
             }
         }
     }

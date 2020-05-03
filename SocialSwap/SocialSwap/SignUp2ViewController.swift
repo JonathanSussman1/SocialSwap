@@ -36,6 +36,45 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func createCurrentUser(completion: @escaping ((User?) -> ())){
+        Auth.auth().createUser(withEmail: email!, password: password!, completion:  { authResult, error in
+            if authResult != nil{
+
+            
+            let db = Firestore.firestore()
+            db.collection("users").document(String((authResult?.user.uid)!)).setData([
+                "id" : String((authResult?.user.uid)!),
+                "email" : self.email!,
+                "firstName" : self.firstName!,
+                "lastName" : self.lastName!,
+                "phoneNumber" : self.number!,
+                "facebook" : self.facebookSaveField,
+                "twitter" : self.twitterSaveField,
+                "instagram" : self.instagramSaveField,
+                "snapchat" : self.snapchatSaveField,
+                "twoWaySwap" : true,
+                "swapReceives" : [String:[String:Any]]()
+            ], merge: true)
+            
+                self.currentUser = User(uid: (authResult?.user.uid)!, firstName: self.firstName!, lastName: self.lastName!, email: self.email!, phoneNumber: self.number!, twitter: self.twitterSaveField, instagram: self.instagramSaveField,
+                                        facebook: self.facebookSaveField,
+                                        snapchat: self.snapchatSaveField,
+                   twoWaySwap: true,
+                   swapReceives: [String:[String:Any]]() )
+            
+           completion(self.currentUser)
+                    
+                   }
+            else{
+                    let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+               completion(nil)
+            }
+                
+        })
+    }
+    
     func getCurrentUser(completion: @escaping ((User?) -> ())) {
         if let email = email, let password = password{
             Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
@@ -87,7 +126,18 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
 
                   alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
             
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action: UIAlertAction!) in  self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action: UIAlertAction!) in          self.createCurrentUser() { (user) -> () in
+                 if user != nil {
+                    self.getCurrentUser() { (user) -> () in
+                         if user != nil {
+                             self.getSignedInUser(completion: { currentUser in
+                                 self.currentUser=currentUser!
+                                   self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
+                                   })
+                        }
+                    }
+                }
+            }
                   
             }))
                 self.present(alert, animated: true)
@@ -149,30 +199,16 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
-        
-        let db = Firestore.firestore()
-        db.collection("users").document(String(Auth.auth().currentUser!.uid)).setData([
-            "facebook" : facebookSaveField ,
-            "twitter" : twitterSaveField ,
-            "instagram" : instagramSaveField ,
-            "snapchat" : snapchatSaveField ,
-                   ], merge: true)
-        
-        currentUser.firstName=firstName
-        currentUser.lastName=lastName
-        currentUser.email=email
-        currentUser.phoneNumber=number
-        currentUser.facebook=facebookSaveField
-        currentUser.twitter=twitterSaveField
-        currentUser.instagram=instagramSaveField
-        currentUser.snapchat=snapchatSaveField
-        self.getCurrentUser() { (user) -> () in
+        self.createCurrentUser() { (user) -> () in
              if user != nil {
-                 self.getSignedInUser(completion: { currentUser in
-                     self.currentUser=currentUser!
-                     print(currentUser!.email!)
-                       self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
-                       })
+                self.getCurrentUser() { (user) -> () in
+                     if user != nil {
+                         self.getSignedInUser(completion: { currentUser in
+                             self.currentUser=currentUser!
+                               self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
+                               })
+                    }
+                }
             }
         }
     }
