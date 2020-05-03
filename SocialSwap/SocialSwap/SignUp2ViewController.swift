@@ -20,7 +20,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var snapchatField: UITextField!
     @IBOutlet weak var twitterField: UITextField!
     var fields: [UITextField] = []
-    var email: String?,firstName: String?,lastName: String?,number: String?,instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
+    var email: String?,password: String?, firstName: String?,lastName: String?,number: String?,instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
     //dismiss keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -36,6 +36,48 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    func getCurrentUser(completion: @escaping ((User?) -> ())) {
+        if let email = email, let password = password{
+            Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
+                 if authResult != nil{
+                    self.currentUser.email=email
+                    completion(self.currentUser)
+                    
+                }
+                else{
+                                               let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
+                                                                  alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                                               self.present(alert, animated: true, completion: nil)
+                                   completion(nil)
+                                           }
+                                       })
+        }
+    }
+                
+    func getSignedInUser(completion:@escaping((User?) -> ())) {
+
+         let db = Firestore.firestore()
+        _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+              if let document = document, document.exists {
+                 let uemail = document.data()?["email"] as! String
+                 let ufb = document.data()?["facebook"] as! String
+                 let ufirstname = document.data()?["firstName"] as! String
+                 let uid = document.data()?["id"] as! String
+                 let uinstagram = document.data()?["instagram"] as! String
+                 let ulastname = document.data()?["lastName"] as! String
+                 let uphonenumber = document.data()?["phoneNumber"] as! String
+                 let usnapchat = document.data()?["snapchat"] as! String
+                 let utwitter = document.data()?["twitter"] as! String
+                 let utwowayswap = document.data()?["twoWaySwap"] as! Bool
+                let uswapreceives = document.data()?["swapReceives"] as! [String:[String:Any]]
+                self.currentUser = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, swapReceives: uswapreceives)
+                completion(self.currentUser)
+                  } else {
+                 print("Error getting user")
+                 completion(nil)
+             }
+         }
+     }
     
 
     @IBAction func signUpButtonPressed(_ sender: Any) {
@@ -124,8 +166,15 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         currentUser.twitter=twitterSaveField
         currentUser.instagram=instagramSaveField
         currentUser.snapchat=snapchatSaveField
-        self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
-        
+        self.getCurrentUser() { (user) -> () in
+             if user != nil {
+                 self.getSignedInUser(completion: { currentUser in
+                     self.currentUser=currentUser!
+                     print(currentUser!.email!)
+                       self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
+                       })
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,10 +209,12 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
        let vc = segue.destination as! TabBarController
-                     vc.currentUser=currentUser
-             
-    }
+            vc.currentUser=self.currentUser
+            
+
+}
     
 
     /*
