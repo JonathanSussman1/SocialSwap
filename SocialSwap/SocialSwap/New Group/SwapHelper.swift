@@ -66,7 +66,7 @@ class SwapHelper {
     }
     
     static func openFacebook(url handle: String) -> Void {
-        let urlString = "http://" + handle;
+        let urlString = "http://www.facebook.com/" + handle;
         print(urlString);
         if let url = URL(string: urlString){
             if UIApplication.shared.canOpenURL(url){
