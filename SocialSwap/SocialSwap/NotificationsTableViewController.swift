@@ -129,6 +129,11 @@ class NotificationsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let animator = Animator()
+        animator.animate(cell: cell, indexPath: indexPath, tableView: tableView)
+    }
    
     /* Table View Delegate */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

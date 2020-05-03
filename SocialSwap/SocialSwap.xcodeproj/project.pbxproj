@@ -20,6 +20,7 @@
 		21A52A64245E3A33009403A4 /* snap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A63245E3A33009403A4 /* snap.mp3 */; };
 		21A52A66245E3B5B009403A4 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A65245E3B5B009403A4 /* water.mp3 */; };
 		21A52A68245E40E4009403A4 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A67245E40E4009403A4 /* click.mp3 */; };
+		21A52A6A245E5854009403A4 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A52A69245E5854009403A4 /* Animator.swift */; };
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 		21A52A63245E3A33009403A4 /* snap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = snap.mp3; sourceTree = "<group>"; };
 		21A52A65245E3B5B009403A4 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		21A52A67245E40E4009403A4 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
+		21A52A69245E5854009403A4 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		21C9EC6924393BF900B9C2BE /* SocialSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				2125FDC3244E6EBE0026CA13 /* SwapHelper.swift */,
 				21A52A5B245DDF75009403A4 /* UserService.swift */,
 				21A52A61245E35AA009403A4 /* SoundManager.swift */,
+				21A52A69245E5854009403A4 /* Animator.swift */,
 			);
 			name = Helpers;
 			path = "New Group";
@@ -322,6 +325,7 @@
 				21A52A62245E35AA009403A4 /* SoundManager.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
 				2125FDC4244E6EBE0026CA13 /* SwapHelper.swift in Sources */,
+				21A52A6A245E5854009403A4 /* Animator.swift in Sources */,
 				213F772B2442827300856A4C /* QrViewController.swift in Sources */,
 				45B65B70244B7BAC00FE6F23 /* FollowViewController.swift in Sources */,
 				21A52A5E245DE6C6009403A4 /* UserService.swift in Sources */,
