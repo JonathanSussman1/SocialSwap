@@ -18,8 +18,20 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+		<string>instagram</string>
+		<string>snapchat</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) camera use </string>
+	<key>NSContactsUsageDescription</key>
+	<string>Save new connections to your contacts with ease</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Export your QR codes with ease</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -59,18 +71,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) camera use </string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Export your QR codes with ease</string>
-	<key>NSContactsUsageDescription</key>
-	<string>Save new connections to your contacts with ease</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>twitter</string>
-		<string>instagram</string>
-		<string>snapchat</string>
 	</array>
 </dict>
 </plist>

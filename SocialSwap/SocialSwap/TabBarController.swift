@@ -72,7 +72,7 @@
      }
     
     override func viewWillAppear(_ animated: Bool) {
-
+            
             self.dbloaded=true
             let settings = (self.viewControllers![3]) as! SettingsViewController as SettingsViewController
             settings.currentUser = self.currentUser

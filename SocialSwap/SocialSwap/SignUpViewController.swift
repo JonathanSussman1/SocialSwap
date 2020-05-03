@@ -32,12 +32,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                if let email = emailField.text, let password = passwordField.text, let firstName = firstNameField.text, let lastName = lastNameField.text, let number = numberField.text, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !number.isEmpty{
          Auth.auth().createUser(withEmail: email, password: password, completion:  { authResult, error in
              if authResult != nil{
-        Auth.auth().signIn(withEmail: email, password: password, completion:  { (signInResult, error) in
-         if signInResult != nil{
+
              
              let db = Firestore.firestore()
-             db.collection("users").document(String((signInResult?.user.uid)!)).setData([
-                 "id" : String((signInResult?.user.uid)!),
+             db.collection("users").document(String((authResult?.user.uid)!)).setData([
+                 "id" : String((authResult?.user.uid)!),
                  "email" : email,
                  "firstName" : firstName,
                  "lastName" : lastName,
@@ -47,15 +46,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                  "instagram" : "",
                  "snapchat" : "",
                  "twoWaySwap" : true,
-                 "swapReceives" : [String:Dictionary<String, Any>]()
+                 "swapReceives" : [String:[String:Any]]()
              ], merge: true)
              
-             self.currentUser = User(uid: (signInResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number)
+            self.currentUser = User(uid: (authResult?.user.uid)!, firstName: firstName, lastName: lastName, email: email, phoneNumber: number, twitter: "", instagram: "",
+                    facebook: "",
+                    snapchat: "",
+                    twoWaySwap: true,
+                    swapReceives: [String:[String:Any]]() )
              
             completion(self.currentUser)
-         } else { completion(nil)
-             }})
-                 
                         self.performSegue(withIdentifier: "firstSignUpSegue", sender: nil)
                     }
              else{
@@ -110,10 +110,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             let firstName = self.firstNameField.text
             let lastName = self.lastNameField.text
             let number = self.numberField.text
+            let password = self.passwordField.text
             vc.firstName=firstName
             vc.email=email
             vc.number=number
             vc.lastName=lastName
+            vc.password=password
             vc.currentUser=currentUser
             }
         }
