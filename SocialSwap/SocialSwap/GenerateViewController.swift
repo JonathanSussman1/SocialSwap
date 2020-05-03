@@ -71,6 +71,8 @@ class GenerateViewController: UIViewController {
     
     
     @IBAction func platformButtonPressed(_ sender: UIButton) {
+        soundManager.stopPop()
+        soundManager.playPop()
         
         //select/deselect button
         let icon = icons[buttons.firstIndex(of: sender)!]

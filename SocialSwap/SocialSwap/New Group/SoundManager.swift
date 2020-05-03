@@ -12,6 +12,7 @@ import AVFoundation
 class SoundManager {
     var clickSound: AVAudioPlayer?
     var generateSound: AVAudioPlayer?
+    var popSound: AVAudioPlayer?
     
     init(){
         var path = Bundle.main.path(forResource: "snap.mp3", ofType: nil)!
@@ -28,6 +29,16 @@ class SoundManager {
         
         do{
             generateSound = try AVAudioPlayer(contentsOf: url)
+        }
+        catch {
+            print("could not load file")
+        }
+        
+        path = Bundle.main.path(forResource: "click.mp3", ofType: nil)!
+        url = URL(fileURLWithPath: path)
+        
+        do{
+            popSound = try AVAudioPlayer(contentsOf: url)
         }
         catch {
             print("could not load file")
@@ -55,6 +66,18 @@ class SoundManager {
     func stopGenerate(){
         if(generateSound != nil){
             generateSound?.stop()
+        }
+    }
+    
+    func playPop(){
+        if(popSound != nil){
+            popSound?.play()
+        }
+    }
+    
+    func stopPop(){
+        if(popSound != nil){
+            popSound?.stop()
         }
     }
     

@@ -19,6 +19,7 @@
 		21A52A62245E35AA009403A4 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A52A61245E35AA009403A4 /* SoundManager.swift */; };
 		21A52A64245E3A33009403A4 /* snap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A63245E3A33009403A4 /* snap.mp3 */; };
 		21A52A66245E3B5B009403A4 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A65245E3B5B009403A4 /* water.mp3 */; };
+		21A52A68245E40E4009403A4 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A67245E40E4009403A4 /* click.mp3 */; };
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		21A52A61245E35AA009403A4 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		21A52A63245E3A33009403A4 /* snap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = snap.mp3; sourceTree = "<group>"; };
 		21A52A65245E3B5B009403A4 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
+		21A52A67245E40E4009403A4 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		21C9EC6924393BF900B9C2BE /* SocialSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				457E9AFE24464A2700B3294A /* SocialSwapIcon.png */,
 				21A52A5F245E354B009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 */,
 				21A52A65245E3B5B009403A4 /* water.mp3 */,
+				21A52A67245E40E4009403A4 /* click.mp3 */,
 				21A52A63245E3A33009403A4 /* snap.mp3 */,
 				213F772C24428AF500856A4C /* Helpers */,
 				21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */,
@@ -248,6 +251,7 @@
 				45EB2EF324458F4E0021C6DB /* twitter.png in Resources */,
 				21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */,
 				21A52A60245E354D009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 in Resources */,
+				21A52A68245E40E4009403A4 /* click.mp3 in Resources */,
 				45EB2EEF24458F400021C6DB /* facebook.png in Resources */,
 				21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */,
 				21A52A64245E3A33009403A4 /* snap.mp3 in Resources */,
