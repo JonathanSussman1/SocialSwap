@@ -29,6 +29,24 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func checkEmail(field: String, completion: @escaping (Bool) -> Void) {
+        let userRef = Firestore.firestore().collection("users")
+        userRef.whereField("email", isEqualTo: field).getDocuments { (snapshot, err) in
+            if let err = err {
+                print("Error getting document: \(err)")
+            } else if (snapshot?.isEmpty)! {
+                completion(false)
+            } else {
+                for document in (snapshot?.documents)! {
+                    if document.data()["email"] != nil {
+                        completion(true)
+                    }
+                }
+                
+            }
+        }
+    }
+    
     func validateEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -70,28 +88,41 @@ func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
     
     func modifyCurrentUser(user:User , completion: @escaping (User?) -> ()) {
                if let email = emailField.text, let password = passwordField.text, let firstName = firstNameField.text, let lastName = lastNameField.text, let number = numberField.text, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !number.isEmpty{
-                
-                if !validateEmail(email: emailField.text!){
+                checkEmail(field: emailField.text!) { (success) in
+                if success {
+                     let alert = UIAlertController(title: "Invalid Email", message: "A user with this email already exists.", preferredStyle: .alert)
+
+                                       alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                    completion(nil)
+                } else {
+                    
+                    if !self.validateEmail(email: self.emailField.text!){
                     let alert = UIAlertController(title: "Invalid Email", message: "The email address given is not valid.", preferredStyle: .alert)
 
                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
 
                     self.present(alert, animated: true)
                        completion(nil)
+                    }
+                    else if !self.validatePassword(password: self.passwordField.text!){
+                        let alert = UIAlertController(title: "Invalid Password", message: "Your password must be at least 8 characters, with at least one uppercase letter, one lowercase letter, and one digit.", preferredStyle: .alert)
+
+                        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+
+                        self.present(alert, animated: true)
+                           completion(nil)
+                    }
+                    
+                    else{
+                        completion(user)
+                    }
+                }
+                    
+            
                 }
                 
-                else if !validatePassword(password: passwordField.text!){
-                    let alert = UIAlertController(title: "Invalid Password", message: "Your password must be at least 8 characters, with at least one uppercase letter, one lowercase letter, and one digit.", preferredStyle: .alert)
-
-                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-
-                    self.present(alert, animated: true)
-                       completion(nil)
-                }
                 
-                else{
-                    completion(user)
-                }
          
          }
          else{
