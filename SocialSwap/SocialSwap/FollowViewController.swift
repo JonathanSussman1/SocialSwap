@@ -56,43 +56,9 @@ class FollowViewController: UIViewController {
     
     var sendFollowBackNotification: Bool = false
     var fromNotifications: Bool = false
+    var notificationsVC: NotificationsTableViewController = NotificationsTableViewController()
     
-    /*
-    func getUser(uid: String, completion:@escaping((User?) -> ())) {
-
-         let db = Firestore.firestore()
-        _ = db.collection("users").document(uid).getDocument { (document, error) in
-              if let document = document, document.exists {
-                 let uemail = document.data()?["email"] as! String
-                 let ufb = document.data()?["facebook"] as! String
-                 let ufirstname = document.data()?["firstName"] as! String
-                 let uid = document.data()?["id"] as! String
-                 let uinstagram = document.data()?["instagram"] as! String
-                 let ulastname = document.data()?["lastName"] as! String
-                 let uphonenumber = document.data()?["phoneNumber"] as! String
-                 let usnapchat = document.data()?["snapchat"] as! String
-                 let utwitter = document.data()?["twitter"] as! String
-                 let utwowayswap = document.data()?["twoWaySwap"] as! Bool
-                 let uswapreceives = document.data()?["swapReceives"] as! [String:Dictionary<String,Any>]()
-                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, swapReceives: uswapreceives)
-                completion(self.user)
-                self.viewDidLoad()
-              } else {
-                 print("Error getting user")
-                 completion(nil)
-             }
-         }
-     }
-  
-    override func viewWillAppear(_ animated: Bool) {
-
-        getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
-            //set scanned user?
-              })
-
-        
-    }
- */
+    
     
     func disableButton(button: UIButton) {
         button.isEnabled = false
@@ -153,7 +119,12 @@ class FollowViewController: UIViewController {
     */
 
     @IBAction func DoneButtonPressed(_ sender: Any) {
-        //dismiss(animated: true, completion: nil)
+        
+        //update notifications table
+        if fromNotifications {
+            notificationsVC.populateTable()
+        }
+        
         self.presentingViewController?.dismiss(animated: true, completion: {
             if(self.sessionStarter != nil){
                 self.sessionStarter!.startSession();

@@ -15,54 +15,58 @@ class NotificationsTableViewController: UITableViewController {
     var currentUser: User?
     var followBackUsers: [User] = [];
     
+    
+    func populateTable() {
+        //get user and populate followBackUsers - the datasource for the table view
+        UserService.getUser(uid: Auth.auth().currentUser!.uid) { (user) in
+             self.currentUser = user
+             self.followBackUsers = []
+             //update follow back data
+             var first = "";var last = ""; var insta="";
+             var tw=""; var fb=""; var snap = ""; var mail=""; var num = "";
+             for (uid, infoDict) in user!.swapReceives {
+                 
+                 if let twitterHandle = infoDict["twitter"] {
+                     tw = twitterHandle as! String
+                 }
+                 if let instagramHandle = infoDict["instagram"] {
+                     insta = instagramHandle as! String
+                 }
+                 if let facebookUrl = infoDict["facebook"] {
+                     fb = facebookUrl as! String
+                     
+                 }
+                 if let snapchatHandle = infoDict["snapchat"] {
+                     snap = snapchatHandle as! String
+                 }
+                 if let firstName = infoDict["firstName"]{
+                     first = firstName as! String
+                 }
+                 if let lastName = infoDict["lastName"] {
+                     last = lastName as! String
+                 }
+                 if let email = infoDict["email"] {
+                     mail = email as! String
+                 }
+                 if let phoneNumber = infoDict["phoneNumber"] {
+                     num = phoneNumber as! String
+                 }
+                 
+                 let followBackUser = User(uid: uid, firstName: first, lastName: last, email: mail, phoneNumber: num, twitter: tw, instagram: insta, facebook: fb, snapchat: snap, twoWaySwap: false, swapReceives: [:])
+                 
+                 print(followBackUser)
+
+                 self.followBackUsers.append(followBackUser)
+             }
+             self.tableView.reloadData()
+        }
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         //do not display empty cells
         //followBackUsers = []
         self.tableView.tableFooterView = UIView()
-
-        //get user and populate followBackUsers - the datasource for the table view
-        UserService.getUser(uid: Auth.auth().currentUser!.uid) { (user) in
-            self.currentUser = user
-            self.followBackUsers = []
-            //update follow back data
-            var first = "";var last = ""; var insta="";
-            var tw=""; var fb=""; var snap = ""; var mail=""; var num = "";
-            for (uid, infoDict) in user!.swapReceives {
-                
-                if let twitterHandle = infoDict["twitter"] {
-                    tw = twitterHandle as! String
-                }
-                if let instagramHandle = infoDict["instagram"] {
-                    insta = instagramHandle as! String
-                }
-                if let facebookUrl = infoDict["facebook"] {
-                    fb = facebookUrl as! String
-                    
-                }
-                if let snapchatHandle = infoDict["snapchat"] {
-                    snap = snapchatHandle as! String
-                }
-                if let firstName = infoDict["firstName"]{
-                    first = firstName as! String
-                }
-                if let lastName = infoDict["lastName"] {
-                    last = lastName as! String
-                }
-                if let email = infoDict["email"] {
-                    mail = email as! String
-                }
-                if let phoneNumber = infoDict["phoneNumber"] {
-                    num = phoneNumber as! String
-                }
-                
-                let followBackUser = User(uid: uid, firstName: first, lastName: last, email: mail, phoneNumber: num, twitter: tw, instagram: insta, facebook: fb, snapchat: snap, twoWaySwap: false, swapReceives: [:])
-                
-                print(followBackUser)
-
-                self.followBackUsers.append(followBackUser)
-            }
-            self.tableView.reloadData()
-        }
     }
 
     override func viewDidLoad() {
@@ -152,6 +156,7 @@ class NotificationsTableViewController: UITableViewController {
         followVc.currentUser = self.currentUser
         followVc.fromNotifications = true
         followVc.sendFollowBackNotification = false
+        followVc.notificationsVC = self
         
         tableView.deselectRow(at: indexPath, animated: true)
 
