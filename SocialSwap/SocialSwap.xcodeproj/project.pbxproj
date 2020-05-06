@@ -21,6 +21,7 @@
 		21A52A66245E3B5B009403A4 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A65245E3B5B009403A4 /* water.mp3 */; };
 		21A52A68245E40E4009403A4 /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A67245E40E4009403A4 /* click.mp3 */; };
 		21A52A6A245E5854009403A4 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A52A69245E5854009403A4 /* Animator.swift */; };
+		21A52A6C245E696F009403A4 /* camera.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21A52A6B245E696F009403A4 /* camera.mp3 */; };
 		21C9EC6D24393BF900B9C2BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */; };
 		21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */; };
 		21C9EC7124393BF900B9C2BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C9EC7024393BF900B9C2BE /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 		21A52A65245E3B5B009403A4 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		21A52A67245E40E4009403A4 /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		21A52A69245E5854009403A4 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		21A52A6B245E696F009403A4 /* camera.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = camera.mp3; sourceTree = "<group>"; };
 		21C9EC6924393BF900B9C2BE /* SocialSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21C9EC6E24393BF900B9C2BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				21A52A5F245E354B009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 */,
 				21A52A65245E3B5B009403A4 /* water.mp3 */,
 				21A52A67245E40E4009403A4 /* click.mp3 */,
+				21A52A6B245E696F009403A4 /* camera.mp3 */,
 				21A52A63245E3A33009403A4 /* snap.mp3 */,
 				213F772C24428AF500856A4C /* Helpers */,
 				21C9EC6C24393BF900B9C2BE /* AppDelegate.swift */,
@@ -251,6 +254,7 @@
 				45EB2EF124458F460021C6DB /* snapchat.png in Resources */,
 				21A52A66245E3B5B009403A4 /* water.mp3 in Resources */,
 				457E9AFD2446492700B3294A /* SSgradient.png in Resources */,
+				21A52A6C245E696F009403A4 /* camera.mp3 in Resources */,
 				45EB2EF324458F4E0021C6DB /* twitter.png in Resources */,
 				21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */,
 				21A52A60245E354D009403A4 /* Button_Press_4-Marianne_Gagnon-570460555.mp3 in Resources */,
@@ -472,7 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SocialSwap;
-				DEVELOPMENT_TEAM = 2638MWNF95;
+				DEVELOPMENT_TEAM = A8AAB759SX;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -492,7 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = SocialSwap;
-				DEVELOPMENT_TEAM = 2638MWNF95;
+				DEVELOPMENT_TEAM = A8AAB759SX;
 				INFOPLIST_FILE = SocialSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -13,6 +13,7 @@ class SoundManager {
     var clickSound: AVAudioPlayer?
     var generateSound: AVAudioPlayer?
     var popSound: AVAudioPlayer?
+    var cameraSound: AVAudioPlayer?
     
     init(){
         var path = Bundle.main.path(forResource: "snap.mp3", ofType: nil)!
@@ -43,6 +44,17 @@ class SoundManager {
         catch {
             print("could not load file")
         }
+        
+        path = Bundle.main.path(forResource: "camera.mp3", ofType: nil)!
+        url = URL(fileURLWithPath: path)
+        
+        do{
+            cameraSound = try AVAudioPlayer(contentsOf: url)
+        }
+        catch {
+            print("could not load file")
+        }
+        
         
     }
     
@@ -78,6 +90,18 @@ class SoundManager {
     func stopPop(){
         if(popSound != nil){
             popSound?.stop()
+        }
+    }
+    
+    func playCamera(){
+        if(cameraSound != nil){
+            cameraSound?.play()
+        }
+    }
+        
+    func stopCamera(){
+        if(cameraSound != nil){
+            cameraSound?.stop()
         }
     }
     

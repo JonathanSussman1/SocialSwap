@@ -19,6 +19,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var currentUser: User?
     var dbloaded = false
     var user = User()
+    let soundManager = SoundManager()
+    
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
 
@@ -86,6 +88,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     //when code is scanned do something
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        soundManager.stopCamera()
+        soundManager.playCamera()
+        
         captureSession?.stopRunning()
         captureSession = nil
         if let metadataObject = metadataObjects.first {

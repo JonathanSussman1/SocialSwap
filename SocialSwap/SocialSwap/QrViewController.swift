@@ -19,6 +19,7 @@ class QrViewController: UIViewController {
     var snapchat: Bool = false
     var twitter: Bool = false
     var contacts: Bool = false
+    let soundManager = SoundManager()
     
     
     @IBOutlet weak var qrImageView: UIImageView!
@@ -36,6 +37,8 @@ class QrViewController: UIViewController {
 
 
     @IBAction func exportTapped(_ sender: Any) {
+        soundManager.stopPop()
+        soundManager.playPop()
         Code.shareQr(vc: self, qrImage: self.qrImageView.image!, closure: {()})
     }
     /*
