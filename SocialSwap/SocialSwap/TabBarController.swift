@@ -42,6 +42,17 @@
             }
             return false
         }
+        
+        //notifications view selected
+        if viewController == viewControllers?[2] {
+            
+            let notificationsVC: NotificationsTableViewController = viewController as! NotificationsTableViewController
+            //update notifications table
+            notificationsVC.populateTable()
+        }
+        
+        
+        
         return true
     }
 
