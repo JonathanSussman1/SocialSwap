@@ -28,6 +28,7 @@
 		21C9EC7624393C1500B9C2BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7524393C1500B9C2BE /* Assets.xcassets */; };
 		21C9EC7924393C1600B9C2BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC7724393C1600B9C2BE /* LaunchScreen.storyboard */; };
 		21C9EC812439540900B9C2BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21C9EC802439540900B9C2BE /* GoogleService-Info.plist */; };
+		21EFC377246A021800AD98D0 /* EncryptionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EFC376246A021800AD98D0 /* EncryptionHelper.swift */; };
 		4547C327245513430015D5A8 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4547C326245513430015D5A8 /* NotificationsTableViewController.swift */; };
 		457E9AFD2446492700B3294A /* SSgradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9AFC2446492700B3294A /* SSgradient.png */; };
 		457E9AFF24464A2700B3294A /* SocialSwapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 457E9AFE24464A2700B3294A /* SocialSwapIcon.png */; };
@@ -71,6 +72,7 @@
 		21C9EC7824393C1600B9C2BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21C9EC7A24393C1600B9C2BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21C9EC802439540900B9C2BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21EFC376246A021800AD98D0 /* EncryptionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionHelper.swift; sourceTree = "<group>"; };
 		4547C326245513430015D5A8 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		457E9AFC2446492700B3294A /* SSgradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SSgradient.png; sourceTree = "<group>"; };
 		457E9AFE24464A2700B3294A /* SocialSwapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SocialSwapIcon.png; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				21A52A5B245DDF75009403A4 /* UserService.swift */,
 				21A52A61245E35AA009403A4 /* SoundManager.swift */,
 				21A52A69245E5854009403A4 /* Animator.swift */,
+				21EFC376246A021800AD98D0 /* EncryptionHelper.swift */,
 			);
 			name = Helpers;
 			path = "New Group";
@@ -327,6 +330,7 @@
 				45C30283244E5EA100761D58 /* SignUp2ViewController.swift in Sources */,
 				4547C327245513430015D5A8 /* NotificationsTableViewController.swift in Sources */,
 				21A52A62245E35AA009403A4 /* SoundManager.swift in Sources */,
+				21EFC377246A021800AD98D0 /* EncryptionHelper.swift in Sources */,
 				21C9EC6F24393BF900B9C2BE /* SceneDelegate.swift in Sources */,
 				2125FDC4244E6EBE0026CA13 /* SwapHelper.swift in Sources */,
 				21A52A6A245E5854009403A4 /* Animator.swift in Sources */,

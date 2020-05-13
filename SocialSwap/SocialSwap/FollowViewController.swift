@@ -109,6 +109,12 @@ class FollowViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        if(self.sessionStarter != nil){
+            self.sessionStarter!.startSession();
+        }
+    }
+    
     /*
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -126,9 +132,9 @@ class FollowViewController: UIViewController {
         }
         
         self.presentingViewController?.dismiss(animated: true, completion: {
-            if(self.sessionStarter != nil){
-                self.sessionStarter!.startSession();
-            }
+       //     if(self.sessionStarter != nil){
+       //         self.sessionStarter!.startSession();
+       //     }
         })
     }
     

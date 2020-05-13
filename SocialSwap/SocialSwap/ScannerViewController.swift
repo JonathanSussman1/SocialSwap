@@ -10,6 +10,7 @@ import AVFoundation
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import CryptoSwift
 
 protocol SessionStarterDelegate {
     func startSession()
@@ -20,12 +21,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var dbloaded = false
     var user = User()
     let soundManager = SoundManager()
+    var key: [UInt8]?
+    var iv: [UInt8]?
     
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
-
+    
     func getUser(uid: String, completion:@escaping((User?) -> ())) {
-
+        
         let db = Firestore.firestore()
         _ = db.collection("users").document(uid).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -48,39 +51,36 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
     }
-
-
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-
+        
         getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
-            self.dbloaded=true
-              })
-
+            EncryptionHelper.getTheKey { (key, iv) in
+                self.key = Data(base64Encoded: key)!.bytes
+                self.iv = Data(base64Encoded: iv)!.bytes
+                self.dbloaded=true
+                self.startSession()
+            }
+        })
+        /*
+         captureSession = AVCaptureSession()
+         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
+         */
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.captureSession?.stopRunning()
+        //self.captureSession = nil
+        print("view will disappear")
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        captureSession = AVCaptureSession()
-        Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
-        //save contact demo
-        //SwapHelper.saveContact(firstName: "Test", lastName: "Tester", phoneNumber: "123456789");
-        
-        //open Twitter url scheme demo
-        //SwapHelper.openTwitter(handle: "Google");
-        
-        //open instagram test
-        //SwapHelper.openInstagram(handle: "Google");
-        
-        //open snapchat test
-        //SwapHelper.openSnapchat(handle: "justinkan");
-        
-        //open facebook test
-        //SwapHelper.openFacebook(url: "facebook.com/Google/");
     }
     
+    //conforming to SessionStarter protocol
     func startSession() {
         captureSession = AVCaptureSession()
         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
@@ -88,50 +88,62 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     //when code is scanned do something
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        soundManager.stopCamera()
-        soundManager.playCamera()
-        
-        captureSession?.stopRunning()
-        captureSession = nil
-        if let metadataObject = metadataObjects.first {
-            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {return}
-            guard let strVal = readableObject.stringValue else {return}
-            print(strVal)
+        if self.viewIfLoaded?.window != nil {
+            soundManager.stopCamera()
+            soundManager.playCamera()
             
-            //strVal is our encoded QR Code CSV (possibly)
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let followVc = storyboard.instantiateViewController(identifier: "FollowVC") as! FollowViewController
-            followVc.csvForSwap = strVal
-            followVc.sessionStarter = self
-            getUser(uid: Csv.csvToData(csv: strVal)[0]) { (user) in
-                followVc.scannedUser = user
-                let (_, contacts, instagram, facebook, snapchat, twitter) = Code.encodingToBool(encodedStr: strVal)
-                //followVc.twoWaySwapEnabled = twoWaySwap
-                followVc.contactsEnabled = contacts
-                followVc.instagramEnabled = instagram
-                followVc.facebookEnabled = facebook
-                followVc.snapchatEnabled = snapchat
-                followVc.twitterEnabled = twitter
+            captureSession?.stopRunning()
+            captureSession = nil
+            if let metadataObject = metadataObjects.first {
+                guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {return}
+                guard let strVal = readableObject.stringValue else {return}
+                print(strVal)
+                var decrypted: String = ""
                 
-                followVc.currentUser = self.currentUser
-                if self.currentUser?.twoWaySwap ?? true && user?.uid != nil {
-                    followVc.sendFollowBackNotification = true
+                //decrypt string and use for swap
+                if(key != nil && iv != nil){
+                    decrypted = EncryptionHelper.decryptString(encryptedString: strVal, key: key!, iv: iv!)
                 }
-                else {
-                    followVc.sendFollowBackNotification = false
-                }
+
                 
-                self.present(followVc, animated: true)
+                print(decrypted)
+                //strVal is our encoded QR Code CSV (possibly)
+                //if view controller is visible
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let followVc = storyboard.instantiateViewController(identifier: "FollowVC") as! FollowViewController
+                followVc.csvForSwap = decrypted
+                
+                followVc.sessionStarter = self
+                getUser(uid: Csv.csvToData(csv: decrypted)[0]) { (user) in
+                    followVc.scannedUser = user
+                    let (_, contacts, instagram, facebook, snapchat, twitter) = Code.encodingToBool(encodedStr: decrypted)
+                    //followVc.twoWaySwapEnabled = twoWaySwap
+                    followVc.contactsEnabled = contacts
+                    followVc.instagramEnabled = instagram
+                    followVc.facebookEnabled = facebook
+                    followVc.snapchatEnabled = snapchat
+                    followVc.twitterEnabled = twitter
+                    
+                    followVc.currentUser = self.currentUser
+                    if self.currentUser?.twoWaySwap ?? true && user?.uid != nil {
+                        followVc.sendFollowBackNotification = true
+                    }
+                    else {
+                        followVc.sendFollowBackNotification = false
+                    }
+                    
+                    self.present(followVc, animated: true)
+                }
             }
         }
     }
-
+    
     /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
