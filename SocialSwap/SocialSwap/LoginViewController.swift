@@ -16,6 +16,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     let isValid=false
+    
+    override func loadView() {
+        RunLoop.current.run(until: NSDate(timeIntervalSinceNow:1) as Date)
+
+        super.loadView()
+             
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +33,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //text field delegates
         emailField.delegate = self
         passwordField.delegate = self
+
     }
+    
+    
     
     @IBAction func loginPressed(_ sender: Any) {
         
@@ -40,7 +52,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if user != nil {
                 self.getSignedInUser(completion: { currentUser in
                     self.currentUser=currentUser!
-                    print(currentUser!.email!)
                     self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 })
                 
@@ -78,7 +89,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getSignedInUser(completion:@escaping((User?) -> ())) {
-        
         let db = Firestore.firestore()
         _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
             if let document = document, document.exists {

@@ -7,18 +7,67 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var currentUser = User.init()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+          //self.window =  UIWindow(frame: UIScreen.main.bounds)
+
+        
+        if Auth.auth().currentUser != nil {
+
+
+                              self.getSignedInUser(completion: { currentUser in
+                                let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+                                self.window = UIWindow(windowScene: windowScene)
+                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                             guard let tabBarVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else {
+                                         return
+                                     }
+                                tabBarVC.currentUser=currentUser
+
+                                     let rootVC = UINavigationController(rootViewController: tabBarVC)
+                                     self.window?.rootViewController = rootVC
+                                     self.window?.makeKeyAndVisible()
+
+
+                              })
+                          }
     }
+    
+    func getSignedInUser(completion:@escaping((User?) -> ())) {
+           let db = Firestore.firestore()
+           _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
+               if let document = document, document.exists {
+                   let uemail = document.data()?["email"] as! String
+                   let ufb = document.data()?["facebook"] as! String
+                   let ufirstname = document.data()?["firstName"] as! String
+                   let uid = document.data()?["id"] as! String
+                   let uinstagram = document.data()?["instagram"] as! String
+                   let ulastname = document.data()?["lastName"] as! String
+                   let uphonenumber = document.data()?["phoneNumber"] as! String
+                   let usnapchat = document.data()?["snapchat"] as! String
+                   let utwitter = document.data()?["twitter"] as! String
+                   let utwowayswap = document.data()?["twoWaySwap"] as! Bool
+                   let uswapreceives = document.data()?["swapReceives"] as! [String:[String:Any]]
+                   self.currentUser = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, swapReceives: uswapreceives)
+                   completion(self.currentUser)
+               } else {
+                   print("Error getting user")
+                   completion(nil)
+               }
+           }
+       }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

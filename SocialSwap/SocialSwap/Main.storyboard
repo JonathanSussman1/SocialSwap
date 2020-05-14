@@ -430,7 +430,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="4HH-Bc-gST">
             <objects>
-                <tabBarController id="4IX-II-AbT" customClass="TabBarController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="4IX-II-AbT" customClass="TabBarController" customModule="SocialSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eBG-Tl-3fk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1372,7 +1372,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IAt-nG-tA6"/>
-        <segue reference="Cj3-Qq-yHO"/>
+        <segue reference="rDz-oQ-Pfg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>
