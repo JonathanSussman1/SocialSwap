@@ -18,21 +18,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     let isValid=false
     
     override func loadView() {
-        RunLoop.current.run(until: NSDate(timeIntervalSinceNow:1) as Date)
-
         super.loadView()
-             
-    }
+        if Auth.auth().currentUser != nil{
+             RunLoop.current.run(until: NSDate(timeIntervalSinceNow:1) as Date)
+        }
 
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         
         //text field delegates
-        emailField.delegate = self
-        passwordField.delegate = self
+        
+//
+            emailField.delegate = self
+            passwordField.delegate = self
+       
 
     }
     

@@ -306,7 +306,7 @@
         <!--Login View Controller-->
         <scene sceneID="Fx5-XC-RGs">
             <objects>
-                <viewController id="v8S-p3-uOA" customClass="LoginViewController" customModule="SocialSwap" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="v8S-p3-uOA" customClass="LoginViewController" customModule="SocialSwap" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Nu-GQ-veO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1372,7 +1372,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="IAt-nG-tA6"/>
-        <segue reference="rDz-oQ-Pfg"/>
+        <segue reference="NKx-oa-hnO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="SSgradient.png" width="1024" height="1024"/>

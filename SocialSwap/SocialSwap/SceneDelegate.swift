@@ -22,27 +22,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
           //self.window =  UIWindow(frame: UIScreen.main.bounds)
-
         
         if Auth.auth().currentUser != nil {
 
 
                               self.getSignedInUser(completion: { currentUser in
-                                let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-                                self.window = UIWindow(windowScene: windowScene)
-                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                             guard let tabBarVC = storyboard.instantiateViewController(identifier: "TabBarController") as? TabBarController else {
-                                         return
-                                     }
-                                tabBarVC.currentUser=currentUser
-
-                                     let rootVC = UINavigationController(rootViewController: tabBarVC)
-                                     self.window?.rootViewController = rootVC
-                                     self.window?.makeKeyAndVisible()
-
-
+                                if let windowScene = scene as? UIWindowScene {
+                                       let window = UIWindow(windowScene: windowScene)
+                                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                                  let tabBarController = storyboard.instantiateViewController(identifier: "TabBarController") as! TabBarController
+                                    tabBarController.currentUser=currentUser
+                                    window.rootViewController  = tabBarController
+                                    
+                                       self.window = window
+                                       window.makeKeyAndVisible()
+                                   }
                               })
+                                
                           }
+        guard let _ = (scene as? UIWindowScene) else { return }
+
+
     }
     
     func getSignedInUser(completion:@escaping((User?) -> ())) {

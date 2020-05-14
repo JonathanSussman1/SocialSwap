@@ -5,7 +5,6 @@
 //  Created by Ashley Nussbaum on 4/20/20.
 //  Copyright © 2020 Daye Jack, Ashley Nussbaum, Jonathan Sussman. All rights reserved.
 //
-
 import UIKit
 import Firebase
 import FirebaseAuth
@@ -312,7 +311,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     /*
     // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
