@@ -108,12 +108,14 @@ class NotificationsTableViewController: UITableViewController {
             cell.detailTextLabel!.text = "Follow back?"
         }
 
-        //create and set cell image
+        
+        //create imageview for gradient and resize it
         let gradient: UIImageView = UIImageView(image: UIImage(named: "SSgradient.png"))
         gradient.frame.size = CGSize(width: 40.0, height: 40.0)
         gradient.layer.cornerRadius = 20.0
         gradient.layer.masksToBounds = true
         
+        //create a label of the same size with the user's initials
         let initialsLabel = UILabel()
         initialsLabel.frame.size = CGSize(width: 40.0, height: 40.0)
         initialsLabel.textColor = UIColor.white
@@ -123,6 +125,7 @@ class NotificationsTableViewController: UITableViewController {
         initialsLabel.layer.cornerRadius = 20.0
         initialsLabel.layer.masksToBounds = true
 
+        //create and set cell image
         UIGraphicsBeginImageContext(initialsLabel.frame.size)
         gradient.layer.render(in: UIGraphicsGetCurrentContext()!)
         initialsLabel.layer.render(in: UIGraphicsGetCurrentContext()!)

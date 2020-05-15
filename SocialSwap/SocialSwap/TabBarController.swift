@@ -27,10 +27,15 @@
     
     func tabBarController(_ tabBarController: UITabBarController,
                           shouldSelect viewController: UIViewController) -> Bool {
+        
+        //trying to leave settings vc
         if selectedIndex == 3 {
             let settingsVC: SettingsViewController = selectedViewController as! SettingsViewController
+            
+            //check if all mandatory text fields in the settings vc are filled
             if settingsVC.doneEditing() {
-                //reset buttons if generate selected
+                
+                //reset buttons in generate vc if generate selected (enable and disable appropriately)
                 if viewController == viewControllers?[0] {
                     let generateVC: GenerateViewController = viewController as! GenerateViewController
                     for i in 0..<generateVC.buttons.count {
@@ -38,19 +43,21 @@
                     }
                     generateVC.setButtons()
                 }
+                
+                //leave the settings tab if all fields are sufficiently filled
                 return true
             }
+            //don't leave the settings tab if there are empty mandatory fields
             return false
         }
         
-        //notifications view selected
+        //user selected notifications tab
         if viewController == viewControllers?[2] {
             
             let notificationsVC: NotificationsTableViewController = viewController as! NotificationsTableViewController
             //update notifications table
             notificationsVC.populateTable()
         }
-        
         
         
         return true

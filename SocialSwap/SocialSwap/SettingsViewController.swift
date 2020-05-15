@@ -75,7 +75,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //check for empty mandatory field
+    //check for empty mandatory field, return the name of the empty field (return "" if none are empty)
     func emptyField() -> String {
         for i in 0...2 {
             if fields[i].text == "" {
@@ -103,6 +103,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
         return false
     }
+    
     //switch out of edit mode
     func doneEditing() -> Bool {
         //dismiss keyboard if open
@@ -223,7 +224,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         doneEditing()
     }
     
-    
+    //log out button
     @IBAction func logOutButtonPressed(_ sender: Any) {
         //switch out of edit mode
         if editButton.isHidden {
@@ -260,7 +261,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //dismiss keyboard
+    //dismiss keyboard if return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -270,6 +271,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //set text fields with current user's information
         firstNameField.text=(currentUser!.firstName)
         lastNameField.text=(currentUser!.lastName)
         numberField.text=(currentUser!.phoneNumber)
@@ -287,23 +289,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         else{
             twoWaySwap.setOn(false, animated: false)
         }
-
-                                
         
         
-        
-        
-        
-        // Do any additional setup after loading the view.
         labels = [firstNameLabel, lastNameLabel, numberLabel, instagramLabel, facebookLabel, snapchatLabel, twitterLabel]
         fields = [firstNameField, lastNameField, numberField, instagramField, facebookField, snapchatField, twitterField]
         
-        //text field delegates
+        //set text field delegates
         for field in fields {
             field.delegate = self
         }
 
-        
         //not in edit mode
         showTextFields(edit: false)
     }

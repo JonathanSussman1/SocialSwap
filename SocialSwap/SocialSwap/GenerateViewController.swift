@@ -36,17 +36,17 @@ class GenerateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         //initialize button arrays
         buttons = [instagramButton, facebookButton, snapchatButton, twitterButton, contactsButton]
         
         icons = [instagramIcon, facebookIcon, snapchatIcon, twitterIcon, contactsIcon]
         
+        //reset buttons
         setButtons()
     }
     
-    
+    //make sure only appropriate buttons are enabled and no buttons are selected
     func setButtons() {
         //deselect all buttons
         for i in 0..<buttons.count {
@@ -69,7 +69,7 @@ class GenerateViewController: UIViewController {
         }
     }
     
-    
+    //social media platform buttons
     @IBAction func platformButtonPressed(_ sender: UIButton) {
         soundManager.stopPop()
         soundManager.playPop()
@@ -86,7 +86,7 @@ class GenerateViewController: UIViewController {
         }
     }
     
-    //check if any platforms were selected
+    //check if any platforms were selected, return true if at least on was (return false if none were)
     func anySelected() -> Bool {
         for button in buttons {
             if button.alpha == 1 {
