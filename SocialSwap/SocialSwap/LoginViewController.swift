@@ -30,11 +30,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         
-        //text field delegates
-        
-//
-            emailField.delegate = self
-            passwordField.delegate = self
+        //set text field delegates
+        emailField.delegate = self
+        passwordField.delegate = self
        
 
     }
@@ -51,6 +49,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         else if  passwordField.isFirstResponder {
             passwordField.resignFirstResponder()
         }
+        
+        
         self.getCurrentUser() { (user) -> () in
             if user != nil {
                 self.getSignedInUser(completion: { currentUser in
@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //dismiss keyboard
+    //dismiss keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -118,8 +118,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //pass current user to tab bar view controller before segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loginSegue"{
             let vc = segue.destination as! TabBarController

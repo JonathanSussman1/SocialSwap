@@ -20,8 +20,11 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var snapchatField: UITextField!
     @IBOutlet weak var twitterField: UITextField!
     var fields: [UITextField] = []
+    
     var email: String?,password: String?, firstName: String?,lastName: String?,number: String?,instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
-    //dismiss keyboard
+    
+    
+    //dismiss keyboard if return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -225,25 +228,21 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }))
             self.present(alert, animated: true)
          */
-            
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
-//
-            
-        //
-        // Do any additional setup after loading the view.
+
+        //set text field delegates
         fields = [instagramField, facebookField, snapchatField, twitterField]
-        
-        //text field delegates
+    
         for field in fields {
             field.delegate = self
         }
     }
     
+    //pass current user to the tab bar view controller before the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
        let vc = segue.destination as! TabBarController

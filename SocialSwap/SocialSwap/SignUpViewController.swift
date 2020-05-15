@@ -21,9 +21,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var numberField: UITextField!
     var fields: [UITextField] = []
+    
     var email="",firstName="",lastName="",number=""
     var currentUser = User()
-    //dismiss keyboard
+    
+    
+    //dismiss keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -61,7 +64,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return passwordTest.evaluate(with: password)
     }
     
-func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
+    func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         if string == ""{
             return true
         }else if str!.count < 3{
@@ -77,14 +80,15 @@ func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         }
         return true
     }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-    if textField == numberField{
-        return checkEnglishPhoneNumberFormat(string: string, str: str)
-    }else{
-        return true
+            let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        if textField == numberField{
+            return checkEnglishPhoneNumberFormat(string: string, str: str)
+        }else{
+            return true
+        }
     }
-}
     
     func modifyCurrentUser(user:User , completion: @escaping (User?) -> ()) {
                if let email = emailField.text, let password = passwordField.text, let firstName = firstNameField.text, let lastName = lastNameField.text, let number = numberField.text, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !number.isEmpty{
@@ -183,7 +187,7 @@ func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         // Do any additional setup after loading the view.
         fields = [emailField, passwordField, firstNameField, lastNameField, numberField]
         
-        //text field delegates
+        //set text field delegates
         for field in fields {
             field.delegate = self
         }
