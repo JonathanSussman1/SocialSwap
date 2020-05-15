@@ -86,6 +86,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
     }
     
+    func presentInvalidQRAlert(){
+        let alert = UIAlertController(title: "Invalid QR Code", message: "The QR code scanned is not a valid SocialSwap QR", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: {(action) in
+            self.startSession()
+        })
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     //when code is scanned do something
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if self.viewIfLoaded?.window != nil {
@@ -98,15 +107,20 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {return}
                 guard let strVal = readableObject.stringValue else {return}
                 print(strVal)
-                var decrypted: String = ""
+                var decrypted: String? = ""
                 
                 //decrypt string and use for swap
                 if(key != nil && iv != nil){
                     decrypted = EncryptionHelper.decryptString(encryptedString: strVal, key: key!, iv: iv!)
+                    if(decrypted == nil){
+                        //present invalid alert and return
+                        self.presentInvalidQRAlert()
+                        return
+                    }
                 }
 
                 
-                print(decrypted)
+                //print(decrypted)
                 //strVal is our encoded QR Code CSV (possibly)
                 //if view controller is visible
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -114,9 +128,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 followVc.csvForSwap = decrypted
                 
                 followVc.sessionStarter = self
-                getUser(uid: Csv.csvToData(csv: decrypted)[0]) { (user) in
+                getUser(uid: Csv.csvToData(csv: decrypted!)[0]) { (user) in
+                    if(user == nil){
+                       //present invalid alert and return
+                        self.presentInvalidQRAlert()
+                        return
+                    }
                     followVc.scannedUser = user
-                    let (_, contacts, instagram, facebook, snapchat, twitter) = Code.encodingToBool(encodedStr: decrypted)
+                    let (_, contacts, instagram, facebook, snapchat, twitter) = Code.encodingToBool(encodedStr: decrypted!)
                     //followVc.twoWaySwapEnabled = twoWaySwap
                     followVc.contactsEnabled = contacts
                     followVc.instagramEnabled = instagram

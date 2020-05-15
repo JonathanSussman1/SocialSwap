@@ -41,8 +41,12 @@ class EncryptionHelper {
         return Data(encrypted).base64EncodedString()
     }
     
-    static func decryptString(encryptedString strVal: String, key: [UInt8], iv: [UInt8]) -> String {
-        let encrypted: [UInt8] = Data(base64Encoded: strVal)!.bytes//strVal.bytes//Array(strVal.utf8)
+    static func decryptString(encryptedString strVal: String, key: [UInt8], iv: [UInt8]) -> String? {
+        let data = Data(base64Encoded: strVal)//strVal.bytes//Array(strVal.utf8)
+        if(data == nil){
+            return nil
+        }
+        let encrypted: [UInt8] = data!.bytes
         print("Encrypted bytes from scan", encrypted)
         var decrypted: [UInt8] = []
         do{
@@ -52,6 +56,6 @@ class EncryptionHelper {
         catch {
         }
         print("Decrypted string is", String(bytes: decrypted, encoding: .utf8)!)
-        return String(bytes: decrypted, encoding: .utf8)!
+        return String(bytes: decrypted, encoding: .utf8)
     }
 }
