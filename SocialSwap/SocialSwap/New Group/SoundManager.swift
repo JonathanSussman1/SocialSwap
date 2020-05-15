@@ -9,12 +9,20 @@
 import Foundation
 import AVFoundation
 
+/*
+ SoundManager - a helper for loading and playing sounds in the app.
+ When a SoundManager instance is created, all the sounds for the app are loaded.
+ Using the play and stop methods, for individual sounds, the SoundManager can
+ play each sound when needed.
+ */
 class SoundManager {
     var clickSound: AVAudioPlayer?
     var generateSound: AVAudioPlayer?
     var popSound: AVAudioPlayer?
     var cameraSound: AVAudioPlayer?
     
+    //init - Each sound used in the app is loaded for
+    //a SoundManger instance to use
     init(){
         var path = Bundle.main.path(forResource: "snap.mp3", ofType: nil)!
         var url = URL(fileURLWithPath: path)
@@ -57,6 +65,11 @@ class SoundManager {
         
         
     }
+    
+    /*
+     * PLAY AND STOP METHODS BELOW
+     * this methods play and stop a specified sound
+     */
     
     func playClick(){
         if(clickSound != nil){

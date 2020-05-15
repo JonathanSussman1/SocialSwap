@@ -135,8 +135,24 @@ func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
          }
                 }
     
-    
-    
+   // override touchesBegan - dismiss keyboard when user taps outside of keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.emailField.isFirstResponder{
+            emailField.resignFirstResponder()
+        }
+        else if firstNameField.isFirstResponder{
+            firstNameField.resignFirstResponder()
+        }
+        else if lastNameField.isFirstResponder{
+            lastNameField.resignFirstResponder()
+        }
+        else if  self.numberField.isFirstResponder {
+            numberField.resignFirstResponder()
+        }
+        else if self.passwordField.isFirstResponder {
+            passwordField.resignFirstResponder()
+        }
+    }
     
     
     

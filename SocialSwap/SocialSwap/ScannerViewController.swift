@@ -16,6 +16,8 @@ protocol SessionStarterDelegate {
     func startSession()
 }
 
+
+// ScannerViewControlller - a view controller to allow user to capture QR codes and get get data therein
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, SessionStarterDelegate {
     var currentUser: User?
     var dbloaded = false
@@ -27,35 +29,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     @IBOutlet weak var previewView: PreviewView!
     var captureSession: AVCaptureSession?
     
-    func getUser(uid: String, completion:@escaping((User?) -> ())) {
-        
-        let db = Firestore.firestore()
-        _ = db.collection("users").document(uid).getDocument { (document, error) in
-            if let document = document, document.exists {
-                let uemail = document.data()?["email"] as! String
-                let ufb = document.data()?["facebook"] as! String
-                let ufirstname = document.data()?["firstName"] as! String
-                let uid = document.data()?["id"] as! String
-                let uinstagram = document.data()?["instagram"] as! String
-                let ulastname = document.data()?["lastName"] as! String
-                let uphonenumber = document.data()?["phoneNumber"] as! String
-                let usnapchat = document.data()?["snapchat"] as! String
-                let utwitter = document.data()?["twitter"] as! String
-                let utwowayswap = document.data()?["twoWaySwap"] as! Bool
-                let uswapreceives = document.data()?["swapReceives"] as! [String:[String:Any]]
-                self.user = User(uid: uid, firstName: ufirstname, lastName: ulastname, email: uemail, phoneNumber: uphonenumber, twitter: utwitter, instagram: uinstagram, facebook: ufb, snapchat: usnapchat, twoWaySwap: utwowayswap, swapReceives: uswapreceives)
-                completion(self.user)
-            } else {
-                print("Error getting user")
-                completion(nil)
-            }
-        }
-    }
-    
-    
+    // override viewWillAppear - when the Scanner VC will appear, get the key and iv for encryption/decryption
+    // start a capture session to scan qr codes
     override func viewWillAppear(_ animated: Bool) {
         
-        getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
+        UserService.getUser(uid: String(Auth.auth().currentUser!.uid), completion: { user in
             EncryptionHelper.getTheKey { (key, iv) in
                 self.key = Data(base64Encoded: key)!.bytes
                 self.iv = Data(base64Encoded: iv)!.bytes
@@ -63,10 +41,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 self.startSession()
             }
         })
-        /*
-         captureSession = AVCaptureSession()
-         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
-         */
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -74,18 +48,21 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         //self.captureSession = nil
         print("view will disappear")
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     //conforming to SessionStarter protocol
+    // startSession - create a new instance of AVCaptureSession
+    // configure capture session with the scanCode helper function
     func startSession() {
         captureSession = AVCaptureSession()
         Code.scanCode(preview: previewView, delegate: self, captureSession: captureSession!)
     }
     
+    // presentInvalidQRAlert - present an invalide alert
+    // when cancel is tapped start new capture session
     func presentInvalidQRAlert(){
         let alert = UIAlertController(title: "Invalid QR Code", message: "The QR code scanned is not a valid SocialSwap QR", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default, handler: {(action) in
@@ -95,7 +72,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         self.present(alert, animated: true, completion: nil)
     }
     
-    //when code is scanned do something
+    
+    //conform to AVCaptureMetadataOutputObjectsDelegate
+    // metadataOutput - when a code is scanned check if the qr code is valid
+    // if valid, configure and present the follow view controller
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if self.viewIfLoaded?.window != nil {
             soundManager.stopCamera()
@@ -109,28 +89,26 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 print(strVal)
                 var decrypted: String? = ""
                 
-                //decrypt string and use for swap
+                //if key and iv are valid decrypt scanned string and use for swap
                 if(key != nil && iv != nil){
                     decrypted = EncryptionHelper.decryptString(encryptedString: strVal, key: key!, iv: iv!)
                     if(decrypted == nil){
-                        //present invalid alert and return
                         self.presentInvalidQRAlert()
                         return
                     }
                 }
+                else{
+                    self.startSession()
+                    return
+                }
 
-                
-                //print(decrypted)
-                //strVal is our encoded QR Code CSV (possibly)
-                //if view controller is visible
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let followVc = storyboard.instantiateViewController(identifier: "FollowVC") as! FollowViewController
                 followVc.csvForSwap = decrypted
                 
                 followVc.sessionStarter = self
-                getUser(uid: Csv.csvToData(csv: decrypted!)[0]) { (user) in
+                UserService.getUser(uid: Csv.csvToData(csv: decrypted!)[0]) { (user) in
                     if(user == nil){
-                       //present invalid alert and return
                         self.presentInvalidQRAlert()
                         return
                     }
@@ -150,19 +128,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     else {
                         followVc.sendFollowBackNotification = false
                     }
-                    
                     self.present(followVc, animated: true)
                 }
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }

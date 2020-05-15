@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Csv - a class for helper methods to work with csv
 class Csv {
     
     //dataToCsv - takes user data and returns a comma separated string for qr code encoding
@@ -16,7 +17,6 @@ class Csv {
     }
     
     //csvToData - takses a comma separated string and returns an array of data
-    //TODO: add additional checks, to make sure data is valid
     //returns [uid, name, phoneNumber, instagram, facebook, snapchat] where 'X' represents a field not passed in
     static func csvToData(csv: String) -> [String]{
         let data = csv.components(separatedBy: ",");

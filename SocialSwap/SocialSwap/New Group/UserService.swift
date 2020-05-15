@@ -11,8 +11,12 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+// UserService - a class for user database helper methods
 class UserService {
-    
+   
+    // getUser - gets a user from the database with the specified uid
+    // if the user exists pass into completion
+    // else pass nil into completion
     static func getUser(uid: String, completion:@escaping((User?) -> ())) {
         
         let db = Firestore.firestore()

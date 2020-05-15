@@ -10,6 +10,7 @@ import Foundation
 import AVFoundation
 import UIKit
 
+//Code - a class for helper methods involving generating, scanning and sharing QR Codes
 class Code {
     //generate Qr - a function for generating a Qr code with given string encoded
     //takes a string encoding as an argument

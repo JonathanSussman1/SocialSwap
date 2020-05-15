@@ -12,6 +12,8 @@ import FirebaseAuth
 import CryptoSwift
 
 
+// QrViewController - a view controller for user interacting with generated QR code
+// from the GenerateViewController.
 class QrViewController: UIViewController {
     var currentUser: User?
     var dbloaded = false
@@ -29,6 +31,7 @@ class QrViewController: UIViewController {
     @IBOutlet weak var qrImageView: UIImageView!
     
     
+    // override viewDidLoad - when the view loads
     // get key and iv for encryption
     // encrypt data and encode qr
     // display encoded qr code
@@ -48,6 +51,8 @@ class QrViewController: UIViewController {
     }
 
 
+    // exportTapped - if an exportable qr code is available
+    // play tap sound, and export the code using the helper function in Code
     @IBAction func exportTapped(_ sender: Any) {
         if canExport {
             soundManager.stopPop()

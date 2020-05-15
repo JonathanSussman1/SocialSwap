@@ -10,8 +10,11 @@ import Foundation
 import Contacts
 import UIKit
 
+// SwapHelper - a class for helper methods used when performing swaps
 class SwapHelper {
     
+    // saveContact - takes a first name, last name and phone number
+    // and saves a new contact to the user's phone contacts
     static func saveContact(firstName: String, lastName: String, phoneNumber: String) -> Void {
         let contact = CNMutableContact();
         contact.givenName = firstName;
@@ -32,6 +35,9 @@ class SwapHelper {
         }
     }
    
+    // openTwitter - takes a twitter handle string as an argument.
+    // uses twitter's url scheme to open the twitter app,
+    // to the specified page by the handle passed in
     static func openTwitter(handle: String) -> Void {
         let urlString = "twitter://user?screen_name=" + handle;
         print(urlString);
@@ -43,6 +49,9 @@ class SwapHelper {
         }
     }
     
+    // openInstagram - takes a instagram handle string as an argument.
+    // uses instagram's url scheme to open the instagram app,
+    // to the specified page by the handle passed in
     static func openInstagram(handle: String) -> Void {
         let urlString = "instagram://user?username=" + handle;
         print(urlString);
@@ -54,6 +63,9 @@ class SwapHelper {
         }
     }
     
+    // openSnapchat - takes a snapchat handle string as an argument.
+    // uses snapchat's url scheme to open the snapchat's app,
+    // to the specified page by the handle passed in
     static func openSnapchat(handle: String) -> Void {
         let urlString = "snapchat://add/" + handle;
         print(urlString);
@@ -65,6 +77,8 @@ class SwapHelper {
         }
     }
     
+    // openFacebook - takes a route string as an argument.
+    // uses safari to open facebook at the specified url,
     static func openFacebook(url handle: String) -> Void {
         let urlString = "http://www.facebook.com/" + handle;
         print(urlString);

@@ -116,6 +116,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+   // override touchesBegan - dismiss keyboard when user taps outside of keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.emailField.isFirstResponder{
+            emailField.resignFirstResponder()
+        }
+        else if self.passwordField.isFirstResponder {
+            passwordField.resignFirstResponder()
+        }
+    }
+    
+    
     
     
     
