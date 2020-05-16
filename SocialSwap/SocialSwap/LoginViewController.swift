@@ -11,12 +11,18 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
+// LoginViewController - a view controller allowing an existing user to sign in
+// with their email and password.
 class LoginViewController: UIViewController, UITextFieldDelegate {
     var currentUser = User.init()
     @IBOutlet var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     let isValid=false
     
+    // override loadView - if a user is opens the app and is already logged in, allow time
+    // for the sceneDelegate to grab the current user's data from firebase and instantiate the
+    // TabBarController home screen as the root view controller. This function prevents this VC
+    //  from being seen when an already signed in user opens the app.
     override func loadView() {
         super.loadView()
         if Auth.auth().currentUser != nil{
@@ -25,23 +31,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+    // override viewDidLoad - when the view loads,
+    // set text field delegates
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
         //set text field delegates
         emailField.delegate = self
         passwordField.delegate = self
-       
-
     }
     
-    
-    
+    // loginPressed - dissmiss the keyboard if open,
+    // and set and pass the logged in user's credentials and firestore data to all VCs
+    // via segue. The checking/handling of credential validity takes place in getCurrentUser
     @IBAction func loginPressed(_ sender: Any) {
-        
-        
+    
         //dismiss keyboard if open
         if emailField.isFirstResponder {
             emailField.resignFirstResponder()
@@ -49,7 +52,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         else if  passwordField.isFirstResponder {
             passwordField.resignFirstResponder()
         }
-        
         
         self.getCurrentUser() { (user) -> () in
             if user != nil {
@@ -63,16 +65,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print("Not found")
             }
         }
-        
     }
     
-    
-    //dismiss keyboard when return button is pressed
+    // textFieldShouldReturn - dismisses the keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    // getCurrentUser - checks is the email and password typed by a user
+    // is valid, and if so, signs in the user with Firebase Auth. Otherwise,
+    // displays the appropriate error alert.
     func getCurrentUser(completion: @escaping ((User?) -> ())) {
         if let email = emailField.text, let password = passwordField.text{
             Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
@@ -91,6 +94,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // getSignedInUser - called after a user's Auth credentials return valid.
+    // this stores all relevant data for a current user in s User object
+    // to be passed to all other relevant VCs on segue.
     func getSignedInUser(completion:@escaping((User?) -> ())) {
         let db = Firestore.firestore()
         _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
@@ -126,18 +132,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
-    
-    
-    //pass current user to tab bar view controller before segue
+    //override prepare - passes a valid logged in user's data to the TabBarController
+    // "home screen" which, from there, gets passed to all other relevant VCs.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loginSegue"{
             let vc = segue.destination as! TabBarController
             vc.currentUser=currentUser
         }
     }
-    
-    
 }
 
 

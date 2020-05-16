@@ -11,6 +11,8 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
+// SignUpViewController - the final View Controller that is used for user sign up.
+// instagram, facebook, twitter, and snapchat validity are checked here (all optional)
 class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     var currentUser=User()
     
@@ -23,13 +25,13 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     
     var email: String?,password: String?, firstName: String?,lastName: String?,number: String?,instagram="",instagramSaveField="",facebook="",facebookSaveField="",snapchat="",snapchatSaveField="",twitter="",twitterSaveField=""
     
-    
     //dismiss keyboard if return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    //verifyUrl - performs a check to see if a string is a valid URL.
     func verifyUrl (urlString: String?) -> Bool {
         if let urlString = urlString {
             if let url = NSURL(string: urlString) {
@@ -39,11 +41,13 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
+    // createCurrentUser - if validity checks are passed, this function creates the currentUser
+    // in Firebase Auth and Firestore from all the information provided throughout both sign-up VC's.
+    // we also store the current user in a User object, to be used conveniently by all other VC's in
+    // the app. if some credential is not valid, an alert is thrown.
     func createCurrentUser(completion: @escaping ((User?) -> ())){
         Auth.auth().createUser(withEmail: email!, password: password!, completion:  { authResult, error in
             if authResult != nil{
-                
-                
                 let db = Firestore.firestore()
                 db.collection("users").document(String((authResult?.user.uid)!)).setData([
                     "id" : String((authResult?.user.uid)!),
@@ -64,9 +68,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
                                         snapchat: self.snapchatSaveField,
                                         twoWaySwap: true,
                                         swapReceives: [String:[String:Any]]() )
-                
                 completion(self.currentUser)
-                
             }
             else{
                 let alert = UIAlertController(title: "Authentication Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -74,10 +76,11 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
                 completion(nil)
             }
-            
         })
     }
     
+    //getCurrentUser - signs in the newly-created user in firebase Auth, once the sign up button is
+    //pressed and all credentials are valid.
     func getCurrentUser(completion: @escaping ((User?) -> ())) {
         if let email = email, let password = password{
             Auth.auth().signIn(withEmail: email, password: password, completion:  { authResult, error in
@@ -96,8 +99,11 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // getSignedInUser - this function is called after the newly created user is successfully signed
+    //in. it initializes the current User object to be passed to all other VC's so that the user's
+    // info can be accessed conveniently. although this object is initialized when the user is created,
+    // this function does it again to protect against any database latency.
     func getSignedInUser(completion:@escaping((User?) -> ())) {
-        
         let db = Firestore.firestore()
         _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
             if let document = document, document.exists {
@@ -121,15 +127,15 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    // signUpButtonPressed - checks if each field's text (if not empty) is valid (ie, a valid
+    // instagram handle, twitter handle, facebook url, and snapchat handle). If any non-empty field is
+    // not valid, an alert is thrown. If all fields are valid, the user is created and sign up is completed.
     @IBAction func signUpButtonPressed(_ sender: Any) {
         if (instagramField.text ?? "").isEmpty && (twitterField.text ?? "").isEmpty && (facebookField.text ?? "").isEmpty && (snapchatField.text ?? "").isEmpty{
-            
             let alert = UIAlertController(title: "Continue?", message: "Are you sure you want to continue with no social media?", preferredStyle: .alert)
-            
             alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-            
-            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action: UIAlertAction!) in          self.createCurrentUser() { (user) -> () in
+            alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action: UIAlertAction!) in
+                self.createCurrentUser() { (user) -> () in
                 if user != nil {
                     self.getCurrentUser() { (user) -> () in
                         if user != nil {
@@ -140,64 +146,46 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
                         }
                     }
                 }
-                }
-                
-            }))
+            }
+         }))
             self.present(alert, animated: true)
-            
         }
-        
         if (!(instagramField.text ?? "").isEmpty){
             instagramSaveField = instagramField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
-            
             instagram = "https://instagram.com/\(String( (instagramSaveField)))"
             if verifyUrl(urlString: instagram)==false{
                 let alert = UIAlertController(title: "Invalid Instagram", message: "The Instagram handle you provided is invalid.", preferredStyle: .alert)
-                
                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                
                 self.present(alert, animated: true)
                 return
             }
-            
         }
         if (!(facebookField.text ?? "").isEmpty){
             facebookSaveField = (facebookField.text! as NSString).lastPathComponent
-            
             facebook = "https://www.facebook.com/\(String( (facebookSaveField)))"
             if verifyUrl(urlString: facebook)==false{
                 let alert = UIAlertController(title: "Invalid Facebook", message: "The Facebook url you provided is invalid.", preferredStyle: .alert)
-                
                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                
                 self.present(alert, animated: true)
                 return
             }
-            
         }
-        
         if (!(snapchatField.text ?? "").isEmpty){
             snapchatSaveField = snapchatField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
             snapchat = "https://snapchat.com/add/\( String((snapchatSaveField)))/"
             if verifyUrl(urlString: snapchat)==false{
                 let alert = UIAlertController(title: "Invalid Snapchat", message: "The Snapchat handle you provided is invalid.", preferredStyle: .alert)
-                
                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                
                 self.present(alert, animated: true)
                 return
             }
-            
         }
-        
         if (!(twitterField.text ?? "").isEmpty){
             twitterSaveField = twitterField.text!.replacingOccurrences(of: "@", with: "", options: NSString.CompareOptions.literal, range: nil)
             let twitter = "https://twitter.com/\(String( (twitterSaveField)))/"
             if verifyUrl(urlString: twitter)==false{
                 let alert = UIAlertController(title: "Invalid Twitter", message: "The Twitter handle you provided is invalid.", preferredStyle: .alert)
-                
                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                
                 self.present(alert, animated: true)
                 return
             }
@@ -218,21 +206,11 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        /*
-         let alert = UIAlertController(title: "Welcome!", message: "Your account was created. Add your social media profiles to your account", preferredStyle: .alert)
-         
-         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-         
-         alert.addAction(UIAlertAction(title: "Skip", style: .default, handler: { (action: UIAlertAction!) in  self.performSegue(withIdentifier: "signUpFinalSegue", sender: nil)
-         
-         }))
-         self.present(alert, animated: true)
-         */
     }
     
+    //override viewDidLoad - set up UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
 
         //set text field delegates
         fields = [instagramField, facebookField, snapchatField, twitterField]
@@ -242,7 +220,7 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //pass current user to the tab bar view controller before the segue
+    // override prepare - pass current User object to the tab bar view controller before the segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let vc = segue.destination as! TabBarController
@@ -266,16 +244,5 @@ class SignUp2ViewController: UIViewController, UITextFieldDelegate {
             facebookField.resignFirstResponder()
         }
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

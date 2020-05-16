@@ -104,7 +104,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    //switch out of edit mode
+    // doneEditing - checks if all fields edited by the user are valid, and if so,
+    // modifies the user in the database as well as the persistent currentUser User object.
     func doneEditing() -> Bool {
         //dismiss keyboard if open
         for field in fields {
@@ -232,7 +233,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    
+    // override shouldPerformSegue - logs a user out and takes them to the login VC
+    // if the user can successfully be signed out in Firebase Auth
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         do
         {
@@ -245,7 +247,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
     
     //two-way swap switch
     @IBAction func twoWaySwapChanged(_ sender: Any) {
@@ -266,7 +267,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
     
     
     override func viewDidLoad() {

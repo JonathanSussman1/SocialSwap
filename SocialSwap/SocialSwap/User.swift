@@ -8,6 +8,9 @@
 
 import Foundation
 
+// User - allows a user of the app to be stored conveniently as an object with
+// all relevant information pertaining to the app. This is good for accessing a user
+// conveniently without having to constantly traverse Firebase.
 class User {
     var uid: String?
     var firstName: String?

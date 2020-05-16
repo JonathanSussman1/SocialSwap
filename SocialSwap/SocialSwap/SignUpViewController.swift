@@ -12,6 +12,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import AVFoundation
 
+// SignUpViewController - the first View Controller that is used for user sign up.
+// email, password, first name, last name, and phone number are validated here.
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     //text fields
@@ -26,12 +28,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var currentUser = User()
     
     
-    //dismiss keyboard when return button is pressed
+    // textFieldShouldReturn - dismiss keyboard when return button is pressed
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
+    // checkEmail - determines if the email entered by the user is already in the database or not.
     func checkEmail(field: String, completion: @escaping (Bool) -> Void) {
         let userRef = Firestore.firestore().collection("users")
         userRef.whereField("email", isEqualTo: field).getDocuments { (snapshot, err) in
@@ -50,6 +53,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // validateEmail - evaluates email field text against a regex to determine
+    // if user typed in a valid email. This is necessary as opposed
+    // to Firebase Auth's implicit check, because Auth is not invoked until the second sign-up VC.
     func validateEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -57,6 +63,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return emailPred.evaluate(with: email)
     }
     
+    // validatePassword - regex to determine if user typed in a valid password. A valid password
+    // includes at least 8 characters with at least one digit, at least one uppercase letter, and
+    // at least one lowercase letter.
     func validatePassword(password :String?) -> Bool {
         guard password != nil else { return false }
      
@@ -64,23 +73,32 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return passwordTest.evaluate(with: password)
     }
     
+    // checkEnglishPhoneNumberFormat - allows the UITextFieldDelegate to manipulate the
+    // text field to format an English phone number as the user types.
     func checkEnglishPhoneNumberFormat(string: String?, str: String?) -> Bool{
         if string == ""{
             return true
-        }else if str!.count < 3{
+        }
+        else if str!.count < 3{
             if str!.count == 1{
                 numberField.text = "("
             }
-        }else if str!.count == 5{
+        }
+        else if str!.count == 5{
             numberField.text = numberField.text! + ") "
-        }else if str!.count == 10{
+        }
+        else if str!.count == 10{
             numberField.text = numberField.text! + "-"
-        }else if str!.count > 14{
+        }
+        else if str!.count > 14{
             return false
         }
         return true
     }
     
+    // textField - used to determine when characters should be changed in
+    // a text field. Primarily used by the phone number text field to format
+    // phone numbers while a user types.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             let str = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         if textField == numberField{
@@ -90,6 +108,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // modifyCurrentUser - performs checks on all of the text fields when a user
+    // wishes to continue to the next sign up screen. If any field is not valid, an alert is thrown.
+    // otherwise, a user object is returned on completion.
     func modifyCurrentUser(user:User , completion: @escaping (User?) -> ()) {
                if let email = emailField.text, let password = passwordField.text, let firstName = firstNameField.text, let lastName = lastNameField.text, let number = numberField.text, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !lastName.isEmpty, !number.isEmpty{
                 checkEmail(field: emailField.text!) { (success) in
@@ -122,12 +143,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         completion(user)
                     }
                 }
-                    
-            
-                }
-                
-                
-         
+            }
          }
          else{
              let alert = UIAlertController(title: "Empty Fields", message: "One or more fields are empty", preferredStyle: .alert)
@@ -137,7 +153,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
              self.present(alert, animated: true)
                 completion(nil)
          }
-                }
+    }
     
    // override touchesBegan - dismiss keyboard when user taps outside of keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -160,15 +176,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    //next button
+    // nextButtonPressed - if checks on the texts field have passed, proceed to the next sign up
+    // VC
     @IBAction func nextButtonPressed(_ sender: Any) {
         self.modifyCurrentUser(user: currentUser) { (user) -> () in
             if user != nil {
                          self.performSegue(withIdentifier: "firstSignUpSegue", sender: nil)
 
-            }
-            else {
-                 
             }
         }
         
@@ -180,6 +194,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // override prepare - pass text field info from this VC to the next sign up VC so that
+    // it can be stored when the sign up is finally completed.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstSignUpSegue"{
             let vc = segue.destination as! SignUp2ViewController
@@ -197,10 +213,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
     
+    // override viewDidLoad - set up UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         fields = [emailField, passwordField, firstNameField, lastNameField, numberField]
         
         //set text field delegates
@@ -208,16 +224,4 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             field.delegate = self
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

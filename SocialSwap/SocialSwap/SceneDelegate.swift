@@ -16,16 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     var currentUser = User.init()
 
-
+    // scene - sets the TabBarController "home screen" as the root View Controller if a user
+    // is already signed in, thereby superceding the Login View Controller
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-          //self.window =  UIWindow(frame: UIScreen.main.bounds)
-        
         if Auth.auth().currentUser != nil {
-
-
                               self.getSignedInUser(completion: { currentUser in
                                 if let windowScene = scene as? UIWindowScene {
                                        let window = UIWindow(windowScene: windowScene)
@@ -33,18 +27,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                                   let tabBarController = storyboard.instantiateViewController(identifier: "TabBarController") as! TabBarController
                                     tabBarController.currentUser=currentUser
                                     window.rootViewController  = tabBarController
-                                    
                                        self.window = window
                                        window.makeKeyAndVisible()
                                    }
                               })
-                                
                           }
         guard let _ = (scene as? UIWindowScene) else { return }
-
-
     }
     
+    // getSignedInUser - if a user is already logged in, this function serves to get the current
+    // user's data upon opening the app, and stores it in a User object to be conveniently used by
+    // other View Controllers
     func getSignedInUser(completion:@escaping((User?) -> ())) {
            let db = Firestore.firestore()
            _ = db.collection("users").document(String(Auth.auth().currentUser!.uid)).getDocument { (document, error) in
